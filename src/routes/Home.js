@@ -24,9 +24,9 @@ const UserList = React.memo(function UserList({users}) {
 })
 
 const Home = () => {
-  let nextId = 1;
+  const [id, setId] = useState(1);
   const [user, setUser] = useState({
-    id: nextId,
+    id: id,
     nickname: "hi"
   });
   const users = useSelector(state => state.users);
@@ -38,8 +38,15 @@ const Home = () => {
     <div>
       <div>사용자 리스트</div>
       <UserList users={users} />
-      <button type="text" onClick={() => {onCreateUser(user);
-      nextId = nextId + 1;
+      <button type="text" onClick={() => {
+        setId(id+1);
+      }}>id+1</button>
+      <button type="text" onClick={() => {
+        setUser({
+          ...user,
+          id: id
+        });
+        onCreateUser(user);
       }}>사용자 추가</button>
     </div>
   );
