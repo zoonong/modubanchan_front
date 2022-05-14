@@ -1,14 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../reducers/users";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const UserItem = React.memo(function UserItem({user}) {
   return (
     <ul>
       <li>{user.id}</li>
       <li>{user.nickname}</li>
+      <li>{user.password}</li>
     </ul>
   );
 });
@@ -24,10 +24,10 @@ const UserList = React.memo(function UserList({users}) {
 })
 
 const Home = () => {
-  const [id, setId] = useState(1);
+  const nextId = useRef(1);
   const [user, setUser] = useState({
-    id: id,
-    nickname: "hi"
+    id: nextId.current,
+    nickname: ""
   });
   const users = useSelector(state => state.users);
   const dispatch = useDispatch();
@@ -40,14 +40,12 @@ const Home = () => {
       <div>사용자 리스트</div>
       <UserList users={users} />
       <button type="text" onClick={() => {
-        setId(id+1);
-      }}>id+1</button>
-      <button type="text" onClick={() => {
         setUser({
           ...user,
-          id: id
+          id: nextId.current
         });
         onCreateUser(user);
+        nextId.current += 1
       }}>사용자 추가</button>
     </div>
   );
