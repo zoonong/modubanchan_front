@@ -4,8 +4,17 @@ import Tap from "./Tap";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const categoryList = [
+    "dessert",
+    "beverage",
+    "alcohol",
+    "sideDish",
+    "mealKit",
+    "ALP",
+  ];
+
   useEffect(() => {
-    setIsLoggedIn(true);
+    setIsLoggedIn(false);
   }, []);
   return (
     <div>
