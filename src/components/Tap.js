@@ -4,13 +4,13 @@ import "../App.css";
 
 const Tap = ({ isLoggedIn }) => {
   return (
-    <header className="tap">
+    <header className="header">
       <Link to="/">
         <p>기사</p>
       </Link>
       <nav>
         <Link to="/Feed">
-          <button>팔로잉</button>
+          <button className="followingbutton">팔로잉</button>
         </Link>
         <input type="text" />
         {isLoggedIn ? (
