@@ -20,7 +20,7 @@
 }
 .body {
   margin-top: 140px;
-  background: ivory;
+  background: white;
   border: 5px solid salmon;
   box-sizing: border-box;
   width: 100%;
@@ -36,7 +36,7 @@
 }
 .followingbutton {
 }
-.signin {
+/* .signin {
   display: block;
   width: 30%;
   text-align: center;
@@ -45,7 +45,7 @@
   border: 0;
   border-radius: 25px;
   font-size: 15px;
-}
+} */
 .signup {
   display: block;
   width: 30%;

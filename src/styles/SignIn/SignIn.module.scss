@@ -1,0 +1,74 @@
+// .SignIn {
+//     display: block;
+//     text-align: center;
+//     font-weight: normal;
+//     outline: none;
+//     border-radius: 4px;
+//     border: none;
+    
+// }
+
+$gray: #dee2e6;
+$blue: #1864ab;
+.SignIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .Form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid;
+    border-color: $blue;
+  }
+  .Title {
+      font-size: 50px;
+  }
+  .Logo {
+      font-size: 30px;
+  }
+  .Input {
+    font-size: 14px;
+    width: 250px;
+    height: 25px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    margin: 8px 5px;
+    border: solid $blue;
+    &:focus {
+      outline: 4px solid lighten($blue, 5%);
+      border: solid white;
+    }
+  }
+  .Submit {
+    color: white;
+    font-size: 20px;
+    width: 290px;
+    height: 50px;
+    border-radius: 100px;
+    margin: 8px;
+    background-color: $blue;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($blue, 20%);
+      border: none;
+      outline: none;
+    }
+  }
+  .Text {
+    color: $blue;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 20px 15px;
+    .Toggle {
+      font-weight: 550;
+      cursor: pointer;
+      margin: 15px;
+      &:hover {
+        color: lighten($blue, 20%);
+      }
+    }
+  }
+}
