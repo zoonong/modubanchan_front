@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const SignUp = () => {
@@ -12,7 +13,9 @@ const SignUp = () => {
       <p>닉네임</p>
       <input name="nickname" type="text" placeholder="닉네임" required />
       <p> </p>
-      <button>가입하기</button>
+      <Link to="/">
+        <button>가입하기</button>
+      </Link>
     </div>
   );
 };

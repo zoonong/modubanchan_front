@@ -14,7 +14,7 @@ const SignIn = () => {
       <button>로그인</button>
       <p>회원이 아니신가요? </p>
       <Link to="/SignUp">
-        <p>회원 가입</p>
+        <p>회원가입</p>
       </Link>
     </div>
   );

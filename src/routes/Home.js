@@ -36,6 +36,7 @@ const Home = () => {
   
   return (
     <div>
+      <div>Home</div>
       <div>사용자 리스트</div>
       <UserList users={users} />
       <button type="text" onClick={() => {
