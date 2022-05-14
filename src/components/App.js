@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AppRouter from "./Router";
-import Tap from "./Tap";
+import "../App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +17,7 @@ function App() {
     setIsLoggedIn(false);
   }, []);
   return (
-    <div>
+    <div className="app">
       <AppRouter isLoggedIn={isLoggedIn} />
     </div>
   );
