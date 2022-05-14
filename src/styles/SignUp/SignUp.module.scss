@@ -1,14 +1,26 @@
 $gray: #dee2e6;
 $blue: #1864ab;
-.SignIn {
+.SignUp {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 30px;
   .Form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    .Item {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 30px;
+        .Text {
+            margin-left: 10px;
+        }
+    }
   }
   .Title {
       font-weight: bold;
@@ -21,9 +33,9 @@ $blue: #1864ab;
   .Input {
     font-size: 14px;
     width: 250px;
-    height: 25px;
+    height: 15px;
     padding: 12px 20px;
-    border-radius: 100px;
+    border-radius: 30px;
     margin: 8px 5px;
     border: solid $blue;
     &:focus {
@@ -45,19 +57,6 @@ $blue: #1864ab;
       background: lighten($blue, 20%);
       border: none;
       outline: none;
-    }
-  }
-  .Text {
-    color: $blue;
-    font-size: 20px;
-    margin: 20px 15px;
-    .Toggle {
-      font-weight: 1000;
-      cursor: pointer;
-      margin: 15px;
-      &:hover {
-        color: lighten($blue, 20%);
-      }
     }
   }
 }
