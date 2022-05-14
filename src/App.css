@@ -1,0 +1,16 @@
+/*.tap {
+  border: 5px solid green;
+}
+.right {
+  border: 5px solid blue;
+  margin-right: 15px;
+  float: right;
+}
+.categoty {
+  display: flex;
+  float: left;
+}
+.app {
+  border: 5px solid red;
+}
+*/
