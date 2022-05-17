@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AppRouter from "./Router";
 import "../App.css";
+import NAV from "../components/nav";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="app">
       <AppRouter isLoggedIn={isLoggedIn} />
+      <NAV />
     </div>
   );
 }
