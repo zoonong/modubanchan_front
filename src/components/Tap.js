@@ -1,56 +1,65 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import styles from "../styles/Tap/Tap.module.scss";
+import classNames from "classnames/bind";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoPersonOutline } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
+
+const cx = classNames.bind(styles);
 
 const Tap = ({ isLoggedIn }) => {
   return (
-    <header className="header">
-      <Link to="/">
-        <p>기사</p>
-      </Link>
-      <nav>
-        <Link to="/Feed">
-          <button className="followingbutton">팔로잉</button>
+    <header className={cx("Tap")}>
+      <nav className={cx("Bar")}>
+        <Link to="/">
+          <button className={cx("Title")}>모두의 반찬</button>
         </Link>
-        <input type="text" />
+        <Link to="/Feed">
+          <button className={cx("Following")}>팔로잉</button>
+        </Link>
+        <input type="text" className={cx("Input")} />
         {isLoggedIn ? (
-          <div className="right">
+          <div className={cx("Icons")}>
             <Link to="/MyPage">
-              <button>마이페이지</button>
+              <IoPersonOutline size="28" color="1864ab" className={cx("Icon")}>마이페이지</IoPersonOutline>
             </Link>
             <Link to="/Cart">
-              <button>장바구니</button>
+              <AiOutlineShoppingCart size="30" color="1864ab" className={cx("Icon")}>장바구니</AiOutlineShoppingCart>
             </Link>
-            <button>로그아웃</button>
+            <Link>
+              <IoIosLogOut size="30" color="1864ab" className={cx("Icon")}>로그아웃</IoIosLogOut>
+            </Link>
           </div>
         ) : (
-          <div className="right">
+          <div>
             <Link to="/SignIn">
-              <button>로그인/회원가입</button>
+              <button className={cx("Item")}>로그인/회원가입</button>
             </Link>
           </div>
         )}
-        <div className="categoty">
+        </nav>
+        <nav className={cx("Category")}>
           <Link to="/Category">
-            <p>반찬</p>
+            <button className={cx("Item")}>반찬</button>
           </Link>
           <Link to="/Category">
-            <p>음료</p>
+            <button className={cx("Item")}>음료</button>
           </Link>
           <Link to="/Category">
-            <p>술</p>
+            <button className={cx("Item")}>술</button>
           </Link>
           <Link to="/Category">
-            <p>디저트</p>
+            <button className={cx("Item")}>디저트</button>
           </Link>
           <Link to="/Category">
-            <p>밀키트</p>
+            <button className={cx("Item")}>밀키트</button>
           </Link>
           <Link to="/Category">
-            <p>농축수산물</p>
+            <button className={cx("Item")}>농축수산물</button>
           </Link>
-        </div>
-      </nav>
+        </nav>
     </header>
   );
 };
