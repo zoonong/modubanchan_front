@@ -1,7 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const ProductDetail = () => {
-  return <div>ProductDetail</div>;
+  const data = useLocation().state.productNum;
+  return (
+    <>
+      <div>ProductDetail</div>
+      <p>{data}</p>
+    </>
+  );
 };
 
 export default ProductDetail;
