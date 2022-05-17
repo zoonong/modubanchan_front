@@ -19,7 +19,7 @@ import "../App.css";
 const AppRouter = ({ isLoggedIn }) => {
   return (
     <Router>
-      <div className="tap">
+      <div>
         <Tap isLoggedIn={isLoggedIn} />
       </div>
       <Switch>
