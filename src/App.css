@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "font";
   font-style: normal;
   font-weight: 25;
@@ -8,7 +8,14 @@
 }
 * {
   font-family: "font";
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+* {
+  font-family: 'Nanum Gothic', sans-serif;
 }
+
 .tap {
   border: 5px solid green;
   position: fixed;
@@ -20,7 +27,7 @@
 }
 .body {
   margin-top: 140px;
-  background: ivory;
+  background: white;
   border: 5px solid salmon;
   box-sizing: border-box;
   width: 100%;
@@ -36,7 +43,7 @@
 }
 .followingbutton {
 }
-.signin {
+/* .signin {
   display: block;
   width: 30%;
   text-align: center;
@@ -45,7 +52,7 @@
   border: 0;
   border-radius: 25px;
   font-size: 15px;
-}
+} */
 .signup {
   display: block;
   width: 30%;
