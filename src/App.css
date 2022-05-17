@@ -48,34 +48,3 @@
   flex: 1;
   border: 5px solid lightskyblue;
 }
-.set {
-  display: flex;
-  text-align: center;
-}
-.set div:nth-child(1) {
-  flex: 2;
-}
-.set div:nth-child(2) {
-  flex: 2;
-  border-left: 0.1px solid rgb(179, 179, 179);
-  border-right: 0.1px solid rgb(179, 179, 179);
-}
-.set div:nth-child(3) {
-  flex: 2;
-}
-.set img {
-  max-width: 69vh;
-}
-.set img:nth-child(2) {
-  max-width: 69vh;
-}
-.set p {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.preface {
-  font-family: "font";
-  text-align: left;
-  font-size: larger;
-  white-space: pre-wrap;
-}
