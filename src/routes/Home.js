@@ -47,7 +47,8 @@ const Home = () => {
     const user = {
       id: nextId.current,
       nickname: nickname,
-      password: password
+      password: password,
+      profilePicture: require("../img/profile.jpeg")
     };
     onCreateUser(user);
 
