@@ -21,9 +21,9 @@ $blue: #1864ab;
   .Input {
     font-size: 14px;
     width: 250px;
-    height: 25px;
-    padding: 12px 20px;
-    border-radius: 100px;
+    height: 15px;
+    padding: 20px 10px;
+    border-radius: 10px;
     margin: 8px 5px;
     border: solid $blue;
     &:focus {
@@ -34,9 +34,9 @@ $blue: #1864ab;
   .Submit {
     color: white;
     font-size: 20px;
-    width: 290px;
+    width: 250px;
     height: 50px;
-    border-radius: 100px;
+    border-radius: 20px;
     margin: 8px;
     background-color: $blue;
     border: none;
