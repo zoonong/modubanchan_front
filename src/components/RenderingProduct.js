@@ -24,7 +24,7 @@ const RenderingProduct = () => {
           })
         }
       >
-        <img src={product.src} />
+        <img src={product.src} alt="상품 사진" />
       </button>
       <p>{`${product.productName}`}</p>
       <p>{`${product.price}원`}</p>
