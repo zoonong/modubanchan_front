@@ -1,0 +1,45 @@
+$gray: #dee2e6;
+$blue: #1864ab;
+
+.Profile {
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    .ProfilePicture {
+        width: 100px;
+        height: 100px;
+        margin: 8px;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .ProfileDetails {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+        .NickName {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .Introduction {
+            font-size: 12px;
+        }
+        .Following {
+            color: white;
+            font-size: 20px;
+            width: 120px;
+            height: 40px;
+            border-radius: 80px;
+            margin: 8px;
+            background-color: $blue;
+            border: none;
+            cursor: pointer;
+            &:hover {
+            background: lighten($blue, 20%);
+            border: none;
+            outline: none;
+            }
+        }
+    }
+}

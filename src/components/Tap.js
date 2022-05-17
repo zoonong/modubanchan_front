@@ -28,7 +28,7 @@ const Tap = ({ isLoggedIn }) => {
             <Link to="/Cart">
               <AiOutlineShoppingCart size="30" color="1864ab" className={cx("Icon")}>장바구니</AiOutlineShoppingCart>
             </Link>
-            <Link>
+            <Link to="/">
               <IoIosLogOut size="30" color="1864ab" className={cx("Icon")}>로그아웃</IoIosLogOut>
             </Link>
           </div>

@@ -1,3 +1,12 @@
 import React from "react";
+import Profile from "./Profile";
 
-export default () => <span>MyPage</span>;
+const MyPage = () => {
+    return (
+        <div>
+            <div>My Page</div>
+            <Profile />
+        </div>
+    );
+}
+export default MyPage;
