@@ -75,7 +75,7 @@ const SignUp = () => {
         </div>
         <div className={cx("Item")}>
           <span className={cx("Text")}>비밀번호</span>
-          <input className={cx("Input")} name="password" type="password" placeholder="비밀번호" required />
+          <input className={cx("Input")} name="password" type="password" placeholder="비밀번호" onChange={onChange} value={password} required />
         </div>
         <div className={cx("Item")}>
           <span className={cx("Text")}>비밀번호 확인</span>
@@ -83,28 +83,13 @@ const SignUp = () => {
         </div>
         <div className={cx("Item")}>
         <span className={cx("Text")}>닉네임</span>
-        <input className={cx("Input")} name="nickname" type="text" placeholder="닉네임" required />
+        <input className={cx("Input")} name="nickname" type="text" placeholder="닉네임" onChange={onChange} value={nickname} required />
         </div>
       </div>
 
       <Link to="/">
-        <button className={cx("Submit")}>가입하기</button>
+        <button className={cx("Submit")} onClick={onSubmit}>가입하기</button>
       </Link>
-      <input
-          name="nickname"
-          type="text"
-          placeholder="닉네임"
-          onChange={onChange}
-          value={nickname}
-        />
-        <input
-          name="password"
-          type="text"
-          placeholder="비밀번호"
-          onChange={onChange}
-          value={password}
-        />
-        <button type="text" onClick={onSubmit}>사용자 추가</button>
       <div>사용자 리스트</div>
       <UserList users={users} />
     </div>
