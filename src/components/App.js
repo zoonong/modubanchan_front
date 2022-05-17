@@ -4,7 +4,7 @@ import "../App.css";
 import NAV from "../components/nav";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const categoryList = [
     "dessert",
     "beverage",
@@ -15,7 +15,7 @@ function App() {
   ];
 
   useEffect(() => {
-    setIsLoggedIn(false);
+    setIsLoggedIn(true);
   }, []);
   return (
     <div className="app">

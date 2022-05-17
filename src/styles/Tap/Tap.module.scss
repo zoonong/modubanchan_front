@@ -1,0 +1,98 @@
+$gray: #dee2e6;
+$blue: #1864ab;
+
+.Tap {
+    width: 100%;
+    background-color: white;
+    display: block;
+    flex-direction: column;
+    padding: 20px;
+    text-decoration: none;
+    .Bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .Title {
+            background-color: white;
+            padding: 4px;
+            color: $blue;
+            font-size: 20px;
+            width: 120px;
+            height: 50px;
+            border-radius: 100px;
+            margin: 4px;
+            border: none;
+            cursor: pointer;
+            &:hover {
+              border: none;
+              outline: none;
+            }
+        }
+        .Following {
+            color: darker($gray, 3%);
+            font-size: 18px;
+            font-weight: bold;
+            width: 80px;
+            height: 50px;
+            border-radius: 100px;
+            margin: 4px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                border: none;
+                outline: none;
+            }
+        }
+        .Input {
+            font-size: 14px;
+            width: 250px;
+            height: 15px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: 10px 4px;
+            padding: 15px;
+            border: solid $blue;
+            &:focus {
+              outline: 2px solid lighten($blue, 5%);
+              border: solid white;
+            }
+        }
+        .Icons {
+            margin-left: 0.25%;
+            .Icon {
+                margin: 4px;
+                &:hover {
+                    color: $blue;
+                    border-color: $blue;
+                    outline: none;
+                }
+            }
+        }
+    }
+    .Category {
+        display: flex;
+        margin: 8px;
+        .Item {
+            display: inline-block;
+            background-color: white;
+            margin: 8px;
+            padding: 2px;
+            color: darker($gray, 3%);
+            font-size: 16px;
+            font-weight: bold;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                color: $blue;
+                border: solid;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-color: $blue;
+                outline: none;
+            }
+        }
+    }
+}
