@@ -29,7 +29,7 @@ $blue: #1864ab;
             }
         }
         .Following {
-            color: darker($gray, 3%);
+            color: black;
             font-size: 18px;
             font-weight: bold;
             width: 80px;
@@ -69,6 +69,27 @@ $blue: #1864ab;
                 }
             }
         }
+        .Item {
+            display: inline-block;
+            background-color: white;
+            margin: 8px;
+            padding: 2px;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                color: $blue;
+                border: solid;
+                border-top-width: 0px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-color: $blue;
+                outline: none;
+            }
+        }
     }
     .Category {
         display: flex;
@@ -78,7 +99,7 @@ $blue: #1864ab;
             background-color: white;
             margin: 8px;
             padding: 2px;
-            color: darker($gray, 3%);
+            color: black;
             font-size: 16px;
             font-weight: bold;
             height: 40px;
