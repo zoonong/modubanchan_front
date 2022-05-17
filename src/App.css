@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: "font";
   font-style: normal;
   font-weight: 25;
@@ -6,15 +6,11 @@
     url("./fonts/BMDOHYEON.woff") format("woff"),
     url("./fonts/BMDOHYEON.otf") format("truetype");
 }
-* {
-  font-family: "font";
-} */
 
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 
 .body {
   margin-top: 17vh;
-  border: 5px solid salmon;
   box-sizing: border-box;
   width: 100%;
 }
@@ -48,8 +44,38 @@
   height: 83vh;
   overflow: auto;
 }
-
 .container div:nth-child(2) {
   flex: 1;
   border: 5px solid lightskyblue;
+}
+.set {
+  display: flex;
+  text-align: center;
+}
+.set div:nth-child(1) {
+  flex: 2;
+}
+.set div:nth-child(2) {
+  flex: 2;
+  border-left: 0.1px solid rgb(179, 179, 179);
+  border-right: 0.1px solid rgb(179, 179, 179);
+}
+.set div:nth-child(3) {
+  flex: 2;
+}
+.set img {
+  max-width: 69vh;
+}
+.set img:nth-child(2) {
+  max-width: 69vh;
+}
+.set p {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.preface {
+  font-family: "font";
+  text-align: left;
+  font-size: larger;
+  white-space: pre-wrap;
 }
