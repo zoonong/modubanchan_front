@@ -18,7 +18,7 @@ const Profile = () => {
         profilePicture: ""
     })
     const users = useSelector(state => state.users)
-    const userId = useRef(2);
+    const userId = useRef(1);
 
     useEffect(() => {
         users.map((user) => {
