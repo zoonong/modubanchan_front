@@ -9,7 +9,7 @@ const RenderingProduct = () => {
     productNumber: 1,
     productName: "매니연 떡볶이",
     price: 10000,
-    src: require("../tteokbokki.GIF"),
+    src: require("../img/tteokbokki.GIF"),
   });
   return (
     <>
@@ -24,7 +24,7 @@ const RenderingProduct = () => {
           })
         }
       >
-        <img src={product.src} />
+        <img src={product.src} alt="상품 사진" />
       </button>
       <p>{`${product.productName}`}</p>
       <p>{`${product.price}원`}</p>
