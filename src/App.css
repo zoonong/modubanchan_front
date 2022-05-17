@@ -16,6 +16,7 @@
   font-family: "Nanum Gothic", sans-serif;
 }
 .body {
+  margin-top: 17vh;
   border: 5px solid salmon;
   box-sizing: border-box;
   width: 100%;
@@ -47,7 +48,7 @@
 .container div:nth-child(1) {
   flex: 3;
   border: 5px solid lightskyblue;
-  height: 80vh;
+  height: 83vh;
   overflow: auto;
 }
 
