@@ -1,6 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 
+
 const MyPage = () => {
     return (
         <div>

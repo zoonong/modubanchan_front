@@ -9,7 +9,7 @@ const RenderingProduct = () => {
     productNumber: 1,
     productName: "매니연 떡볶이",
     price: 10000,
-    src: require("../img/tteokbokki.GIF"),
+    src: require("../images/tteokbokki.GIF"),
   });
   return (
     <>
