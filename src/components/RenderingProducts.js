@@ -1,14 +1,20 @@
 import React from "react";
 import Product from "./RenderingProduct";
+import "../App.css";
 
 const RenderingProducts = () => {
   return (
-    <>
-      <div>RenderingProducts</div>
-      <Product />
-      <Product />
-      <Product />
-    </>
+    <div className="PP">
+      <div>
+        <Product />
+      </div>
+      <div>
+        <Product />
+      </div>
+      <div>
+        <Product />
+      </div>
+    </div>
   );
 };
 
