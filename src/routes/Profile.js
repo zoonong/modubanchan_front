@@ -5,6 +5,7 @@ import styles from "../styles/Profile/Profile.module.scss";
 import classNames from "classnames/bind";
 import RenderingProduct from "../components/RenderingProduct";
 import RenderingProducts from "../components/RenderingProducts";
+import { BsPersonCircle } from "react-icons/bs";
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +40,10 @@ const Profile = () => {
         <div>
             <div className={cx("Profile")}>
                 <div className={cx("ProfilePicture")}>
-                    <img src={userObj.profilePicture} alt="프로필 사진" />
+                    {userObj.profilePicture !== "" ? (
+                        <img src={userObj.profilePicture} alt="프로필 사진" />
+                    ) : (<BsPersonCircle size="100" color="#dcdcdc" />)}
+                    
                 </div>
                 <div className={cx("ProfileDetails")}>
                     <div className={cx("NickName")}>{userObj.nickname}</div>
