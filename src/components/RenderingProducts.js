@@ -14,6 +14,12 @@ const RenderingProducts = () => {
       <div>
         <Product />
       </div>
+      <div>
+        <Product />
+      </div>
+      <div>
+        <Product />
+      </div>
     </div>
   );
 };
