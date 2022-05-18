@@ -81,10 +81,9 @@ $blue: #1864ab;
     }
     .Item {
       display: inline-block;
-      background-color: white;
+      background-color: transparent;
       margin: 8px;
       padding: 2px;
-      color: darker($gray, 3%);
       font-size: 16px;
       font-weight: bold;
       height: 40px;
