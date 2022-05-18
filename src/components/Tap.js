@@ -9,7 +9,7 @@ import { IoIosLogOut } from "react-icons/io";
 
 const cx = classNames.bind(styles);
 
-const Tap = ({ isLoggedIn }) => {
+const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
@@ -37,7 +37,9 @@ const Tap = ({ isLoggedIn }) => {
               </AiOutlineShoppingCart>
             </Link>
             <Link to="/">
-              <IoIosLogOut size="30" color="1864ab" className={cx("Icon")}>
+              <IoIosLogOut size="30" color="1864ab" className={cx("Icon")} onClick={() => {
+                setIsLoggedIn(false);
+              }}>
                 로그아웃
               </IoIosLogOut>
             </Link>

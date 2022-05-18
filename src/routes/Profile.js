@@ -23,7 +23,6 @@ const Profile = () => {
     useEffect(() => {
         users.map((user) => {
             if (user.id === userId.current) {
-                console.log(user.id);
                 setUserObj({
                     ...userObj,
                     id: user.id,

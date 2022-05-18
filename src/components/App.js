@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import AppRouter from "./Router";
 import "../App.css";
-import NAV from "../components/nav";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const categoryList = [
     "dessert",
     "beverage",
@@ -14,12 +13,9 @@ function App() {
     "ALP",
   ];
 
-  useEffect(() => {
-    setIsLoggedIn(true);
-  }, []);
   return (
     <div className="app">
-      <AppRouter isLoggedIn={isLoggedIn} />
+      <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
     </div>
   );
 }

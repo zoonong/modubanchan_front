@@ -16,11 +16,11 @@ import SignUp from "../routes/SignUp";
 import Tap from "./Tap";
 import "../App.css";
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <Router>
       <div>
-        <Tap isLoggedIn={isLoggedIn} />
+        <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={ setIsLoggedIn } />
       </div>
       <Switch>
         <div className="body">
@@ -43,7 +43,7 @@ const AppRouter = ({ isLoggedIn }) => {
             <ProductDetail />
           </Route>
           <Route exact path="/SignIn">
-            <SignIn />
+            <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           </Route>
           <Route exact path="/SignUp">
             <SignUp />
