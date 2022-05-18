@@ -15,7 +15,7 @@ function App() {
   ];
 
   useEffect(() => {
-    setIsLoggedIn(false);
+    setIsLoggedIn(true);
   }, []);
   return (
     <div className="app">

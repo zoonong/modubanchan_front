@@ -4,7 +4,6 @@ import Products from "../components/RenderingProducts";
 const Category = () => {
   return (
     <>
-      <div>Category</div>
       <Products />
     </>
   );

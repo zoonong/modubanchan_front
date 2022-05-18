@@ -17,6 +17,7 @@ $blue: #1864ab;
     flex-direction: row;
     align-items: center;
     .Title {
+      flex: 1;
       background-color: white;
       padding: 4px;
       color: $blue;
@@ -26,6 +27,7 @@ $blue: #1864ab;
       border-radius: 100px;
       margin: 4px;
       border: none;
+      margin-left: 50px;
       cursor: pointer;
       &:hover {
         border: none;
@@ -33,6 +35,7 @@ $blue: #1864ab;
       }
     }
     .Following {
+      flex: 3;
       color: darker($gray, 3%);
       font-size: 18px;
       font-weight: bold;
@@ -42,6 +45,7 @@ $blue: #1864ab;
       margin: 4px;
       background-color: white;
       border: none;
+      margin-right: 200px;
       cursor: pointer;
       &:hover {
         border: none;
@@ -49,6 +53,7 @@ $blue: #1864ab;
       }
     }
     .Input {
+      flex: 2;
       font-size: 14px;
       width: 250px;
       height: 15px;
@@ -63,9 +68,11 @@ $blue: #1864ab;
       }
     }
     .Icons {
-      margin-left: 0.25%;
+      flex: 1;
+      text-align: right;
+      margin-right: 50px;
       .Icon {
-        margin: 4px;
+        margin: 10px;
         &:hover {
           color: $blue;
           border-color: $blue;
@@ -92,7 +99,7 @@ $blue: #1864ab;
   }
   .Category {
     display: flex;
-    margin: 8px;
+    margin-left: 50px;
     .Item {
       display: inline-block;
       background-color: white;

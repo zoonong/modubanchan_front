@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import "../App.css";
 
 const RenderingProduct = () => {
   const history = useHistory();
@@ -13,7 +14,6 @@ const RenderingProduct = () => {
   });
   return (
     <>
-      <div>RenderingProduct</div>
       <button
         onClick={() =>
           history.push({

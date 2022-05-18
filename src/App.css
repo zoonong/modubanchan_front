@@ -48,3 +48,16 @@
   flex: 1;
   border: 5px solid lightskyblue;
 }
+.PP {
+  display: flex;
+  max-width: 100vh;
+}
+.PP div:nth-child(1) {
+  flex: 1;
+}
+.PP div:nth-child(2) {
+  flex: 1;
+}
+.PP div:nth-child(3) {
+  flex: 1;
+}
