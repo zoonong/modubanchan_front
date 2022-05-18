@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
 import styles from "../styles/SignIn/SignIn.module.scss";
 import classNames from "classnames/bind";
@@ -7,6 +8,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
+  const users = useSelector(state => state.users);
   return (
     <div className={cx("SignIn")}>
       <div className={cx("Title")}>Sign In</div>
