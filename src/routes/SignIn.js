@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const SignIn = () => {
+const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className={cx("SignIn")}>
       <div className={cx("Title")}>Sign In</div>
@@ -15,7 +15,11 @@ const SignIn = () => {
       <div className={cx("Form")}>
         <input className={cx("Input")} name="ID" type="email" placeholder="아이디" required />
         <input className={cx("Input")} name="password" type="password" placeholder="비밀번호" required />
-        <button className={cx("Submit")}>로그인</button>
+        <Link to="/">
+          <button className={cx("Submit")} type="text" onClick={() => {
+            setIsLoggedIn(true);
+          }}>로그인</button>
+        </Link>
       </div>
       
       <p className={cx("Text")}>
