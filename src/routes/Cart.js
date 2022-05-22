@@ -1,9 +1,12 @@
 import React from "react";
+import CartProduct from "../components/CartProduct";
 
 const Cart = () => {
   return (
     <div>
       <span>장바구니</span>
+      <CartProduct />
+      <CartProduct />
       <div>
         <button>전체 선택</button>
         <div>
