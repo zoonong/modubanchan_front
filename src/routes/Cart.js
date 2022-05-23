@@ -32,6 +32,7 @@ const Cart = () => {
     <div>
       <button type="text" onClick={accountsInput}>accountsInput 클릭</button>
       <button type="text" onClick={loginInput}>loginInputt 클릭</button>
+      <div>hi</div>
       <span>장바구니</span>
       <CartProduct />
       <CartProduct />
