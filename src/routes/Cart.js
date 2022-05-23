@@ -1,9 +1,38 @@
 import React from "react";
 import CartProduct from "../components/CartProduct";
+import axios from 'axios';
 
 const Cart = () => {
+  function accountsInput() {
+    axios.post("http://127.0.0.1:8000/accounts/", {
+      email: "udayeon@naver.com",
+      password1: "qwer1234!",
+      password2: "qwer1234!"
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+    }); 
+  }
+  function loginInput() {
+    axios.post("http://127.0.0.1:8000/accounts/login/", {
+      email: "udayeon@naver.com",
+      password: "qwer1234!"
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+    }); 
+  }
   return (
     <div>
+      <button type="text" onClick={accountsInput}>accountsInput 클릭</button>
+      <button type="text" onClick={loginInput}>loginInputt 클릭</button>
+      <div>hi</div>
       <span>장바구니</span>
       <CartProduct />
       <CartProduct />
