@@ -14,7 +14,7 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
         <Link to="/">
-          <button className={cx("Title")}>모두의 반찬</button>
+          <img src={require("../images/logo.png")} alt="home" className={cx("Title")} />
         </Link>
         <Link to="/Feed">
           <button className={cx("Following")}>팔로잉</button>
