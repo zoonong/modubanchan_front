@@ -26,6 +26,7 @@ const Cart = () => {
       .then(function (response) {
         console.log(response);
         const accessToken = response.data.access_token;
+        console.log(accessToken);
         // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
         axios.defaults.headers.common['Authorization'] = accessToken;
         console.log(axios.defaults.headers.common);
@@ -35,24 +36,6 @@ const Cart = () => {
       .catch(function (error) {
         console.log(error);
     }); 
-  }
-  const onLogin = (email, password) => {
-    const data = {
-      email,
-      password,
-    };
-    axios.post("http://127.0.0.1:8000/accounts/login/", data).then(response => {
-      const { accessToken } = response.data.accessToken;
-      console.log(response.data.user.email);
-      console.log("hi");
-      // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
-      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-  
-      // accessToken을 localStorage, cookie 등에 저장하지 않는다!
-  
-    }).catch(error => {
-      // ... 에러 처리
-    });
   }
   return (
     <div>
