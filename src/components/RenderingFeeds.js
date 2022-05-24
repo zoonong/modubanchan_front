@@ -6,15 +6,15 @@ const cx = classNames.bind(styles);
 
 const RenderingFeeds = () => {
   const src = [
-    require("../images/1.jpg"),
-    require("../images/2.jpg"),
-    require("../images/3.jpg"),
-    require("../images/4.jpg"),
-    require("../images/5.jpg"),
-    require("../images/6.jpg"),
-    require("../images/7.jpg"),
-    require("../images/8.jpg"),
-    require("../images/9.jpg"),
+    require("../images/i1.png"),
+    require("../images/i5.jpg"),
+    require("../images/i2.jpeg"),
+    require("../images/i4.png"),
+    require("../images/i6.jpg"),
+    require("../images/i7.png"),
+    require("../images/i3.png"),
+    require("../images/i8.png"),
+    require("../images/i9.png"),
   ];
   const preface = [
     "샐러드 한 끼 어떠세요?",
