@@ -18,14 +18,10 @@ $green: #18ab4b;
     flex-direction: row;
     align-items: center;
     .Title {
-      flex: 1;
-      background-color: white;
       padding: 4px;
       color: $green;
-      font-size: 20px;
-      width: 160px;
-      height: 50px;
-      border-radius: 100px;
+      width: 200px;
+      height: 60px;
       border: none;
       margin-left: 55px;
       cursor: pointer;
