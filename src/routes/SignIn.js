@@ -1,6 +1,6 @@
-import { React, useRef, useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "../App.css";
 import styles from "../styles/SignIn/SignIn.module.scss";
 import classNames from "classnames/bind";
@@ -9,7 +9,7 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
-  const [user, setUser] = useState({
+  const [inputs, setInputs] = useState({
     email: "",
     password: ""
   });
@@ -18,8 +18,8 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const users = useSelector(state => state.users);
   function userLogin() {
     axios.post("http://127.0.0.1:8000/accounts/login/", {
-      email: user.email,
-      password: user.password
+      email: inputs.email,
+      password: inputs.password
     })
       .then(function (response) {
         console.log(response);
@@ -40,15 +40,15 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   }
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    setUser({
-      ...user, // 기존의 user 객체를 복사한 뒤
+    setInputs({
+      ...inputs, // 기존의 user 객체를 복사한 뒤
       [name]: value // name 키를 가진 값을 value 로 설정
     });
   };
   const onLoginSubmit = () => {
     userLogin();
-    setUser({
-      ...user,
+    setInputs({
+      ...inputs,
       email: "",
       password: ""
     });
@@ -65,8 +65,8 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className={cx("Title")}>Sign In</div>
 
       <div className={cx("Form")}>
-        <input className={cx("Input")} name="email" type="email" placeholder="이메일" value={user.email} required onChange={onChange} />
-        <input className={cx("Input")} name="password" type="password" placeholder="비밀번호" value={user.password} required onChange={onChange} onKeyUp={onKeyUp} />
+        <input className={cx("Input")} name="email" type="email" placeholder="이메일" value={inputs.email} required onChange={onChange} />
+        <input className={cx("Input")} name="password" type="password" placeholder="비밀번호" value={inputs.password} required onChange={onChange} onKeyUp={onKeyUp} />
         <Link to={`/${loginURL}`}>
           <button className={cx("Submit")} type="text" onClick={onLoginSubmit}>로그인</button>
         </Link>

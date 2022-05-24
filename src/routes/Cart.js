@@ -4,23 +4,8 @@ import axios from 'axios';
 
 const Cart = () => {
   
-  function accountsInput() {
-    axios.post("http://127.0.0.1:8000/accounts/", {
-      email: "udayeon@naver.com",
-      password1: "qwer1234!",
-      password2: "qwer1234!"
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-    }); 
-  }
-  
   return (
     <div>
-      <button type="text" onClick={accountsInput}>accountsInput 클릭</button>
       <span>장바구니</span>
       <CartProduct />
       <CartProduct />

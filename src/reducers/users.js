@@ -7,7 +7,9 @@ export const addUser = user => ({
     type: ADD_USER,
     user: {
         id: user.id,
+        email: user.email,
         password: user.password,
+        profilePicture: user.profilePicture
     }
 });
 
