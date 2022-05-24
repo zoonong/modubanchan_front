@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
@@ -13,7 +13,8 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
     email: "",
     password: ""
   });
-  const [loginURL, setLoginURL] = useState("SignIn");
+  
+  const [loginURL, setLoginURL] = useState("");
   const users = useSelector(state => state.users);
   function userLogin() {
     axios.post("http://127.0.0.1:8000/accounts/login/", {
