@@ -1,47 +1,48 @@
 $gray: #dcdcdc;
 $blue: #1864ab;
+$green: #18ab4b;
 
 .Profile {
-    height: 20vh;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  .ProfilePicture {
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 70%;
+    overflow: hidden;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .ProfileDetails {
     display: flex;
-    flex-direction: row;
-    .ProfilePicture {
-        width: 100px;
-        height: 100px;
-        margin: 8px;
-        border-radius: 70%;
-        overflow: hidden;
+    flex-direction: column;
+    margin: 8px;
+    .NickName {
+      font-size: 20px;
+      font-weight: bold;
     }
-    img {
-        max-width: 100%;
-        max-height: 100%;
+    .Introduction {
+      font-size: 12px;
     }
-    .ProfileDetails {
-        display: flex;
-        flex-direction: column;
-        margin: 8px;
-        .NickName {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .Introduction {
-            font-size: 12px;
-        }
-        .Following {
-            color: white;
-            font-size: 20px;
-            width: 120px;
-            height: 40px;
-            border-radius: 80px;
-            margin: 8px;
-            background-color: $blue;
-            border: none;
-            cursor: pointer;
-            &:hover {
-            background: lighten($blue, 20%);
-            border: none;
-            outline: none;
-            }
-        }
+    .Following {
+      color: white;
+      font-size: 20px;
+      width: 120px;
+      height: 40px;
+      border-radius: 80px;
+      margin: 8px;
+      background-color: $green;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background: lighten($green, 20%);
+        border: none;
+        outline: none;
+      }
     }
+  }
 }
