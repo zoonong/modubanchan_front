@@ -17,20 +17,20 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
           <img src={require("../images/logo.png")} alt="home" className={cx("Title")}/>
         </Link>
         <Link to="/Feed">
-          <button className={cx("Following")}>팔로잉</button>
+          <button className={cx("Following")}>Following</button>
         </Link>
         <input type="text" className={cx("Input")} />
         {isLoggedIn ? (
           <div className={cx("Icons")}>
             <Link to="/MyPage">
-              <IoPersonOutline size="28" color="1864ab" className={cx("Icon")}>
+              <IoPersonOutline size="28" color="18ab4b" className={cx("Icon")}>
                 마이페이지
               </IoPersonOutline>
             </Link>
             <Link to="/Cart">
               <AiOutlineShoppingCart
                 size="30"
-                color="1864ab"
+                color="18ab4b"
                 className={cx("Icon")}
               >
                 장바구니
@@ -39,7 +39,7 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to="/">
               <IoIosLogOut
                 size="30"
-                color="1864ab"
+                color="18ab4b"
                 className={cx("Icon")}
                 onClick={() => {
                   setIsLoggedIn(false);
@@ -59,22 +59,16 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
       </nav>
       <nav className={cx("Category")}>
         <Link to="/Category">
-          <button className={cx("Item")}>반찬</button>
+          <button className={cx("Item")}>의류</button>
         </Link>
         <Link to="/Category">
-          <button className={cx("Item")}>음료</button>
+          <button className={cx("Item")}>가구</button>
         </Link>
         <Link to="/Category">
-          <button className={cx("Item")}>술</button>
+          <button className={cx("Item")}>소품</button>
         </Link>
         <Link to="/Category">
-          <button className={cx("Item")}>디저트</button>
-        </Link>
-        <Link to="/Category">
-          <button className={cx("Item")}>밀키트</button>
-        </Link>
-        <Link to="/Category">
-          <button className={cx("Item")}>농축수산물</button>
+          <button className={cx("Item")}>DIY</button>
         </Link>
       </nav>
     </header>

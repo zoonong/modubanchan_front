@@ -30,17 +30,13 @@ $green: #18ab4b;
       }
     }
     .Following {
-      flex: 3;
       color: darker($gray, 3%);
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
-      width: 80px;
-      height: 50px;
       border-radius: 100px;
-      margin: 4px;
+      margin: 8px;
       background-color: white;
       border: none;
-      margin-right: 350px;
       cursor: pointer;
       &:hover {
         border: none;
@@ -48,14 +44,11 @@ $green: #18ab4b;
       }
     }
     .Input {
-      flex: 2;
-      font-size: 14px;
-      width: 250px;
+      width: 600px;
       height: 15px;
-      padding: 12px 20px;
       border-radius: 5px;
-      margin: 10px 4px;
-      padding: 15px;
+      margin: 4px 12px;
+      padding: 15px 300px;
       border: solid $green;
       &:focus {
         outline: 2px solid lighten($green, 5%);
@@ -63,9 +56,9 @@ $green: #18ab4b;
       }
     }
     .Icons {
-      flex: 1;
       text-align: right;
       margin-right: 50px;
+      margin-left: 250px;
       .Icon {
         margin: 10px;
         &:hover {
@@ -78,12 +71,14 @@ $green: #18ab4b;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin: 8px;
+      margin-right: 50px;
+      margin-left: 300px;
       padding: 2px;
       font-size: 16px;
       font-weight: bold;
       height: 40px;
       border: none;
+      white-space: nowrap;
       cursor: pointer;
       &:hover {
         color: $green;
@@ -93,14 +88,14 @@ $green: #18ab4b;
   }
   .Category {
     display: flex;
-    margin-left: 50px;
+    margin-left: 45px;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin: 8px;
+      margin: 12px;
       padding: 2px;
       color: darker($gray, 3%);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       height: 40px;
       border: none;
