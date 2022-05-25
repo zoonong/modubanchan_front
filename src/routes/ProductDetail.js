@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import "../App.css";
 
 const ProductDetail = ({ pid }) => {
-  const data = useLocation().state.productNum;
+  //const data = useLocation().state.productNum;
   const seller = "매니연";
   const price = 10000;
   const deliveryCharge = 3000;
@@ -16,20 +16,22 @@ const ProductDetail = ({ pid }) => {
     description: "",
     feedText: "",
     category: "",
-    picture: require("../images/i1.png")
+    picture: null
   });
 
   function productDetailInfo() {
-    axios.get(`http://127.0.0.1:8000/product/${productInfo.pid}/`)
+    axios.get(`http://127.0.0.1:8000/product/1/`)
     .then(function (response) {
       console.log(response);
+      console.log(response.data.picture);
       setProductInfo({
         ...productInfo,
         id: response.data.id,
         name: response.data.name,
         description: response.data.description,
         feedText: response.data.feedText,
-        category: response.data.category
+        category: response.data.category,
+        picture: response.data.picture
       });
       console.log(productInfo);
     })
@@ -57,7 +59,7 @@ const ProductDetail = ({ pid }) => {
           <button>장바구니</button>
         </Link>
         <button>주문하기</button>
-        <p>{data}</p>
+        {/* <p>{data}</p> */}
         <button type="text" onClick={productDetailInfo}>product detail 정보</button>
       </div>
     </div>

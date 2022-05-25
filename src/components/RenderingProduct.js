@@ -42,14 +42,11 @@ const RenderingProduct = ({pid}) => {
           history.push({
             pathname: "/ProductDetail",
             state: {
-              productNum: product.productNumber,
+              pid: pid
             },
           })
         }
-      >
-      </button>
-      <p>{`${product.productName}`}</p>
-      <p>{`${product.price}원`}</p>
+      >상품 상세 페이지</button>
       <div>
         <img src={product.picture} alt={product.name} />
         <span>{product.name}</span>
