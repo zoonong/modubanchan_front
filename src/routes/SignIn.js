@@ -13,6 +13,8 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
     email: "",
     password: ""
   });
+
+  const [errorText, setErrorText] = useState("");
   
   const [loginURL, setLoginURL] = useState("");
   function userLogin() {
@@ -30,9 +32,11 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
         
         setIsLoggedIn(true); // 로그인 상태 true로 설정
         // accessToken을 localStorage, cookie 등에 저장하지 않는다!
+        setErrorText("");
       })
       .catch(function (error) {
         console.log("로그인 실패!");
+        setErrorText("로그인 실패! 다시 입력하세요");
         console.log(error);
         setLoginURL("SignIn");
     }); 
@@ -60,7 +64,9 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   };
   return (
     <div className={cx("SignIn")}>
+      <Link to="/">
       <img src={require("../images/logo.png")} alt="home" className={cx("Logo")}/>
+      </Link>
       <div className={cx("Title")}>Sign In</div>
 
       <div className={cx("Form")}>
@@ -69,6 +75,7 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
         <Link to={`/${loginURL}`}>
           <button className={cx("Submit")} type="text" onClick={onLoginSubmit}>로그인</button>
         </Link>
+        <span>{errorText}</span>
       </div>
       
       <p className={cx("Text")}>
