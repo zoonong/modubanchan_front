@@ -35,7 +35,7 @@ const ProductDetail = () => {
         </Link>
         <p>{`${price}원`}</p>
         <p>{`배송비 ${deliveryCharge}원`}</p>
-        <Link to="/cart">
+        <Link to="/Cart">
           <button>장바구니</button>
         </Link>
         <button>주문하기</button>

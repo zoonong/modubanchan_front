@@ -15,6 +15,7 @@ import SignIn from "../routes/SignIn";
 import SignUp from "../routes/SignUp";
 import Tap from "./Tap";
 import "../App.css";
+import CreateProduct from "./CreateProduct";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
@@ -45,6 +46,9 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
           </Route>
           <Route exact path="/ProductDetail">
             <ProductDetail />
+          </Route>
+          <Route exact path="/MyPage/CreateProduct">
+            <CreateProduct />
           </Route>
         </div>
       </Switch>
