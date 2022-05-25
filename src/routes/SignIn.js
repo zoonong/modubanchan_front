@@ -15,7 +15,6 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   });
   
   const [loginURL, setLoginURL] = useState("");
-  const users = useSelector(state => state.users);
   function userLogin() {
     axios.post("http://127.0.0.1:8000/accounts/login/", {
       email: inputs.email,
