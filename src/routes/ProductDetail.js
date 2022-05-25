@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "../App.css";
 
-const ProductDetail = () => {
+const ProductDetail = ({ pid }) => {
   const data = useLocation().state.productNum;
   const seller = "매니연";
   const price = 10000;
   const deliveryCharge = 3000;
 
   const [productInfo, setProductInfo] = useState({
+    pid: pid,
     name: "",
     description: "",
     feedText: "",
@@ -19,11 +20,12 @@ const ProductDetail = () => {
   });
 
   function productDetailInfo() {
-    axios.get("http://127.0.0.1:8000/product/1/")
+    axios.get(`http://127.0.0.1:8000/product/${productInfo.pid}/`)
     .then(function (response) {
       console.log(response);
       setProductInfo({
         ...productInfo,
+        id: response.data.id,
         name: response.data.name,
         description: response.data.description,
         feedText: response.data.feedText,
