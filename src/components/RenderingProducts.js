@@ -6,19 +6,13 @@ const RenderingProducts = () => {
   return (
     <div className="PP">
       <div>
-        <Product />
+        <Product pid="1" />
       </div>
       <div>
-        <Product />
+        <Product pid="4" />
       </div>
       <div>
-        <Product />
-      </div>
-      <div>
-        <Product />
-      </div>
-      <div>
-        <Product />
+        <Product pid="3" />
       </div>
     </div>
   );

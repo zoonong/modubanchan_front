@@ -7,10 +7,10 @@ const cx = classNames.bind(styles);
 const RenderingFeeds = () => {
   const src = [
     require("../images/i1.png"),
-    require("../images/i5.jpg"),
-    require("../images/i2.jpeg"),
+    require("../images/i5.png"),
+    require("../images/i2.png"),
     require("../images/i4.png"),
-    require("../images/i6.jpg"),
+    require("../images/i6.png"),
     require("../images/i7.png"),
     require("../images/i3.png"),
     require("../images/i8.png"),
