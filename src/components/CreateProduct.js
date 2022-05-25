@@ -10,14 +10,16 @@ const CreateProduct = () => {
         name: "",
         description: "",
         feedText: "",
-        category: ""
+        category: "",
+        picture: require("../images/i1.png")
     });
     function registerProduct() {
         axios.post("http://127.0.0.1:8000/product/", {
             name: newProduct.name,
             description: newProduct.description,
             feedText: newProduct.feedText,
-            category: newProduct.category
+            category: newProduct.category,
+            picture: newProduct.picture
         })
         .then(function (response) {
             console.log(response);
