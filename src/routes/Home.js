@@ -1,11 +1,8 @@
 import React from "react";
-import "../App.css";
 import RenderingFeeds from "../components/RenderingFeeds";
 
 const Home = () => {
-  return (
-    <RenderingFeeds />
-  );
+  return <RenderingFeeds />;
 };
 
 export default Home;

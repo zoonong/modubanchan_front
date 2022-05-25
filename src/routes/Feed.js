@@ -1,7 +1,8 @@
 import React from "react";
+import RenderingMyFeeds from "../components/RenderingMyFeeds";
 
 const Feed = () => {
-  return <div>Feed</div>;
+  return <RenderingMyFeeds />;
 };
 
 export default Feed;

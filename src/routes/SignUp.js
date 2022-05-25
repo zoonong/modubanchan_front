@@ -131,8 +131,6 @@ const SignUp = () => {
           가입하기
         </button>
       </Link>
-      <div>사용자 리스트</div>
-      <UserList users={users} />
     </div>
   );
 };
