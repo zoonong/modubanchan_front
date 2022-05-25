@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -11,6 +12,16 @@ const ProductDetail = () => {
   const seller = "매니연";
   const price = 10000;
   const deliveryCharge = 3000;
+
+  function productDetailInfo() {
+    axios.get("http://127.0.0.1:8000/product/1/")
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
 
   return (
     <div className="container">
@@ -29,6 +40,7 @@ const ProductDetail = () => {
         </Link>
         <button>주문하기</button>
         <p>{data}</p>
+        <button type="text" onClick={productDetailInfo}>product detail 정보</button>
       </div>
     </div>
   );
