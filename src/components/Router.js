@@ -19,11 +19,15 @@ import "../App.css";
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <Router>
-      <div>
-        <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={ setIsLoggedIn } />
-      </div>
       <Switch>
+        <Route exact path="/SignIn">
+          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route exact path="/SignUp">
+          <SignUp />
+        </Route>
         <div className="body">
+          <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           <Route exact path="/Cart">
             <Cart />
           </Route>
@@ -41,12 +45,6 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
           </Route>
           <Route exact path="/ProductDetail">
             <ProductDetail />
-          </Route>
-          <Route exact path="/SignIn">
-            <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          </Route>
-          <Route exact path="/SignUp">
-            <SignUp />
           </Route>
         </div>
       </Switch>
