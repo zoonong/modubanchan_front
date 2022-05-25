@@ -14,7 +14,7 @@ const ProductDetail = () => {
   const deliveryCharge = 3000;
 
   function productDetailInfo() {
-    axios.get("http://127.0.0.1:8000/product/{product_pk}/")
+    axios.get("http://127.0.0.1:8000/product/1/")
     .then(function (response) {
       console.log(response);
     })

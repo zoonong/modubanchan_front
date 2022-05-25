@@ -25,7 +25,7 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
         const accessToken = response.data.access_token;
         console.log(accessToken);
         // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
-        axios.defaults.headers.common['Authorization'] = accessToken;
+        axios.defaults.headers.common['Authorization'] = "Bearer " + accessToken;
         console.log(axios.defaults.headers.common);
         
         setIsLoggedIn(true); // 로그인 상태 true로 설정
