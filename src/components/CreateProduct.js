@@ -59,7 +59,7 @@ const CreateProduct = () => {
         console.log(file[0]);
         setNewProduct({
             ...newProduct,
-            picture: file.FormData
+            picture: file
         })
         formData.append("files", file);
         formData.append("data", JSON.stringify(newProduct));
