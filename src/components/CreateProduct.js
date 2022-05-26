@@ -6,6 +6,7 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 const CreateProduct = () => {
+    let formData = new FormData();
     const [newProduct, setNewProduct] = useState({
         name: "",
         description: "",
@@ -13,7 +14,25 @@ const CreateProduct = () => {
         category: "",
         picture: null
     });
-    function registerProduct() {
+    const registerProduct = async (e) => {
+        e.preventDefault();
+        // console.log(formData);
+        // const postSurvey = await axios({
+        //     method: "post",
+        //     url: "http://127.0.0.1:8000/product/",
+        //     mode: "cors",
+        //     headers: {
+        //         "Content-Type": "multipart/form-data"
+        //     },
+        //     data: formData,
+        //   });
+        // postSurvey()
+        // .then(function(response) {
+        //     console.log(response);
+        // })
+        // .catch(function(error) {
+        //     console.log(error);
+        // })
         axios.post("http://127.0.0.1:8000/product/", {
             name: newProduct.name,
             description: newProduct.description,
@@ -40,18 +59,23 @@ const CreateProduct = () => {
         console.log(file[0]);
         setNewProduct({
             ...newProduct,
-            picture: file[0]
-        });
-        console.log(newProduct.picture);
+            picture: file.FormData
+        })
+        formData.append("files", file);
+        formData.append("data", JSON.stringify(newProduct));
     };
     return (
         <div className={cx("CreateProduct")}>
+            <form onSubmit={(e) => {
+                registerProduct(e);
+            }} enctype="multipart/form-data">
             <input name="name" type="text" placeholder="상품 이름" value={newProduct.name} required onChange={onChange} />
             <input name="description" type="text" placeholder="상품 설명" value={newProduct.description} required onChange={onChange} />
             <input name="feedText" type="text" placeholder="피드 글 작성" value={newProduct.feedText} required onChange={onChange} />
             <input name="category" type="text" placeholder="카테고리 DS" value={newProduct.category} required onChange={onChange} />
             <input type="file" accept="image/*" onChange={onLoadFile}/>
-            <button type="text" onClick={registerProduct}>상품 등록</button>
+            <button type="submit">상품 등록</button>
+            </form>
         </div>
     );
 }
