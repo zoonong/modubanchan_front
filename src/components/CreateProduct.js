@@ -61,8 +61,8 @@ const CreateProduct = () => {
             ...newProduct,
             picture: file
         })
-        formData.append("files", file);
-        formData.append("data", JSON.stringify(newProduct));
+        // formData.append("files", file);
+        // formData.append("data", JSON.stringify(newProduct));
     };
     return (
         <div className={cx("CreateProduct")}>
