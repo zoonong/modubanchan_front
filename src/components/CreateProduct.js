@@ -33,13 +33,22 @@ const CreateProduct = () => {
         // .catch(function(error) {
         //     console.log(error);
         // })
-        axios.post("http://127.0.0.1:8000/product/", {
-            name: newProduct.name,
-            description: newProduct.description,
-            feedText: newProduct.feedText,
-            category: newProduct.category,
-            picture: newProduct.picture
-        })
+
+        
+        let formData = new FormData();
+        if(newProduct?.picture){
+            formData.append('picture', newProduct.picture, newProduct.picture.name);
+        }
+        formData.append('name', newProduct.name);
+        formData.append('description', newProduct.description);
+        formData.append('feedText', newProduct.feedText);
+        formData.append('category', newProduct.category);
+
+        axios.post("http://127.0.0.1:8000/product/", formData, {
+            headers: {
+              'content-type': 'multipart/form-data'
+            }
+          })
         .then(function (response) {
             console.log(response);
         })
@@ -55,8 +64,7 @@ const CreateProduct = () => {
         });
     };
     const onLoadFile = (e) => {
-        const file = e.target.files;
-        console.log(file[0]);
+        const file = e.target.files[0];
         setNewProduct({
             ...newProduct,
             picture: file
