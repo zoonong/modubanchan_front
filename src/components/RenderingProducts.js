@@ -9,7 +9,7 @@ const RenderingProducts = () => {
         <Product pid="1" />
       </div>
       <div>
-        <Product pid="4" />
+        <Product pid="2" />
       </div>
       <div>
         <Product pid="3" />

@@ -6,9 +6,9 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 const CreateProduct = () => {
-  let formData = new FormData();
   const [newProduct, setNewProduct] = useState({
     name: "",
+    price: 0,
     description: "",
     feedText: "",
     category: "",
@@ -22,6 +22,7 @@ const CreateProduct = () => {
       formData.append("picture", newProduct.picture, newProduct.picture.name);
     }
     formData.append("name", newProduct.name);
+    formData.append("price", 1000);
     formData.append("description", newProduct.description);
     formData.append("feedText", newProduct.feedText);
     formData.append("category", newProduct.category);
@@ -68,6 +69,14 @@ const CreateProduct = () => {
           type="text"
           placeholder="상품 이름"
           value={newProduct.name}
+          required
+          onChange={onChange}
+        />
+        <input
+          name="price"
+          type="text"
+          placeholder="상품 가격"
+          value={newProduct.price}
           required
           onChange={onChange}
         />

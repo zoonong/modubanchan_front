@@ -5,32 +5,36 @@ import { useHistory } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 
-const RenderingProduct = ({pid}) => {
+const RenderingProduct = ({ pid }) => {
   const history = useHistory();
   const [product, setProduct] = useState({
     pid: pid,
     name: "",
+    price: 0,
     description: "",
     feedText: "",
     category: "",
-    picture: require(`../images/i${pid}.png`)
+    picture: require(`../images/i${pid}.png`),
   });
   function productDetailInfo() {
-    axios.get(`http://127.0.0.1:8000/product/${product.pid}/`)
-    .then(function (response) {
-      console.log(response);
-      setProduct({
-        ...product,
-        name: response.data.name,
-        description: response.data.description,
-        feedText: response.data.feedText,
-        category: response.data.category
+    axios
+      .get(`http://127.0.0.1:8000/product/${product.pid}/`)
+      .then(function (response) {
+        console.log(response);
+        setProduct({
+          ...product,
+          name: response.data.name,
+          price: response.data.price,
+          description: response.data.description,
+          feedText: response.data.feedText,
+          category: response.data.category,
+          picture: response.data.picture,
+        });
+        console.log(product);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-      console.log(product);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
   }
   useEffect(() => {
     productDetailInfo();
@@ -42,14 +46,17 @@ const RenderingProduct = ({pid}) => {
           history.push({
             pathname: "/ProductDetail",
             state: {
-              pid: pid
+              pid: pid,
             },
           })
         }
-      >상품 상세 페이지</button>
+      >
+        상품 상세 페이지
+      </button>
       <div>
         <img src={product.picture} alt={product.name} />
         <span>{product.name}</span>
+        <p>{product.price}</p>
         <p>{product.description}</p>
         <p>{product.feedText}</p>
         <span>{product.category}</span>
