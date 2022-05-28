@@ -126,7 +126,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <Link to="/">
+      <Link to="/SignIn">
         <button className={cx("Submit")} onClick={onSubmit}>
           가입하기
         </button>

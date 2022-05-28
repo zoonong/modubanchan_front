@@ -6,7 +6,6 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 const CreateProduct = () => {
-  let formData = new FormData();
   const [newProduct, setNewProduct] = useState({
     name: "",
     price: "",
