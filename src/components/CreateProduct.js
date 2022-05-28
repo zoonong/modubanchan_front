@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 const CreateProduct = () => {
   const [newProduct, setNewProduct] = useState({
     name: "",
-    price: 0,
+    price: "",
     description: "",
     feedText: "",
     category: "",
@@ -22,7 +22,7 @@ const CreateProduct = () => {
       formData.append("picture", newProduct.picture, newProduct.picture.name);
     }
     formData.append("name", newProduct.name);
-    formData.append("price", 1000);
+    formData.append("price", newProduct.price);
     formData.append("description", newProduct.description);
     formData.append("feedText", newProduct.feedText);
     formData.append("category", newProduct.category);
@@ -53,8 +53,6 @@ const CreateProduct = () => {
       ...newProduct,
       picture: file,
     });
-    // formData.append("files", file);
-    // formData.append("data", JSON.stringify(newProduct));
   };
   return (
     <div className={cx("CreateProduct")}>
@@ -75,10 +73,23 @@ const CreateProduct = () => {
         <input
           name="price"
           type="text"
-          placeholder="상품 가격"
+          placeholder="가격"
           value={newProduct.price}
           required
-          onChange={onChange}
+          onChange={(e) => {
+            let price = parseInt(e.target.value);
+            if(!isNaN(price)) {
+              setNewProduct({
+                ...newProduct,
+                price: parseInt(e.target.value)
+              });
+            } else {
+              setNewProduct({
+                ...newProduct,
+                price: ""
+              })
+            }
+          }}
         />
         <input
           name="description"
