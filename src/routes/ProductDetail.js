@@ -1,67 +1,156 @@
 import axios from "axios";
-import { React, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import "../App.css";
 
-const ProductDetail = ({ pid }) => {
+const ProductDetail = () => {
+  const location = useLocation();
   //const data = useLocation().state.productNum;
-  const seller = "매니연";
-  const price = 10000;
   const deliveryCharge = 3000;
-
-  const [productInfo, setProductInfo] = useState({
-    pid: pid,
+  //const sellerId = useRef(null);
+  const [product, setProduct] = useState({
+    pid: "",
     name: "",
+    price: 0,
     description: "",
     feedText: "",
     category: "",
-    picture: null
+    picture: null,
+    sellerId: "",
+    sellerName: "seller",
   });
+  
+  const setSellerId = useRef(false);
+  const [init, setInit] = useState(false);
 
   function productDetailInfo() {
-    axios.get(`http://127.0.0.1:8000/product/1/`)
-    .then(function (response) {
-      console.log(response);
-      console.log(response.data.picture);
-      setProductInfo({
-        ...productInfo,
-        id: response.data.id,
+      axios.get(`http://127.0.0.1:8000/product/${location.state.pid}/`)
+      .then(function (response) {
+      //sellerId.current = response.data.user;
+      setProduct({
+        ...product,
+        pid : location.state.pid,
         name: response.data.name,
+        price : response.data.price,
         description: response.data.description,
         feedText: response.data.feedText,
         category: response.data.category,
-        picture: response.data.picture
+        picture: response.data.picture,
+        sellerId: response.data.user
       });
-      console.log(productInfo);
     })
     .catch(function (error) {
       console.log(error);
     })
+    
+    // return new Promise((resolve, reject) => {
+    //   axios.get(`http://127.0.0.1:8000/product/${location.state.pid}/`)
+    //   .then(function (response) {
+    //   //sellerId.current = response.data.user;
+    //   console.log("response.data");
+    //   console.log(response.data);
+    //   setProduct({
+    //     ...product,
+    //     pid : location.state.pid,
+    //     name: response.data.name,
+    //     price : response.data.price,
+    //     description: response.data.description,
+    //     feedText: response.data.feedText,
+    //     category: response.data.category,
+    //     picture: response.data.picture,
+    //     sellerId: response.data.user
+    //   });
+    //   resolve(response.data.user);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // })
+    // });
   }
 
+  function setSeller() {
+    console.log(product);
+    //console.log(product.sellerId);
+    //while(sellerId.current == null) {console.log("기다리는중...");}
+    axios.get(`http://127.0.0.1:8000/mypage/${product.sellerId}/`)
+      .then(function(response) {
+        console.log("access");
+        console.log(response.data);
+        console.log(response.data.first_name);
+        setProduct({
+          ...product,
+          sellerName: response.data.first_name
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    // async function initialization(setSeller) {
+    //   productDetailInfo().then((product.sellerId) => {
+    //     setSeller(product.sellerId);
+    //   });
+    //   console.log("셀러 id");
+    //   console.log(sellerId.current);
+    //   //setSeller();
+    // }
+    // initialization(setSeller);
+    // productDetailInfo().then((sellerId) => {
+    //   setSeller(sellerId);
+    // });
+    // console.log("product");
+    // console.log(product);
+    //console.log(sellerId.current);
+    productDetailInfo();
+    if(product.pid !== ""){
+      setSellerId.current = true;
+    }
+    console.log("setSellerId");
+    console.log(setSellerId.current);
+    if(setSellerId.current) {
+      setSeller();
+    }
+    console.log("sellerName");
+    console.log(product.sellerName);
+    console.log(product.sellerName !== "seller");;
+    setInit(true)
+  }, []);
+
+  useEffect(() => {
+    if(product.sellerName !== "seller") {
+      console.log(product.sellerName);
+      setInit(true);
+    }
+  }, [product.sellerName]);
+
   return (
-    <div className="container">
-      <div className="productdetail">
-        <img src={productInfo.picture} alt={productInfo.name} />
-        <span>{productInfo.name}</span>
-        <p>{productInfo.description}</p>
-        <p>{productInfo.feedText}</p>
-        <span>{productInfo.category}</span>
-      </div>
-      <div>
-        <Link>
-          <p>{`${seller} >`}</p>
-        </Link>
-        <p>{`${price}원`}</p>
-        <p>{`배송비 ${deliveryCharge}원`}</p>
-        <Link to="/Cart">
-          <button>장바구니</button>
-        </Link>
-        <button>주문하기</button>
-        {/* <p>{data}</p> */}
-        <button type="text" onClick={productDetailInfo}>product detail 정보</button>
-      </div>
+    <div>
+      <div>{init ? 
+        <div className="container">
+          <div className="productdetail">
+          <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
+          <span>{`상품 이름 : ${product.name}`}</span>
+          <span>{`가격 : ${product.price}원`}</span>
+          <p>{`상품 설명 : ${product.description}`}</p>
+          <p>{`feedText : ${product.feedText}`}</p>
+          <span>{`category : ${product.category}`}</span>
+        </div>
+        <div>
+          <Link to={"/MyPage"}>
+            <p>{`${product.sellerId} ${product.sellerName}>`}</p>
+          </Link>
+          <p>{`${product.price}원`}</p>
+          <p>{`배송비 ${deliveryCharge}원`}</p>
+          <Link to="/Cart">
+            <button>장바구니</button>
+          </Link>
+          <button>주문하기</button>
+        </div>
+        </div>
+         : <div>Loading...</div>}</div>
     </div>
   );
 };
