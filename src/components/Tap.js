@@ -12,13 +12,15 @@ const cx = classNames.bind(styles);
 
 const Tap = () => {
   const logOut = () => {
-    sessionStorage.setItem("auth", false);
-    sessionStorage.setItem("logInUserId", 0);
+    localStorage.setItem("auth", false);
+    localStorage.setItem("logInUserId", 0);
     console.log("로그아웃됨");
-    console.log(JSON.parse(sessionStorage.getItem("auth")));
-    console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
+    console.log(JSON.parse(localStorage.getItem("auth")));
+    console.log(JSON.parse(localStorage.getItem("logInUserId")));
 
-    axios.post(`http://127.0.0.1:8000/accounts/logout/`, {})
+    axios.post(`http://127.0.0.1:8000/accounts/logout/`, {
+      
+    })
     .then(function(response) {
       console.log(response);
     })
@@ -40,7 +42,7 @@ const Tap = () => {
           <button className={cx("Following")}>Following</button>
         </Link>
         <input type="text" className={cx("Input")} />
-        {JSON.parse(sessionStorage.getItem("auth")) ? (
+        {JSON.parse(localStorage.getItem("auth")) ? (
           <div className={cx("Icons")}>
             <Link to="/MyPage">
               <IoPersonOutline size="28" color="18ab4b" className={cx("Icon")}>
