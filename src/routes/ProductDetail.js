@@ -27,7 +27,7 @@ const ProductDetail = () => {
     picture: null,
     sellerId: "",
     sellerName: "seller",
-    productNum: 0, // 상품 수량
+    productNum: 1, // 상품 수량
   });
 
   const setSellerId = useRef(false);
@@ -222,7 +222,7 @@ const ProductDetail = () => {
                 <button onClick={addToCart}>장바구니</button>
                 <button>주문하기</button>
                 {product.sellerId ===
-                JSON.parse(sessionStorage.getItem("logInUserId")) ? (
+                JSON.parse(localStorage.getItem("logInUserId")) ? (
                   <button onClick={deleteProduct}>상품 삭제하기</button>
                 ) : null}
               </div>
