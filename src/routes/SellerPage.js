@@ -35,6 +35,7 @@ const SellerPage = () => {
   return (
     <div className={cx("MyPage")}>
       <Profile profileInfo={sellerInfo} />
+      <p>{`${sellerInfo.nickname} 등록한 상품`}</p>
       <UserProducts uId={location.state.sId} />
     </div>
   );
