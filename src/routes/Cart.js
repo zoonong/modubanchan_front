@@ -9,24 +9,30 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const Cart = () => {
+  const [cart, setCart] = useState([{
+    productId: 0, // 상품 번호
+    productNum: 0, // 상품 개수
+  }]);
+
+  const getLogInUser = () => {
+    axios.get(`http://127:0.0.1:8000/`)
+  }
+
+  const getCart = () => {
+    axios.get(`http://127.0.0.1:8000/cart/`)
+    .then(function(response) {
+      console.log(response);
+      setCart({
+        ...cart,
+        productId: response.data.productList,
+        productNum: response.data.productNum,
+        userId: response.data.user,
+      });
+    })
+  };
   return (
     <div className={cx("Cart")}>
-      <Modal.Dialog>
-        <Modal.Header closeButton>
-          <Modal.Title>장바구니로 이동하시겠습니까?</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <p></p>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary">No. Continue Shopping</Button>
-          <Button variant="primary">Yes. Go to Cart</Button>
-        </Modal.Footer>
-      </Modal.Dialog>
-
-      <span>장바구니</span>
+      <h1>장바구니</h1>
       <CartProduct />
       <CartProduct />
       <div>

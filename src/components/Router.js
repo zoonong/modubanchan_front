@@ -21,12 +21,12 @@ import CreateProfile from "../routes/CreateProfile";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
-const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, setIsLoggedIn, logInUserId, setLogInUserId }) => {
   return (
     <Router>
       <Switch>
         <Route exact path="/SignIn">
-          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logInUserId={logInUserId} setLogInUserId={setLogInUserId} />
         </Route>
         <Route exact path="/SignUp">
           <SignUp />
