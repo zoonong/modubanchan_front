@@ -1,12 +1,14 @@
+// DIY
+
 import React from "react";
 import Products from "../components/RenderingProducts";
 
-const Category = () => {
+const DIY = () => {
   return (
     <>
-      <Products />
+      <Products flag="SD" />
     </>
   );
 };
 
-export default Category;
+export default DIY;

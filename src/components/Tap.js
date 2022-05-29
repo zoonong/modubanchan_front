@@ -14,7 +14,11 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
         <Link to="/">
-          <img src={require("../images/logo.png")} alt="home" className={cx("Title")}/>
+          <img
+            src={require("../images/logo.png")}
+            alt="home"
+            className={cx("Title")}
+          />
         </Link>
         <Link to="/Feed">
           <button className={cx("Following")}>Following</button>
@@ -58,16 +62,16 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
         )}
       </nav>
       <nav className={cx("Category")}>
-        <Link to="/Category">
+        <Link to="/Garment">
           <button className={cx("Item")}>의류</button>
         </Link>
-        <Link to="/Category">
+        <Link to="/Furniture">
           <button className={cx("Item")}>가구</button>
         </Link>
-        <Link to="/Category">
+        <Link to="/Props">
           <button className={cx("Item")}>소품</button>
         </Link>
-        <Link to="/Category">
+        <Link to="/DIY">
           <button className={cx("Item")}>DIY</button>
         </Link>
       </nav>
