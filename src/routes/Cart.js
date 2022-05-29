@@ -19,10 +19,6 @@ const Cart = () => {
   
   const [init, setInit] = useState(false);
 
-  const getLogInUser = () => {
-    axios.get(`http://127:0.0.1:8000/`)
-  }
-
   const getProductsInCart = () => {
     axios.get(`http://127.0.0.1:8000/cart/`)
     .then(function(response) {
