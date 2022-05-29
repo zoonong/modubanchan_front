@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
+import UserProducts from "../components/UserProducts";
 import axios from "axios";
 
 const cx = classNames.bind(styles);
@@ -30,7 +31,7 @@ const MyPage = () => {
   useEffect(() => {
     getProfile();
   }, []);
-
+  console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
   return (
     <div className={cx("MyPage")}>
       <Link to="MyPage/CreateProduct">
@@ -40,6 +41,7 @@ const MyPage = () => {
         <button>프로필 등록</button>
       </Link>
       <Profile profileInfo={profileInfo} />
+      <UserProducts uId={JSON.parse(sessionStorage.getItem("logInUserId"))} />
     </div>
   );
 };
