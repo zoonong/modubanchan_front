@@ -10,13 +10,14 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-const Tap = () => {
+const Tap = ({isLoggedIn, setIsLoggedIn}) => {
   const logOut = () => {
     localStorage.setItem("auth", false);
     localStorage.setItem("logInUserId", 0);
     console.log("로그아웃됨");
     console.log(JSON.parse(localStorage.getItem("auth")));
     console.log(JSON.parse(localStorage.getItem("logInUserId")));
+    setIsLoggedIn(false);
 
     axios.post(`http://127.0.0.1:8000/accounts/logout/`, {
       
@@ -42,7 +43,7 @@ const Tap = () => {
           <button className={cx("Following")}>Following</button>
         </Link>
         <input type="text" className={cx("Input")} />
-        {JSON.parse(localStorage.getItem("auth")) ? (
+        {isLoggedIn ? (
           <div className={cx("Icons")}>
             <Link to="/MyPage">
               <IoPersonOutline size="28" color="18ab4b" className={cx("Icon")}>

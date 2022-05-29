@@ -8,7 +8,7 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-const SignIn = () => {
+const SignIn = ({isLoggedIn, setIsLoggedIn}) => {
   const [inputs, setInputs] = useState({
     email: "",
     password: ""
@@ -33,6 +33,7 @@ const SignIn = () => {
         console.log(axios.defaults.headers.common);
         
         localStorage.setItem("auth", true); // 로그인 설정
+        setIsLoggedIn(true);
         console.log("로그인함");
         console.log(JSON.parse(localStorage.getItem("auth")));
 
