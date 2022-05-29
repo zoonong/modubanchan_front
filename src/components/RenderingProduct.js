@@ -51,13 +51,12 @@ const RenderingProduct = ({ pid }) => {
           })
         }
       >
-        상품 상세 페이지
-      </button>
-      <div>
         <img
           src={`http://localhost:8000${product.picture}`}
           alt={product.name}
         />
+      </button>
+      <div>
         <span>{product.name}</span>
         <p>{product.price}</p>
         <p>{product.description}</p>
