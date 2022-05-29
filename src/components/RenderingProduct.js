@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import "../App.css";
 import axios from "axios";
 
@@ -46,7 +46,7 @@ const RenderingProduct = ({ pid }) => {
           history.push({
             pathname: "/ProductDetail",
             state: {
-              pid: pid,
+              pid: product.pid,
             },
           })
         }
