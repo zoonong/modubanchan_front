@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 
-const CartProduct = ({cartId, productId, productNum, priceSum, setPriceSum}) => {
+const CartProduct = ({cartId, productId, productNum}) => {
     const [cartProductDetail, setCartProductDetail] = useState({
         pid: productId,
         name: "",
@@ -23,10 +23,8 @@ const CartProduct = ({cartId, productId, productNum, priceSum, setPriceSum}) => 
                     name: product.name,
                     price: product.price,
                     picture: product.picture
-                });
-                setPriceSum(priceSum + product.price * cartProductDetail.productNum);
+                });     
             })
-            console.log(priceSum);
         })
         .catch(function(error) {
             console.log(error);
@@ -66,6 +64,10 @@ const CartProduct = ({cartId, productId, productNum, priceSum, setPriceSum}) => 
     useEffect(() => {
         updateCartProduct();
     }, [cartProductDetail.productNum]);
+
+    // useEffect(() => {
+        
+    // }, [cartProductDetail])
 
     return (
         <div>
