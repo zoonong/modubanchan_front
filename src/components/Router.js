@@ -21,18 +21,18 @@ import CreateProfile from "../routes/CreateProfile";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
-const AppRouter = ({ isLoggedIn, setIsLoggedIn, logInUserId, setLogInUserId }) => {
+const AppRouter = () => {
   return (
     <Router>
       <Switch>
         <Route exact path="/SignIn">
-          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logInUserId={logInUserId} setLogInUserId={setLogInUserId} />
+          <SignIn />
         </Route>
         <Route exact path="/SignUp">
           <SignUp />
         </Route>
         <div className="body">
-          <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <Tap />
           <Route exact path="/Cart">
             <Cart />
           </Route>
