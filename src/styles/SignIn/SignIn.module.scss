@@ -1,5 +1,7 @@
 $gray: #dee2e6;
 $blue: #1864ab;
+$green: #18ab4b;
+
 .SignIn {
   display: flex;
   justify-content: center;
@@ -12,12 +14,13 @@ $blue: #1864ab;
     flex-direction: column;
   }
   .Title {
-      font-weight: bold;
-      font-size: 50px;
+    font-weight: bold;
+    font-size: 50px;
   }
   .Logo {
-      font-weight: bold;
-      font-size: 30px;
+    width: 200px;
+    height: 60px;
+    border: none;
   }
   .Input {
     font-size: 14px;
@@ -26,9 +29,9 @@ $blue: #1864ab;
     padding: 20px 10px;
     border-radius: 10px;
     margin: 8px 5px;
-    border: solid $blue;
+    border: solid $green;
     &:focus {
-      outline: 4px solid lighten($blue, 5%);
+      outline: 4px solid lighten($green, 5%);
       border: solid white;
     }
   }
@@ -39,17 +42,17 @@ $blue: #1864ab;
     height: 50px;
     border-radius: 20px;
     margin: 8px;
-    background-color: $blue;
+    background-color: $green;
     border: none;
     cursor: pointer;
     &:hover {
-      background: lighten($blue, 20%);
+      background: lighten($green, 20%);
       border: none;
       outline: none;
     }
   }
   .Text {
-    color: $blue;
+    color: $green;
     font-size: 20px;
     margin: 20px 15px;
     .Toggle {
@@ -57,7 +60,7 @@ $blue: #1864ab;
       cursor: pointer;
       margin: 15px;
       &:hover {
-        color: lighten($blue, 20%);
+        color: lighten($green, 20%);
       }
     }
   }

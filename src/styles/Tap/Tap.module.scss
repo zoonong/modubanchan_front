@@ -1,5 +1,6 @@
 $gray: #dee2e6;
 $blue: #1864ab;
+$green: #18ab4b;
 
 .Tap {
   position: fixed;
@@ -18,13 +19,11 @@ $blue: #1864ab;
     align-items: center;
     .Title {
       flex: 1;
-      background-color: transparent;
       padding: 4px;
       width: 200px;
       height: 60px;
-      margin: 4px;
       border: none;
-      margin-left: 50px;
+      margin-left: 55px;
       cursor: pointer;
       &:hover {
         border: none;
@@ -34,15 +33,13 @@ $blue: #1864ab;
     .Following {
       flex: 3;
       color: darker($gray, 3%);
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
-      width: 80px;
-      height: 50px;
       border-radius: 100px;
-      margin: 4px;
+      margin: 8px;
+      margin-left: 50px;
       background-color: white;
       border: none;
-      margin-right: 200px;
       cursor: pointer;
       &:hover {
         border: none;
@@ -51,28 +48,28 @@ $blue: #1864ab;
     }
     .Input {
       flex: 2;
-      font-size: 14px;
-      width: 250px;
+      width: 500px;
       height: 15px;
-      padding: 12px 20px;
       border-radius: 5px;
-      margin: 10px 4px;
-      padding: 15px;
-      border: solid $blue;
+      margin: 4px 12px;
+      margin-left: 80px;
+      padding: 15px 300px;
+      border: solid $green;
       &:focus {
-        outline: 2px solid lighten($blue, 5%);
+        outline: 2px solid lighten($green, 5%);
         border: solid white;
       }
     }
     .Icons {
       flex: 1;
       text-align: right;
-      margin-right: 50px;
+      margin-right: 55px;
+      margin-left: 200px;
       .Icon {
         margin: 10px;
         &:hover {
-          color: $blue;
-          border-color: $blue;
+          color: $green;
+          border-color: $green;
           outline: none;
         }
       }
@@ -80,40 +77,42 @@ $blue: #1864ab;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin: 8px;
+      margin-right: 55px;
+      margin-left: 300px;
       padding: 2px;
       font-size: 16px;
       font-weight: bold;
       height: 40px;
       border: none;
+      white-space: nowrap;
       cursor: pointer;
       &:hover {
-        color: $blue;
+        color: $green;
         outline: none;
       }
     }
   }
   .Category {
     display: flex;
-    margin-left: 50px;
+    margin-left: 45px;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin: 8px;
+      margin: 12px;
       padding: 2px;
       color: darker($gray, 3%);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       height: 40px;
       border: none;
       cursor: pointer;
       &:hover {
-        color: $blue;
+        color: $green;
         border: solid;
         border-top-width: 0px;
         border-left-width: 0px;
         border-right-width: 0px;
-        border-color: $blue;
+        border-color: $green;
         outline: none;
       }
     }

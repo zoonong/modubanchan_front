@@ -6,14 +6,14 @@ const cx = classNames.bind(styles);
 
 const RenderingFeeds = () => {
   const src = [
-    require("../images/i1.png"),
-    require("../images/i5.png"),
-    require("../images/i2.png"),
-    require("../images/i4.png"),
-    require("../images/i6.png"),
-    require("../images/i7.png"),
-    require("../images/i3.png"),
-    require("../images/i8.png"),
+    require("../images/i10.GIF"),
+    require("../images/i11.png"),
+    require("../images/i12.png"),
+    require("../images/i14.png"),
+    require("../images/i16.png"),
+    require("../images/i17.png"),
+    require("../images/i13.png"),
+    require("../images/i15.png"),
     require("../images/i9.png"),
   ];
   const preface = [
@@ -31,10 +31,10 @@ const RenderingFeeds = () => {
     <div className={cx("RenderingFeeds")}>
       <div>
         <img src={src[0]} alt="메인 사진" />
-        <img src={src[3]} alt="메인 사진" />
+        <img src={src[6]} alt="메인 사진" />
         <p className={cx("Preface")}>{preface[1]}</p>
         <p>{text[1]}</p>
-        <img src={src[6]} alt="메인 사진" />
+        <img src={src[3]} alt="메인 사진" />
       </div>
       <div>
         <img src={src[1]} alt="메인 사진" />

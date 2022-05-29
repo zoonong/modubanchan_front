@@ -7,10 +7,8 @@ export const addUser = user => ({
     type: ADD_USER,
     user: {
         id: user.id,
+        email: user.email,
         password: user.password,
-        nickname: user.nickname,
-        followerList: user.followerList,
-        followingList: user.followingList,
         profilePicture: user.profilePicture
     }
 });
