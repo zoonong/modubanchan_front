@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const SellerPage = () => {
   const location = useLocation();
-  const [sellerInfo, setsellerInfo] = useState({
+  const [sellerInfo, setSellerInfo] = useState({
     nickname: "닉네임이 등록되지 않았습니다.",
     introduce: "소개글이 등록되지 않았습니다.",
   });
@@ -19,10 +19,19 @@ const SellerPage = () => {
       .get(`http://127.0.0.1:8000/mypage/${location.state.sId}/`)
       //.get("http://127.0.0.1:8000/mypage/2/")
       .then(function (response) {
-        setsellerInfo({
-          nickname: response.data.first_name,
-          introduce: response.data.last_name,
-        });
+        if(response.data.first_name !== '') {
+          setSellerInfo({
+            ...sellerInfo,
+            nickname: response.data.first_name,
+          });
+        }
+        if(response.data.last_name !== '') {
+          setSellerInfo({
+            ...sellerInfo,
+            introduce: response.data.last_name,
+          });
+        }
+        
         console.log(response);
       })
       .catch(function (error) {
@@ -34,7 +43,7 @@ const SellerPage = () => {
   }, []);
   return (
     <div className={cx("MyPage")}>
-      <Profile profileInfo={sellerInfo} />
+      <Profile profileInfo={sellerInfo} userId={location.state.sId}/>
       <p>{`${sellerInfo.nickname} 등록한 상품`}</p>
       <UserProducts uId={location.state.sId} />
     </div>
