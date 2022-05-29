@@ -5,12 +5,12 @@ import "../App.css";
 function App() {
   useEffect(() => {
     console.log("인증 여부");
-    console.log(JSON.parse(sessionStorage.getItem("auth")));
+    console.log(JSON.parse(localStorage.getItem("auth")));
   }, []);
 
   useEffect(() => {
     console.log("로그인한 유저");
-    console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
+    console.log(JSON.parse(localStorage.getItem("logInUserId")));
   }, []);
 
   return (

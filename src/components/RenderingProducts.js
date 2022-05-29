@@ -34,7 +34,7 @@ const RenderingProducts = ({ flag }) => {
       <div className="PP">
       {pidpid.map((id) => (
         <div>
-          <Product pid={id} />
+          <Product pid={id} key={id} />
         </div>
       ))}
     </div>
