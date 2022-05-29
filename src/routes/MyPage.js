@@ -34,7 +34,7 @@ const MyPage = () => {
   console.log(JSON.parse(localStorage.getItem("logInUserId")));
   return (
     <div className={cx("MyPage")}>
-      <Link to="MyPage/CreateProduct">
+      <Link to="/CreateProduct">
         <button>상품 추가하기</button>
       </Link>
       <Link to="CreateProfile">

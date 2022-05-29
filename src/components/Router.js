@@ -19,6 +19,7 @@ import DIY from "../routes/DIY";
 import Tap from "./Tap";
 import CreateProfile from "../routes/CreateProfile";
 import SellerPage from "../routes/SellerPage";
+import ModifyProduct from "../routes/ModifyProduct";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
@@ -49,7 +50,7 @@ const AppRouter = ({isLoggedIn, setIsLoggedIn}) => {
           <Route exact path="/ProductDetail">
             <ProductDetail />
           </Route>
-          <Route exact path="/MyPage/CreateProduct">
+          <Route exact path="/CreateProduct">
             <CreateProduct />
           </Route>
           <Route exact path="/Garment">
@@ -69,6 +70,9 @@ const AppRouter = ({isLoggedIn, setIsLoggedIn}) => {
           </Route>
           <Route exact path="/SellerPage">
             <SellerPage />
+          </Route>
+          <Route exact path="/ModifyProduct">
+            <ModifyProduct />
           </Route>
         </div>
       </Switch>

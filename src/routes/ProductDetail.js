@@ -27,9 +27,10 @@ const ProductDetail = () => {
     picture: null,
     sellerId: "",
     sellerName: "seller",
+    createDate: null,
+    updateDate: null,
     productNum: 1, // 상품 수량
   });
-
   const setSellerId = useRef(false);
   const [init, setInit] = useState(false);
 
@@ -48,12 +49,13 @@ const ProductDetail = () => {
           category: response.data.category,
           picture: response.data.picture,
           sellerId: response.data.user,
+          createDate: response.data.createDate,
+          updateDate: response.data.updateDate,
         });
       })
       .catch(function (error) {
         console.log(error);
       });
-
     // return new Promise((resolve, reject) => {
     //   axios.get(`http://127.0.0.1:8000/product/${location.state.pid}/`)
     //   .then(function (response) {
@@ -223,7 +225,22 @@ const ProductDetail = () => {
                 <button>주문하기</button>
                 {product.sellerId ===
                 JSON.parse(localStorage.getItem("logInUserId")) ? (
-                  <button onClick={deleteProduct}>상품 삭제하기</button>
+                  <div>
+                    <button onClick={deleteProduct}>상품 삭제하기</button>
+                    <button
+                      onClick={() =>
+                        history.push({
+                          pathname: "/ModifyProduct",
+                          state: {
+                            pid: product.pid,
+                            product: product,
+                          },
+                        })
+                      }
+                    >
+                      상품 수정하기
+                    </button>
+                  </div>
                 ) : null}
               </div>
             </div>
