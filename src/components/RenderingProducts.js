@@ -3,6 +3,10 @@ import { useState } from "react";
 import Product from "./RenderingProduct";
 import "../App.css";
 import axios from "axios";
+import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 const RenderingProducts = ({ flag }) => {
   const pid = [];
@@ -26,12 +30,14 @@ const RenderingProducts = ({ flag }) => {
   }, []);
   console.log(pidpid);
   return (
-    <div className="PP">
+    <div className={cx("RenderingProducts")}>
+      <div className="PP">
       {pidpid.map((id) => (
         <div>
           <Product pid={id} />
         </div>
       ))}
+    </div>
     </div>
   );
 };
