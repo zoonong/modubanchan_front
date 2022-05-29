@@ -1,6 +1,5 @@
 import { React, useState, useDispatch, useEffect } from "react";
 import CartProduct from "../components/CartProduct";
-import CartPriceSum from "../components/CartPriceSum";
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'

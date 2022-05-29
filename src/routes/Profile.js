@@ -6,36 +6,36 @@ import classNames from "classnames/bind";
 import RenderingProduct from "../components/RenderingProduct";
 import RenderingProducts from "../components/RenderingProducts";
 import { BsPersonCircle } from "react-icons/bs";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-const Profile = ({ profileInfo }) => {
+const Profile = ({ profileInfo, userId }) => {
   const [userObj, setUserObj] = useState({
     id: 0,
-    password: "",
-    nickname: "",
-    followerList: [],
+    nickname: profileInfo.nickname,
+    introduce: profileInfo.introduce,
     followingList: [],
     profilePicture: "",
   });
-  const users = useSelector((state) => state.users);
-  const userId = useRef(1);
+  //const users = useSelector((state) => state.users);
+
+  const followingSeller = () => {
+    axios.post(`http://127.0.0.1:8000/mypage/follow/${userId}`, {})
+    .then(function(response) {
+      console.log(response);
+      console.log("팔로우/언팔로우");
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+  }
 
   useEffect(() => {
-    users.map((user) => {
-      if (user.id === userId.current) {
-        setUserObj({
-          ...userObj,
-          id: user.id,
-          password: user.password,
-          nickname: user.nickname,
-          followerList: user.followerList,
-          followingList: user.followingList,
-          profilePicture: user.profilePicture,
-        });
-      }
-    });
+    console.log("userId");
+    console.log(userId);
   }, []);
+
   return (
     <div>
       <div className={cx("Profile")}>
@@ -49,7 +49,7 @@ const Profile = ({ profileInfo }) => {
         <div className={cx("ProfileDetails")}>
           <div className={cx("NickName")}>{profileInfo.nickname}</div>
           <p className={cx("Introduction")}>{profileInfo.introduce}</p>
-          <button className={cx("Following")}>Follow</button>
+          <button className={cx("Following")} onClick={followingSeller}>Follow</button>
         </div>
       </div>
       <RenderingProducts />
