@@ -30,7 +30,6 @@ const RenderingProduct = ({ pid }) => {
           category: response.data.category,
           picture: response.data.picture,
         });
-        console.log(product);
       })
       .catch(function (error) {
         console.log(error);
