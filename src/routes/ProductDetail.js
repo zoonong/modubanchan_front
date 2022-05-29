@@ -3,6 +3,10 @@ import { React, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import "../App.css";
+import styles from "../styles/ProductDetail/ProductDetail.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 const ProductDetail = () => {
   const location = useLocation();
@@ -127,7 +131,7 @@ const ProductDetail = () => {
   }, [product.sellerName]);
 
   return (
-    <div>
+    <div className={cx("ProductDetail")}>
       <div>{init ? 
         <div className="container">
           <div className="productdetail">
