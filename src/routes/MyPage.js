@@ -41,6 +41,7 @@ const MyPage = () => {
         <button>프로필 등록</button>
       </Link>
       <Profile profileInfo={profileInfo} />
+      <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(sessionStorage.getItem("logInUserId"))} />
     </div>
   );
