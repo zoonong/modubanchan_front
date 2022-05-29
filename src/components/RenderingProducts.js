@@ -6,7 +6,7 @@ const RenderingProducts = () => {
   return (
     <div className="PP">
       <div>
-        <Product pid="4" />
+        <Product pid="1" />
       </div>
       <div>
         <Product pid="2" />
