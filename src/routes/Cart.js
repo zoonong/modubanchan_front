@@ -1,5 +1,6 @@
 import { React, useState, useDispatch, useEffect } from "react";
 import CartProduct from "../components/CartProduct";
+import CartPriceSum from "../components/CartPriceSum";
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
@@ -11,7 +12,6 @@ const cx = classNames.bind(styles);
 const Cart = () => {
   const [logInUserId, setLogInUserId] = useState();
   const [cartList, setCartList] = useState([]);
-  const [priceSum, setPriceSum] = useState(0);
   
   const [init, setInit] = useState(false);
 
@@ -51,7 +51,7 @@ const Cart = () => {
       <h1>장바구니</h1>
       <div>{`logInUserId : ${logInUserId}`}</div>
       {init ? cartList.map((cart) =>
-        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} priceSum={priceSum} setPriceSum={setPriceSum} />
+        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} />
       ) : <div>장바구니 목록을 가져오는 중...</div>}
       
       <div>
@@ -66,7 +66,6 @@ const Cart = () => {
           <span> + </span>
           <span>5000원</span>
           <span> = </span>
-          <span>{`${priceSum}원`}</span>
         </div>
         <span>주문하기</span>
       </div>
