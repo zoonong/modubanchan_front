@@ -27,6 +27,7 @@ const ProductDetail = () => {
     picture: null,
     sellerId: "",
     sellerName: "seller",
+    productNum: 0, // 상품 수량
   });
 
   const setSellerId = useRef(false);
@@ -131,7 +132,7 @@ const ProductDetail = () => {
   const addToCart = () => {
     axios
       .post(`http://127.0.0.1:8000/cart/`, {
-        productNum: 2,
+        productNum: product.productNum,
         productList: location.state.pid,
       })
       .then(function (response) {
@@ -204,6 +205,20 @@ const ProductDetail = () => {
                 >{`${product.sellerId} ${product.sellerName}>`}</p>
                 <p>{`${product.price}원`}</p>
                 <p>{`배송비 ${deliveryCharge}원`}</p>
+                <span>{`수량 : ${product.productNum}`}</span>
+                <button type="text" onClick={() => {
+                  setProduct({
+                    ...product,
+                    productNum: product.productNum + 1
+                  });
+                }}>+</button>
+                <button type="text" onClick={() => {
+                  setProduct({
+                    ...product,
+                    productNum: product.productNum - 1
+                  })
+                }}>-</button>
+                <p></p>
                 <button onClick={addToCart}>장바구니</button>
                 <button>주문하기</button>
                 {product.sellerId ===
