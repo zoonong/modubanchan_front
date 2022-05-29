@@ -11,6 +11,7 @@ const cx = classNames.bind(styles);
 const Cart = () => {
   const [logInUserId, setLogInUserId] = useState();
   const [cartList, setCartList] = useState([]);
+  const [priceSum, setPriceSum] = useState(0);
   
   const [init, setInit] = useState(false);
 
@@ -50,14 +51,14 @@ const Cart = () => {
       <h1>장바구니</h1>
       <div>{`logInUserId : ${logInUserId}`}</div>
       {init ? cartList.map((cart) =>
-        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} />
+        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} priceSum={priceSum} setPriceSum={setPriceSum} />
       ) : <div>장바구니 목록을 가져오는 중...</div>}
       
       <div>
         <button>전체 선택</button>
         <div>
-          <span>상품 금액</span>
-          <span>배송비</span>
+          <span>상품 금액 </span>
+          <span>배송비 </span>
           <span>결제 예정 금액</span>
         </div>
         <div>
@@ -65,7 +66,7 @@ const Cart = () => {
           <span> + </span>
           <span>5000원</span>
           <span> = </span>
-          <span>20000원</span>
+          <span>{`${priceSum}원`}</span>
         </div>
         <span>주문하기</span>
       </div>
