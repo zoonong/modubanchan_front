@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 
-const CartProduct = ({cartId, productId, productNum}) => {
+const CartProduct = ({cartId, productId, productNum, priceSum, setPriceSum}) => {
     const [cartProductDetail, setCartProductDetail] = useState({
         pid: productId,
         name: "",
@@ -24,7 +24,9 @@ const CartProduct = ({cartId, productId, productNum}) => {
                     price: product.price,
                     picture: product.picture
                 });
+                setPriceSum(priceSum + product.price * cartProductDetail.productNum);
             })
+            console.log(priceSum);
         })
         .catch(function(error) {
             console.log(error);
@@ -61,13 +63,17 @@ const CartProduct = ({cartId, productId, productNum}) => {
         getCartProductDetail();
     }, []);
 
+    useEffect(() => {
+        updateCartProduct();
+    }, [cartProductDetail.productNum]);
+
     return (
         <div>
             <div>카트에 있는 상품</div>
             <img src={`http://localhost:8000${cartProductDetail.picture}`} alt="상품 이미지"/>
             <div>{`cartId : ${cartProductDetail.cartId}`}</div>
             <div>{`상품 이름 : ${cartProductDetail.name}`}</div>
-            <div>{`가격 : ${cartProductDetail.price}`}</div>
+            <div>{`가격 : ${cartProductDetail.price}원`}</div>
             <div>{`상품 id : ${cartProductDetail.pid}`}</div>
             <div>{`수량: ${cartProductDetail.productNum}`}</div>
             <button type="text" onClick={() => {
@@ -75,14 +81,12 @@ const CartProduct = ({cartId, productId, productNum}) => {
                     ...cartProductDetail,
                     productNum: cartProductDetail.productNum + 1
                 });
-                updateCartProduct();
             }}>+</button>
             <button type="text" onClick={() => {
                 setCartProductDetail({
                     ...cartProductDetail,
                     productNum: cartProductDetail.productNum - 1
-                })
-                updateCartProduct();
+                });
             }}>-</button>
             <p></p>
             <button type="text" onClick={deleteCartProduct}>삭제</button>
