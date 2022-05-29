@@ -17,6 +17,7 @@ import Furniture from "../routes/Furniture";
 import Props from "../routes/Props";
 import DIY from "../routes/DIY";
 import Tap from "./Tap";
+import CreateProfile from "../routes/CreateProfile";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
@@ -61,6 +62,9 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
           </Route>
           <Route exact path="/DIY">
             <DIY />
+          </Route>
+          <Route exact path="/CreateProfile">
+            <CreateProfile />
           </Route>
         </div>
       </Switch>
