@@ -24,6 +24,8 @@ const SignIn = () => {
     })
       .then(function (response) {
         sessionStorage.setItem("logInUserId", response.data.user.pk); // 현재 로그인한 유저 누군지 설정
+        console.log("로그인한 유저");
+        console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
         const accessToken = response.data.access_token;
         console.log(accessToken);
         // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
@@ -31,6 +33,9 @@ const SignIn = () => {
         console.log(axios.defaults.headers.common);
         
         sessionStorage.setItem("auth", true); // 로그인 설정
+        console.log("로그인 여부");
+        console.log(JSON.parse(sessionStorage.getItem("auth")));
+
         // accessToken을 localStorage, cookie 등에 저장하지 않는다!
         setErrorText("");
       })
