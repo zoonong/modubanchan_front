@@ -10,12 +10,7 @@ const cx = classNames.bind(styles);
 
 const Cart = () => {
   const [logInUserId, setLogInUserId] = useState();
-  //const [myCartIdList, setMyCartIdList] = useState([]);
-  const [cartList, setCartList] = useState([{
-    cartId: 0, // 장바구니 id
-    productId: 0, // 상품 번호
-    productNum: 0, // 상품 개수
-  }]);
+  const [cartList, setCartList] = useState([]);
   
   const [init, setInit] = useState(false);
 
@@ -27,7 +22,6 @@ const Cart = () => {
       .map((productInCart) => {
         console.log("productInCart");
         console.log(productInCart);
-        //setMyCartIdList([...myCartIdList, productInCart]);
         cartList.push({
           ...cartList,
           cartId: productInCart.id,
@@ -36,12 +30,6 @@ const Cart = () => {
         });
       })
       setInit(true);
-      // setCart({
-      //   ...cart,
-      //   productId: response.data.productList,
-      //   productNum: response.data.productNum,
-      //   userId: response.data.user,
-      // });
     })
     .catch(function(error) {
       console.log(error);
@@ -51,18 +39,21 @@ const Cart = () => {
   useEffect(() => {
     setLogInUserId(JSON.parse(localStorage.getItem("logInUserId")));
     console.log(JSON.parse(localStorage.getItem("logInUserId")));
-    getProductsInCart();
+    console.log(cartList);
+    console.log(cartList.length);
+    if(cartList.length === 0) {
+      getProductsInCart();
+    }
   }, []);
   return (
     <div className={cx("Cart")}>
       <h1>장바구니</h1>
+      <div>{`logInUserId : ${logInUserId}`}</div>
       {init ? cartList.map((cart) =>
         <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} />
       ) : <div>장바구니 목록을 가져오는 중...</div>}
       
       <div>
-        <div>{`logInUserId : ${logInUserId}`}</div>
-        <button type="text" onClick={getProductsInCart}>장바구니 받아오기</button>
         <button>전체 선택</button>
         <div>
           <span>상품 금액</span>
