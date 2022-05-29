@@ -5,6 +5,8 @@ import { useLocation } from "react-router";
 import "../App.css";
 import styles from "../styles/ProductDetail/ProductDetail.module.scss";
 import classNames from "classnames/bind";
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 
 const cx = classNames.bind(styles);
 
@@ -146,7 +148,22 @@ const ProductDetail = () => {
   return (
     <div className={cx("ProductDetail")}>
       <div>{init ? 
-        <div className="container">
+        <div>
+          <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>장바구니로 이동하시겠습니까?</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p></p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">No. Continue Shopping</Button>
+          <Button variant="primary">Yes. Go to Cart</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+      <div className="container">
           <div className="productdetail">
           <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
           <span>{`상품 이름 : ${product.name}`}</span>
@@ -163,6 +180,7 @@ const ProductDetail = () => {
           <p>{`배송비 ${deliveryCharge}원`}</p>
           <button onClick={addToCart}>장바구니</button>
           <button>주문하기</button>
+        </div>
         </div>
         </div>
          : <div>Loading...</div>}</div>
