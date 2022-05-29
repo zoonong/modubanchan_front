@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import styles from "../styles/MyPage/MyPage.module.scss";
@@ -9,34 +9,37 @@ const cx = classNames.bind(styles);
 
 const MyPage = () => {
   const [profileInfo, setProfileInfo] = useState({
-    firstName: "Yoo",
-    lastName: "Dayeon",
+    nickname: "",
+    introduce: "",
   });
 
   function getProfile() {
     axios
       .get("http://127.0.0.1:8000/mypage/")
       .then(function (response) {
+        setProfileInfo({
+          nickname: response.data.first_name,
+          introduce: response.data.last_name,
+        });
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
   }
+  useEffect(() => {
+    getProfile();
+  }, []);
+
   return (
     <div className={cx("MyPage")}>
-      <div>My Page</div>
-      <span>My Feed</span>
       <Link to="MyPage/CreateProduct">
-        <button>+</button>
+        <button>상품 추가하기</button>
       </Link>
       <Link to="CreateProfile">
         <button>프로필 등록</button>
       </Link>
-      <button type="text" onClick={getProfile}>
-        프로필을 가져오기
-      </button>
-      <Profile />
+      <Profile profileInfo={profileInfo} />
     </div>
   );
 };

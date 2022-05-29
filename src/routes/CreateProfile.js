@@ -1,6 +1,7 @@
 import { React, useState, useDispatch } from "react";
 import CartProduct from "../components/CartProduct";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CreateProfile = () => {
   const [profile, setProfile] = useState({
@@ -35,6 +36,9 @@ const CreateProfile = () => {
           registerProfile(e);
         }}
       >
+        <div>.</div>
+        <div>.</div>
+        <div>.</div>
         <input
           name="nickname"
           type="text"
@@ -52,6 +56,9 @@ const CreateProfile = () => {
           onChange={onChange}
         />
         <button type="submit">프로필 등록</button>
+        <Link to="/MyPage">
+          <button>마이페이지로 돌아가기</button>
+        </Link>
       </form>
     </div>
   );
