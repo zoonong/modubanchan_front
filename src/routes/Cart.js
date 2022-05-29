@@ -3,9 +3,10 @@ import CartProduct from "../components/CartProduct";
 import axios from 'axios';
 
 const Cart = () => {
-  
   return (
     <div>
+      <button type="text" onClick={accountsInput}>accountsInput 클릭</button>
+      <button type="text" onClick={loginInput}>loginInput 클릭</button>      
       <span>장바구니</span>
       <CartProduct />
       <CartProduct />
