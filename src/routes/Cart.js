@@ -9,7 +9,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const Cart = () => {
-  const [logInUserId, setLogInUserId] = useState(0);
+  const [logInUserId, setLogInUserId] = useState();
   //const [myCartIdList, setMyCartIdList] = useState([]);
   const [cartList, setCartList] = useState([{
     cartId: 0, // 장바구니 id
