@@ -31,10 +31,10 @@ const MyPage = () => {
   useEffect(() => {
     getProfile();
   }, []);
-  console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
+  console.log(JSON.parse(localStorage.getItem("logInUserId")));
   return (
     <div className={cx("MyPage")}>
-      <Link to="MyPage/CreateProduct">
+      <Link to="/CreateProduct">
         <button>상품 추가하기</button>
       </Link>
       <Link to="CreateProfile">
@@ -42,7 +42,7 @@ const MyPage = () => {
       </Link>
       <Profile profileInfo={profileInfo} />
       <p>내가 등록한 상품</p>
-      <UserProducts uId={JSON.parse(sessionStorage.getItem("logInUserId"))} />
+      <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
   );
 };
