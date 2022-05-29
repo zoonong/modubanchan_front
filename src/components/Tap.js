@@ -6,10 +6,26 @@ import classNames from "classnames/bind";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
+const Tap = () => {
+  const logOut = () => {
+    sessionStorage.setItem("auth", false);
+    sessionStorage.setItem("logInUserId", 0);
+    console.log("로그아웃됨");
+    console.log(JSON.parse(sessionStorage.getItem("auth")));
+    console.log(JSON.parse(sessionStorage.getItem("logInUserId")));
+
+    axios.post(`http://127.0.0.1:8000/accounts/logout/`, {})
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+  }
   return (
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
@@ -24,7 +40,7 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
           <button className={cx("Following")}>Following</button>
         </Link>
         <input type="text" className={cx("Input")} />
-        {isLoggedIn ? (
+        {JSON.parse(sessionStorage.getItem("auth")) ? (
           <div className={cx("Icons")}>
             <Link to="/MyPage">
               <IoPersonOutline size="28" color="18ab4b" className={cx("Icon")}>
@@ -45,9 +61,7 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
                 size="30"
                 color="18ab4b"
                 className={cx("Icon")}
-                onClick={() => {
-                  setIsLoggedIn(false);
-                }}
+                onClick={logOut}
               >
                 로그아웃
               </IoIosLogOut>

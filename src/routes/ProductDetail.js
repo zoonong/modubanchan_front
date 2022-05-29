@@ -6,6 +6,9 @@ import "../App.css";
 import styles from "../styles/ProductDetail/ProductDetail.module.scss";
 import classNames from "classnames/bind";
 import { useHistory } from "react-router";
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+
 
 const cx = classNames.bind(styles);
 
@@ -149,22 +152,33 @@ const ProductDetail = () => {
 
   return (
     <div className={cx("ProductDetail")}>
-      <div>
-        {init ? (
-          <div className="container">
-            <div className="productdetail">
-              <img
-                src={`http://localhost:8000${product.picture}`}
-                alt={product.name}
-              />
-              <span>{`상품 이름 : ${product.name}`}</span>
-              <span>{`가격 : ${product.price}원`}</span>
-              <p>{`상품 설명 : ${product.description}`}</p>
-              <p>{`feedText : ${product.feedText}`}</p>
-              <span>{`category : ${product.category}`}</span>
-            </div>
-            <div>
-              <p
+      <div>{init ? 
+        <div>
+          <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>장바구니로 이동하시겠습니까?</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p></p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">No. Continue Shopping</Button>
+          <Button variant="primary">Yes. Go to Cart</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+      <div className="container">
+          <div className="productdetail">
+          <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
+          <span>{`상품 이름 : ${product.name}`}</span>
+          <span>{`가격 : ${product.price}원`}</span>
+          <p>{`상품 설명 : ${product.description}`}</p>
+          <p>{`feedText : ${product.feedText}`}</p>
+          <span>{`category : ${product.category}`}</span>
+        </div>
+        <div>
+          <p
                 onClick={() =>
                   history.push({
                     pathname: "/SellerPage",
@@ -174,16 +188,14 @@ const ProductDetail = () => {
                   })
                 }
               >{`${product.sellerId} ${product.sellerName}>`}</p>
-              <p>{`${product.price}원`}</p>
-              <p>{`배송비 ${deliveryCharge}원`}</p>
-              <button onClick={addToCart}>장바구니</button>
-              <button>주문하기</button>
-            </div>
-          </div>
-        ) : (
-          <div>Loading...</div>
-        )}
-      </div>
+          <p>{`${product.price}원`}</p>
+          <p>{`배송비 ${deliveryCharge}원`}</p>
+          <button onClick={addToCart}>장바구니</button>
+          <button>주문하기</button>
+        </div>
+        </div>
+        </div>
+         : <div>Loading...</div>}</div>
     </div>
   );
 };

@@ -22,18 +22,18 @@ import SellerPage from "../routes/SellerPage";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
-const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
+const AppRouter = () => {
   return (
     <Router>
       <Switch>
         <Route exact path="/SignIn">
-          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <SignIn />
         </Route>
         <Route exact path="/SignUp">
           <SignUp />
         </Route>
         <div className="body">
-          <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <Tap />
           <Route exact path="/Cart">
             <Cart />
           </Route>
