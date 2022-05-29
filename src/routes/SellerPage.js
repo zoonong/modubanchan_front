@@ -1,23 +1,25 @@
 import { React, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Profile from "./Profile";
+import axios from "axios";
+import { useLocation } from "react-router";
 import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
-import axios from "axios";
+import Profile from "./Profile";
 
 const cx = classNames.bind(styles);
 
-const MyPage = () => {
-  const [profileInfo, setProfileInfo] = useState({
+const SellerPage = () => {
+  const location = useLocation();
+  const [sellerInfo, setsellerInfo] = useState({
     nickname: "닉네임이 등록되지 않았습니다.",
-    introduce: "소개글을 등록해주세요!",
+    introduce: "소개글이 등록되지 않았습니다.",
   });
-
+  console.log(location.state.sId);
   function getProfile() {
     axios
-      .get("http://127.0.0.1:8000/mypage/")
+      .get(`http://127.0.0.1:8000/mypage/${location.state.sId}/`)
+      //.get("http://127.0.0.1:8000/mypage/2/")
       .then(function (response) {
-        setProfileInfo({
+        setsellerInfo({
           nickname: response.data.first_name,
           introduce: response.data.last_name,
         });
@@ -30,17 +32,12 @@ const MyPage = () => {
   useEffect(() => {
     getProfile();
   }, []);
-
+  console.log(sellerInfo);
   return (
     <div className={cx("MyPage")}>
-      <Link to="MyPage/CreateProduct">
-        <button>상품 추가하기</button>
-      </Link>
-      <Link to="CreateProfile">
-        <button>프로필 등록</button>
-      </Link>
-      <Profile profileInfo={profileInfo} />
+      <Profile profileInfo={sellerInfo} />
     </div>
   );
 };
-export default MyPage;
+
+export default SellerPage;

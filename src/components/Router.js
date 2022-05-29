@@ -18,6 +18,7 @@ import Props from "../routes/Props";
 import DIY from "../routes/DIY";
 import Tap from "./Tap";
 import CreateProfile from "../routes/CreateProfile";
+import SellerPage from "../routes/SellerPage";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
@@ -65,6 +66,9 @@ const AppRouter = () => {
           </Route>
           <Route exact path="/CreateProfile">
             <CreateProfile />
+          </Route>
+          <Route exact path="/SellerPage">
+            <SellerPage />
           </Route>
         </div>
       </Switch>
