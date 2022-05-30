@@ -14,6 +14,12 @@ const MyPage = () => {
     nickname: "닉네임이 등록되지 않았습니다.",
     introduce: "소개글을 등록해주세요!",
   });
+  const [following, setFollowing] = useState([
+    {
+      nickname: "",
+      introduce: "",
+    },
+  ]);
 
   function getProfile() {
     axios
@@ -29,9 +35,35 @@ const MyPage = () => {
         console.log(error);
       });
   }
+  const followingList = () => {
+    axios
+      .get("http://127.0.0.1:8000/mypage/following_list/")
+      .then(function (response) {
+        console.log(response.data.followings);
+        axios
+          .get(`http://127.0.0.1:8000/mypage/${response.data.followings}/`)
+          //.get("http://127.0.0.1:8000/mypage/2/")
+          .then(function (response) {
+            setFollowing({
+              ...following,
+              nickname: response.data.first_name,
+              introduce: response.data.last_name,
+            });
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   useEffect(() => {
     getProfile();
+    followingList();
   }, []);
+  console.log(following);
   console.log(JSON.parse(localStorage.getItem("logInUserId")));
   return (
     <div className={cx("MyPage")}>
@@ -42,6 +74,16 @@ const MyPage = () => {
         <button>프로필 등록</button>
       </Link>
       <Profile profileInfo={profileInfo} />
+      <p>{`닉네임 : ${following[0].nickname}`}</p>
+      <p>{`소개 : ${following[0].introduce}`}</p>
+      {/*{following.map((f, index) => {
+        return (
+          <div>
+            <p key={index}>{`닉네임 : ${f.nickname}`}</p>
+            <p key={index}>{`소개 : ${f.introduce}`}</p>
+          </div>
+        );
+      })}*/}
       <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
       <p>내가 등록한 피드</p>

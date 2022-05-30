@@ -21,15 +21,16 @@ const Profile = ({ profileInfo, userId }) => {
   //const users = useSelector((state) => state.users);
 
   const followingSeller = () => {
-    axios.post(`http://127.0.0.1:8000/mypage/follow/${userId}`, {})
-    .then(function(response) {
-      console.log(response);
-      console.log("팔로우/언팔로우");
-    })
-    .catch(function(error) {
-      console.log(error);
-    })
-  }
+    axios
+      .post(`http://127.0.0.1:8000/mypage/follow/${userId}`, {})
+      .then(function (response) {
+        console.log(response);
+        console.log("팔로우/언팔로우");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     console.log("userId");
@@ -49,7 +50,9 @@ const Profile = ({ profileInfo, userId }) => {
         <div className={cx("ProfileDetails")}>
           <div className={cx("NickName")}>{profileInfo.nickname}</div>
           <p className={cx("Introduction")}>{profileInfo.introduce}</p>
-          <button className={cx("Following")} onClick={followingSeller}>Follow</button>
+          <button className={cx("Following")} onClick={followingSeller}>
+            Follow
+          </button>
         </div>
       </div>
       <RenderingProducts />
