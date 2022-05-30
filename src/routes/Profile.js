@@ -40,11 +40,17 @@ const Profile = ({ userId }) => {
           nickname: first_name,
           introduce: last_name,
         });
+  const followingSeller = () => {
+    axios
+      .post(`http://127.0.0.1:8000/mypage/follow/${userId}`, {})
+      .then(function (response) {
+        console.log(response);
+        console.log("팔로우/언팔로우");
       })
       .catch(function (error) {
         console.log(error);
       });
-  }
+  };
 
   useEffect(() => {
     getProfileName();
@@ -63,6 +69,9 @@ const Profile = ({ userId }) => {
         <div className={cx("ProfileDetails")}>
           <div className={cx("NickName")}>{profile.nickname}</div>
           <p className={cx("Introduction")}>{profile.introduce}</p>
+          <button className={cx("Following")} onClick={followingSeller}>
+            Follow
+          </button>
         </div>
       </div>
     </div>

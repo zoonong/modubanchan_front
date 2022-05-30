@@ -78,16 +78,16 @@ const CreateProduct = () => {
           required
           onChange={(e) => {
             let price = parseInt(e.target.value);
-            if(!isNaN(price)) {
+            if (!isNaN(price)) {
               setNewProduct({
                 ...newProduct,
-                price: parseInt(e.target.value)
+                price: parseInt(e.target.value),
               });
             } else {
               setNewProduct({
                 ...newProduct,
-                price: ""
-              })
+                price: "",
+              });
             }
           }}
         />
@@ -110,7 +110,7 @@ const CreateProduct = () => {
         <input
           name="category"
           type="text"
-          placeholder="카테고리 DS"
+          placeholder="카테고리"
           value={newProduct.category}
           required
           onChange={onChange}
