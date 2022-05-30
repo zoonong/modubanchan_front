@@ -3,7 +3,7 @@ $blue: #1864ab;
 $green: #18ab4b;
 
 .CreateProduct {
-  margin-top: 300px;
+  margin-top: 15rem;
   justify-content: center;
   align-items: center;
   .Submit {
@@ -38,7 +38,7 @@ $green: #18ab4b;
   .Textarea {
     width: 70vh;
     height: 30vh;
-    border: solid $green;
+    border: solid 2px $green;
     &:focus {
       outline: 4px solid lighten($green, 5%);
       border: solid white;
