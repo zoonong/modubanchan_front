@@ -8,15 +8,14 @@ import classNames from "classnames/bind";
 import { useHistory } from "react-router";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import CartAlertModal from "../components/CartAlertModal";
 
 const cx = classNames.bind(styles);
 
 const ProductDetail = () => {
   const history = useHistory();
   const location = useLocation();
-  //const data = useLocation().state.productNum;
   const deliveryCharge = 3000;
-  //const sellerId = useRef(null);
   const [product, setProduct] = useState({
     pid: "",
     name: "",
@@ -36,7 +35,6 @@ const ProductDetail = () => {
     axios
       .get(`http://127.0.0.1:8000/product/${location.state.pid}/`)
       .then(function (response) {
-        //sellerId.current = response.data.user;
         setProduct({
           ...product,
           pid: location.state.pid,
@@ -52,34 +50,9 @@ const ProductDetail = () => {
       .catch(function (error) {
         console.log(error);
       });
-    // return new Promise((resolve, reject) => {
-    //   axios.get(`http://127.0.0.1:8000/product/${location.state.pid}/`)
-    //   .then(function (response) {
-    //   //sellerId.current = response.data.user;
-    //   console.log("response.data");
-    //   console.log(response.data);
-    //   setProduct({
-    //     ...product,
-    //     pid : location.state.pid,
-    //     name: response.data.name,
-    //     price : response.data.price,
-    //     description: response.data.description,
-    //     feedText: response.data.feedText,
-    //     category: response.data.category,
-    //     picture: response.data.picture,
-    //     sellerId: response.data.user
-    //   });
-    //   resolve(response.data.user);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // })
-    // });
   }
 
   function setSeller() {
-    //console.log(product.sellerId);
-    //while(sellerId.current == null) {console.log("기다리는중...");}
     axios
       .get(`http://127.0.0.1:8000/mypage/${product.sellerId}/`)
       .then(function (response) {
@@ -97,33 +70,13 @@ const ProductDetail = () => {
   }
 
   useEffect(() => {
-    // async function initialization(setSeller) {
-    //   productDetailInfo().then((product.sellerId) => {
-    //     setSeller(product.sellerId);
-    //   });
-    //   console.log("셀러 id");
-    //   console.log(sellerId.current);
-    //   //setSeller();
-    // }
-    // initialization(setSeller);
-    // productDetailInfo().then((sellerId) => {
-    //   setSeller(sellerId);
-    // });
-    // console.log("product");
-    // console.log(product);
-    //console.log(sellerId.current);
     productDetailInfo();
     if (product.pid !== "") {
       setSellerId.current = true;
     }
-    //console.log("setSellerId");
-    //console.log(setSellerId.current);
     if (setSellerId.current) {
       setSeller();
     }
-    //console.log("sellerName");
-    //console.log(product.sellerName);
-    //console.log(product.sellerName !== "seller");
     setInit(true);
   }, []);
 
@@ -163,26 +116,9 @@ const ProductDetail = () => {
       <div>
         {init ? (
           <div>
-            <Modal.Dialog>
-              <Modal.Header closeButton>
-                <Modal.Title>장바구니로 이동하시겠습니까?</Modal.Title>
-              </Modal.Header>
-
-              <Modal.Body>
-                <p></p>
-              </Modal.Body>
-
-              <Modal.Footer>
-                <Button variant="secondary">No. Continue Shopping</Button>
-                <Button variant="primary">Yes. Go to Cart</Button>
-              </Modal.Footer>
-            </Modal.Dialog>
             <div className="container">
               <div className="productdetail">
-                <img
-                  src={`http://localhost:8000${product.picture}`}
-                  alt={product.name}
-                />
+                <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
                 <span>{`상품 이름 : ${product.name}`}</span>
                 <span>{`가격 : ${product.price}원`}</span>
                 <p>{`상품 설명 : ${product.description}`}</p>
@@ -226,10 +162,9 @@ const ProductDetail = () => {
                   -
                 </button>
                 <p></p>
-                <button onClick={addToCart}>장바구니</button>
+                <CartAlertModal addToCart={addToCart} />
                 <button>주문하기</button>
-                {product.sellerId ===
-                JSON.parse(localStorage.getItem("logInUserId")) ? (
+                {product.sellerId === JSON.parse(localStorage.getItem("logInUserId")) ? (
                   <div>
                     <button onClick={deleteProduct}>상품 삭제하기</button>
                     <button
