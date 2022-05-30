@@ -12,7 +12,7 @@ import Modal from "react-bootstrap/Modal";
 
 const cx = classNames.bind(styles);
 
-const Profile = ({ userId }) => {
+const Profile = ({ userId, isProfileNameChanged, setIsProfileNameChanged }) => {
   const [profile, setProfile] = useState({
     id: userId,
     nickname: "",
@@ -49,7 +49,7 @@ const Profile = ({ userId }) => {
 
   useEffect(() => {
     getProfileName();
-  }, []);
+  }, [isProfileNameChanged]);
 
   return (
     <div>
