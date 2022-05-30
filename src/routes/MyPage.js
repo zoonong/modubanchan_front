@@ -64,7 +64,7 @@ const MyPage = () => {
 
   return (
     <div className={cx("MyPage")}>
-      <Link to="MyPage/CreateProduct">
+      <Link to="/CreateProduct">
         <button className={cx("Followings")}>상품 추가하기</button>
       </Link>
       <Link to="CreateProfile">
@@ -92,7 +92,6 @@ const MyPage = () => {
             Followings
           </Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           <div>
             <div>
@@ -107,7 +106,6 @@ const MyPage = () => {
             </div>
           </div>
         </Modal.Body>
-
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
