@@ -27,8 +27,6 @@ const ProductDetail = () => {
     picture: null,
     sellerId: "",
     sellerName: "seller",
-    createDate: null,
-    updateDate: null,
     productNum: 1, // 상품 수량
   });
   const setSellerId = useRef(false);
@@ -49,8 +47,6 @@ const ProductDetail = () => {
           category: response.data.category,
           picture: response.data.picture,
           sellerId: response.data.user,
-          createDate: response.data.createDate,
-          updateDate: response.data.updateDate,
         });
       })
       .catch(function (error) {
@@ -144,8 +140,7 @@ const ProductDetail = () => {
         console.log(error);
       });
   };
-  const deleteProduct = (e) => {
-    e.preventDefault();
+  const deleteProduct = () => {
     axios
       .delete(`http://127.0.0.1:8000/product/${product.pid}/`)
       .then(function (response) {
@@ -208,18 +203,28 @@ const ProductDetail = () => {
                 <p>{`${product.price}원`}</p>
                 <p>{`배송비 ${deliveryCharge}원`}</p>
                 <span>{`수량 : ${product.productNum}`}</span>
-                <button type="text" onClick={() => {
-                  setProduct({
-                    ...product,
-                    productNum: product.productNum + 1
-                  });
-                }}>+</button>
-                <button type="text" onClick={() => {
-                  setProduct({
-                    ...product,
-                    productNum: product.productNum - 1
-                  })
-                }}>-</button>
+                <button
+                  type="text"
+                  onClick={() => {
+                    setProduct({
+                      ...product,
+                      productNum: product.productNum + 1,
+                    });
+                  }}
+                >
+                  +
+                </button>
+                <button
+                  type="text"
+                  onClick={() => {
+                    setProduct({
+                      ...product,
+                      productNum: product.productNum - 1,
+                    });
+                  }}
+                >
+                  -
+                </button>
                 <p></p>
                 <button onClick={addToCart}>장바구니</button>
                 <button>주문하기</button>
