@@ -22,12 +22,19 @@ const MyPage = () => {
   const getFollowingList = () => {
     axios.get(`http://127.0.0.1:8000/mypage/following_list/`)
     .then(function(response) {
-      console.log(response);
-      console.log(response.data.followings);
-      setProfileInfo({
-        ...profileInfo,
-        followingList: response.data.followings
+      axios.get(`http://127.0.0.1:8000/mypage/${response.data.followings}`)
+      .then(function(response) {
+        console.log(response.data);
       })
+      .catch(function(error) {
+        console.log(error);
+      })
+      // console.log(response);
+      // console.log(response.data.followings);
+      // setProfileInfo({
+      //   ...profileInfo,
+      //   followingList: response.data.followings
+      // })
     })
     .catch(function(error) {
       console.log(error);
