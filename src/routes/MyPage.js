@@ -13,40 +13,48 @@ const cx = classNames.bind(styles);
 const MyPage = () => {
   const [profileInfo, setProfileInfo] = useState({
     uid: JSON.parse(localStorage.getItem("logInUserId")),
-    followingList: [],
+    followingIdList: [],
   });
+
+  const [followingNameList, setFollowingNameList] = useState([]);
 
   const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setModalShow(false);
 
   const getFollowingList = () => {
-    axios
-      .get(`http://127.0.0.1:8000/mypage/following_list/`)
-      .then(function (response) {
-        axios
-          .get(`http://127.0.0.1:8000/mypage/${response.data.followings}`)
-          .then(function (response) {
-            console.log(response.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-        // console.log(response);
-        // console.log(response.data.followings);
-        // setProfileInfo({
-        //   ...profileInfo,
-        //   followingList: response.data.followings
-        // })
-      })
-      .catch(function (error) {
-        console.log(error);
+    axios.get(`http://127.0.0.1:8000/mypage/following_list/`)
+    .then(function (response) {
+      console.log(response);
+      console.log(response.data.followings);
+      setProfileInfo({
+        ...profileInfo,
+        followingIdList: response.data.followings
       });
+      response.data.followings.map((following) => {
+        axios.get(`http://127.0.0.1:8000/mypage/${following}/`)
+        .then(function (response) {
+          setFollowingNameList([...followingNameList, response.data.first_name]);
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
 
   useEffect(() => {
     getFollowingList();
-    console.log(profileInfo.followingList);
-  }, [profileInfo]);
+    console.log(profileInfo.followingIdList);
+  }, []);
+
+  useState(() => {
+    console.log("followingNameList");
+    console.log(followingNameList);
+  }, [followingNameList]);
 
   return (
     <div className={cx("MyPage")}>
@@ -81,9 +89,15 @@ const MyPage = () => {
 
         <Modal.Body>
           <div>
-            {profileInfo.followingList.map((following) => (
+          <div>
+            {profileInfo.followingIdList.map((following) => (
               <p>{following}</p>
             ))}
+          </div>
+          <div>
+            {followingNameList.map((followingName) => (
+              <p>{followingName}</p>))}
+          </div>
           </div>
         </Modal.Body>
 
