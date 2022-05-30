@@ -4,26 +4,26 @@ $green: #18ab4b;
 
 .Tap {
   position: fixed;
-  height: 17vh;
+  height: 9rem;
   top: 0;
   width: 100%;
   background-color: white;
   display: block;
   flex-direction: column;
-  padding: 20px;
+  padding: 1rem;
   text-decoration: none;
-  box-shadow: 10px 10px 30px rgb(100, 100, 100);
+  box-shadow: 1rem 1rem 3rem rgb(100, 100, 100);
   .Bar {
     display: flex;
     flex-direction: row;
     align-items: center;
     .Title {
       flex: 1;
-      padding: 4px;
-      width: 200px;
-      height: 60px;
+      padding: 0.1rem;
+      width: 13rem;
+      height: 3.7rem;
       border: none;
-      margin-left: 55px;
+      margin-left: 4rem;
       cursor: pointer;
       &:hover {
         border: none;
@@ -33,11 +33,9 @@ $green: #18ab4b;
     .Following {
       flex: 3;
       color: darker($gray, 3%);
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: bold;
-      border-radius: 100px;
-      margin: 8px;
-      margin-left: 50px;
+      margin-left: 4rem;
       background-color: white;
       border: none;
       cursor: pointer;
@@ -48,12 +46,10 @@ $green: #18ab4b;
     }
     .Input {
       flex: 2;
-      width: 500px;
-      height: 15px;
-      border-radius: 5px;
-      margin: 4px 12px;
-      margin-left: 80px;
-      padding: 15px 300px;
+      height: 2.2rem;
+      border-radius: 0.5rem;
+      margin-left: 4rem;
+
       border: solid $green;
       &:focus {
         outline: 2px solid lighten($green, 5%);
@@ -63,10 +59,10 @@ $green: #18ab4b;
     .Icons {
       flex: 1;
       text-align: right;
-      margin-right: 55px;
-      margin-left: 200px;
+      margin-right: 4rem;
+      margin-left: 20rem;
       .Icon {
-        margin: 10px;
+        margin: 0.7rem;
         &:hover {
           color: $green;
           border-color: $green;
@@ -77,12 +73,11 @@ $green: #18ab4b;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin-right: 55px;
-      margin-left: 300px;
-      padding: 2px;
-      font-size: 16px;
+      margin-right: 4rem;
+      margin-left: 20rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      height: 40px;
+      height: 2rem;
       border: none;
       white-space: nowrap;
       cursor: pointer;
@@ -94,16 +89,16 @@ $green: #18ab4b;
   }
   .Category {
     display: flex;
-    margin-left: 45px;
+    margin-left: 3rem;
     .Item {
       display: inline-block;
       background-color: transparent;
-      margin: 12px;
-      padding: 2px;
+      margin: 0.3rem;
+      padding: 0.6rem;
       color: darker($gray, 3%);
-      font-size: 18px;
+      font-size: 1.1rem;
       font-weight: bold;
-      height: 40px;
+      height: 3rem;
       border: none;
       cursor: pointer;
       &:hover {
