@@ -1,3 +1,82 @@
-.Cart{
-    margin-top: 300px;
+.Cart {
+  margin-top: 15rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  height: 100vh;
+  .Title {
+    font-size: 2rem;
+    margin-left: 5rem;
+  }
+  .itemtitle {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5rem;
+    font-size: 1.3rem;
+    color: rgb(90, 90, 90);
+    .box1 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+
+    .box2 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .box3 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .box4 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .box5 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .box6 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+  }
+  .cartproduct {
+    width: 100%;
+    height: 25%;
+    display: inline-block;
+    .img {
+      margin-left: 4.5rem;
+      margin-top: 1rem;
+      margin-right: 2.5rem;
+      object-fit: cover;
+      width: 10%;
+      height: 85%;
+    }
+    .div1 {
+      margin-left: 7rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .btn1 {
+      margin-left: 7rem;
+      width: 1.5%;
+      display: inline-block;
+    }
+    .btn2 {
+      margin-left: 17rem;
+      width: 10%;
+      display: inline-block;
+    }
+    .deliveryFee {
+      margin-left: 10rem;
+      width: 10%;
+      display: inline-block;
+    }
+  }
 }

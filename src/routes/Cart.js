@@ -11,7 +11,6 @@ const cx = classNames.bind(styles);
 const Cart = () => {
   const [logInUserId, setLogInUserId] = useState();
   const [cartList, setCartList] = useState([]);
-
   const [init, setInit] = useState(false);
 
   const getProductsInCart = () => {
@@ -26,8 +25,6 @@ const Cart = () => {
               JSON.parse(localStorage.getItem("logInUserId"))
           )
           .map((productInCart) => {
-            console.log("productInCart");
-            console.log(productInCart);
             cartList.push({
               ...cartList,
               cartId: productInCart.id,
@@ -41,7 +38,6 @@ const Cart = () => {
         console.log(error);
       });
   };
-
   useEffect(() => {
     setLogInUserId(JSON.parse(localStorage.getItem("logInUserId")));
     console.log(JSON.parse(localStorage.getItem("logInUserId")));
@@ -53,8 +49,16 @@ const Cart = () => {
   }, []);
   return (
     <div className={cx("Cart")}>
-      <h1>장바구니</h1>
-      <div>{`logInUserId : ${logInUserId}`}</div>
+      <p className={cx("Title")}>장바구니</p>
+      <div className={cx("itemtitle")}>
+        <p className={cx("box1")}>item</p>
+        <p className={cx("box2")}>상품이름</p>
+        <p className={cx("box3")}>가격</p>
+        <p className={cx("box4")}>수량</p>
+        <p className={cx("box5")}> </p>
+        <p className={cx("box6")}>배송비</p>
+        <hr />
+      </div>
       {init ? (
         cartList.map((cart) => (
           <CartProduct
@@ -67,22 +71,6 @@ const Cart = () => {
       ) : (
         <div>장바구니 목록을 가져오는 중...</div>
       )}
-
-      <div>
-        <button>전체 선택</button>
-        <div>
-          <span>상품 금액 </span>
-          <span>배송비 </span>
-          <span>결제 예정 금액</span>
-        </div>
-        <div>
-          <span>15000원</span>
-          <span> + </span>
-          <span>5000원</span>
-          <span> = </span>
-        </div>
-        <span>주문하기</span>
-      </div>
     </div>
   );
 };
