@@ -67,9 +67,7 @@ const CreateProduct = () => {
       picture: file,
     });
   };
-  const onChangeCategory = (e) => {
-    console.log(e.target);
-  }
+
   return (
     <div className={cx("CreateProduct")}>
       <form
@@ -129,14 +127,6 @@ const CreateProduct = () => {
           size='lg'
           onChange={onChange}
         />
-        <input
-          name="category"
-          type="text"
-          placeholder="카테고리"
-          value={newProduct.category}
-          required
-          onChange={onChange}
-        />
         <div>{newProduct.category}</div>
         <ButtonGroup>
         {categoryTypes.map((categoryType, idx) => (
@@ -149,7 +139,10 @@ const CreateProduct = () => {
             value={categoryType.value}
             checked={newProduct.category === categoryType.value}
             onChange={(e) => {
-              setNewProduct(e.currentTarget.value);
+              setNewProduct({
+                ...newProduct,
+                category: e.currentTarget.value
+              });
             }}
           >
             {categoryType.name}
