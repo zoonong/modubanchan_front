@@ -7,21 +7,20 @@
   }
   div:nth-child(2) {
     flex: 1;
-    border-left: 0.1px solid rgb(179, 179, 179);
-    border-right: 0.1px solid rgb(179, 179, 179);
+    border-left: 0.05rem solid rgb(179, 179, 179);
+    border-right: 0.05rem solid rgb(179, 179, 179);
   }
   div:nth-child(3) {
     flex: 1;
   }
   img {
-    max-width: 69vh;
-  }
-  img:nth-child(2) {
-    max-width: 69vh;
+    max-width: 33rem;
   }
   p {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
   }
   .Preface {
     font-family: "font";

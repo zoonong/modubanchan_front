@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 import styles from "../styles/SellerPage/SellerPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
-import UserFeeds from "../components/UserFeeds";
 import Profile from "./Profile";
 import RenderingProducts from "../components/RenderingProducts";
 
@@ -41,7 +40,6 @@ const SellerPage = () => {
       <RenderingProducts />
       <p>{`판매자가 등록한 상품`}</p>
       <UserProducts uId={location.state.sId} />
-      <UserFeeds uId={location.state.sId} />
     </div>
   );
 };

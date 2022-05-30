@@ -92,7 +92,6 @@ const MyPage = () => {
             Followings
           </Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           <div>
             <div>
@@ -107,7 +106,6 @@ const MyPage = () => {
             </div>
           </div>
         </Modal.Body>
-
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
