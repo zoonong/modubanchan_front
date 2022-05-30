@@ -5,7 +5,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const CartProduct = ({ cartId, productId, productNum }) => {
+const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
   const [cartProductDetail, setCartProductDetail] = useState({
     pid: productId,
     name: "",
@@ -53,17 +53,6 @@ const CartProduct = ({ cartId, productId, productNum }) => {
       });
   };
 
-  const deleteCartProduct = () => {
-    axios
-      .delete(`http://127.0.0.1:8000/cart/${cartProductDetail.cartId}/`)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
   useEffect(() => {
     getCartProductDetail();
   }, []);
@@ -71,10 +60,6 @@ const CartProduct = ({ cartId, productId, productNum }) => {
   useEffect(() => {
     updateCartProduct();
   }, [cartProductDetail.productNum]);
-
-  // useEffect(() => {
-
-  // }, [cartProductDetail])
 
   return (
     <div className={cx("cartproduct")}>
@@ -111,7 +96,7 @@ const CartProduct = ({ cartId, productId, productNum }) => {
         </button>
       </span>
 
-      <button className={cx("btn2", "Button")} type="text" onClick={deleteCartProduct}>
+      <button className={cx("btn2", "Button")} type="text" onClick={() => deleteCartProduct(cartProductDetail.cartId)}>
         삭제
       </button>
       <span className={cx("deliveryFee")}>3000원</span>
