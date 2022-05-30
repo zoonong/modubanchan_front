@@ -5,13 +5,9 @@ import { useLocation } from "react-router";
 const ModifyProduct = () => {
   const location = useLocation();
   const [modifyProduct, setModifyProduct] = useState({
-    id: location.state.product.pid,
-    user: JSON.parse(localStorage.getItem("logInUserId")),
     name: location.state.product.name,
     price: location.state.product.price,
     description: location.state.product.description,
-    createDate: location.state.product.createDate,
-    updateDate: location.state.product.updateDate,
     feedText: location.state.product.feedText,
     category: location.state.product.category,
     picture: null,
@@ -27,13 +23,9 @@ const ModifyProduct = () => {
         modifyProduct.picture.name
       );
     }
-    formData.append("id", modifyProduct.id);
-    formData.append("user", modifyProduct.user);
     formData.append("name", modifyProduct.name);
     formData.append("price", modifyProduct.price);
     formData.append("description", modifyProduct.description);
-    formData.append("createDate", modifyProduct.createDate);
-    formData.append("updateDate", modifyProduct.updateDate);
     formData.append("feedText", modifyProduct.feedText);
     formData.append("category", modifyProduct.category);
     axios
