@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
+import UserFeeds from "../components/UserFeeds";
 import Profile from "./Profile";
 
 const cx = classNames.bind(styles);
@@ -37,6 +38,8 @@ const SellerPage = () => {
       <Profile profileInfo={sellerInfo} />
       <p>{`${sellerInfo.nickname} 등록한 상품`}</p>
       <UserProducts uId={location.state.sId} />
+      <p>{`${sellerInfo.nickname} 등록한 피드`}</p>
+      <UserFeeds uId={location.state.sId} />
     </div>
   );
 };

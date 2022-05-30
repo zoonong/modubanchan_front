@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
+import UserFeeds from "../components/UserFeeds";
 import axios from "axios";
 
 const cx = classNames.bind(styles);
@@ -43,6 +44,8 @@ const MyPage = () => {
       <Profile profileInfo={profileInfo} />
       <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      <p>내가 등록한 피드</p>
+      <UserFeeds uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
   );
 };
