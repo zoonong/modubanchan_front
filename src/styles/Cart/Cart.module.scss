@@ -1,3 +1,7 @@
+$gray: #dee2e6;
+$blue: #1864ab;
+$green: #18ab4b;
+
 .Cart {
   margin-top: 15rem;
   margin-left: 3rem;
@@ -77,6 +81,22 @@
       margin-left: 10rem;
       width: 10%;
       display: inline-block;
+    }
+  }
+  .Button {
+    color: white;
+    font-size: 20px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    margin: 8px;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($green, 20%);
+      border: none;
+      outline: none;
     }
   }
 }
