@@ -103,6 +103,7 @@ const CreateProduct = () => {
           }
         }}
       />
+      <span>원</span>
       <div>
         <Textarea
           className={cx("Textarea")}
