@@ -8,14 +8,17 @@ import UserFeeds from "../components/UserFeeds";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import CreateProfile from "./CreateProfile";
 
 const cx = classNames.bind(styles);
 
 const MyPage = () => {
-  const [profileInfo, setProfileInfo] = useState({
+  const [profile, setProfile] = useState({
     uid: JSON.parse(localStorage.getItem("logInUserId")),
     followingIdList: [],
   });
+
+  const [isProfileNameChanged, setIsProfileNameChanged] = useState(0);
 
   const [followingNameList, setFollowingNameList] = useState([]);
 
@@ -28,8 +31,8 @@ const MyPage = () => {
       .then(function (response) {
         console.log(response);
         console.log(response.data.followings);
-        setProfileInfo({
-          ...profileInfo,
+        setProfile({
+          ...profile,
           followingIdList: response.data.followings,
         });
         response.data.followings.map((following) => {
@@ -51,10 +54,10 @@ const MyPage = () => {
 
   useEffect(() => {
     getFollowingList();
-    console.log(profileInfo.followingIdList);
+    console.log(profile.followingIdList);
   }, []);
 
-  useState(() => {
+  useEffect(() => {
     console.log("followingNameList");
     console.log(followingNameList);
   }, [followingNameList]);
@@ -64,10 +67,15 @@ const MyPage = () => {
       <Link to="/CreateProduct">
         <button className={cx("Followings")}>상품 추가하기</button>
       </Link>
-      <Link to="CreateProfile">
+      {/* <Link to="CreateProfile">
         <button className={cx("Followings")}>프로필 등록</button>
-      </Link>
-      <Profile userId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      </Link> */}
+      <CreateProfile isProfileNameChanged={isProfileNameChanged} setIsProfileNameChanged={setIsProfileNameChanged} />
+      <Profile
+        userId={JSON.parse(localStorage.getItem("logInUserId"))}
+        isProfileNameChanged={isProfileNameChanged}
+        setIsProfileNameChanged={setIsProfileNameChanged}
+      />
       <button
         className={cx("Followings")}
         onClick={() => {
@@ -84,7 +92,7 @@ const MyPage = () => {
         <Modal.Body>
           <div>
             <div>
-              {profileInfo.followingIdList.map((following) => (
+              {profile.followingIdList.map((following) => (
                 <p>{following}</p>
               ))}
             </div>
@@ -102,7 +110,7 @@ const MyPage = () => {
           <Button variant="primary">Hi</Button>
         </Modal.Footer>
       </Modal>
-      <p>내가 등록한 상품</p>
+      <div>내가 등록한 상품</div>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
   );
