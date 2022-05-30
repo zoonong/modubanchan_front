@@ -48,6 +48,7 @@ const CreateProduct = () => {
         },
       })
       .then(function (response) {
+        console.log("상품 등록 성공");
         console.log(response);
       })
       .catch(function (error) {
@@ -71,13 +72,7 @@ const CreateProduct = () => {
 
   return (
     <div className={cx("CreateProduct")}>
-      <form
-        onSubmit={(e) => {
-          registerProduct(e);
-        }}
-        enctype="multipart/form-data"
-      >
-        <input
+       <input
           className={cx("Input")}
           name="name"
           type="text"
@@ -108,8 +103,7 @@ const CreateProduct = () => {
             }
           }}
         />
-        <>
-          <Text mb='8px'>설명 : {newProduct.description}</Text>
+        <div>
           <Textarea
             className={cx("Textarea")}
             name="description"
@@ -118,7 +112,6 @@ const CreateProduct = () => {
             placeholder='상품 설명을 입력하세요'
             size='lg'
           />
-        </>
         <Textarea
           className={cx("Textarea")}
           name="feedText"
@@ -151,14 +144,17 @@ const CreateProduct = () => {
         ))}
       </ButtonGroup>
       <Form.Group controlId="formFile" className="mb-3">
-    <Form.Label>Default file input example</Form.Label>
-    <Form.Control type="file" accept="image/*" onChange={onLoadFile} />
-  </Form.Group>
+        <Form.Label>이미지 업로드</Form.Label>
+        <Form.Control type="file" accept="image/*" onChange={onLoadFile} />
+      </Form.Group>
         <Link to="/MyPage">
-          <button className={cx("Submit")} type="submit">상품 등록</button>
+          <button className={cx("Submit")} type="text" onClick={(e) => {
+          console.log("registerProduct 실행");
+          registerProduct(e);
+        }}>상품 등록</button>
         </Link>
-      </form>
-    </div>
+      </div> 
+  </div>
   );
 };
 
