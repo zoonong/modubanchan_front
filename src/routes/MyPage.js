@@ -5,42 +5,72 @@ import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const cx = classNames.bind(styles);
 
 const MyPage = () => {
   const [profileInfo, setProfileInfo] = useState({
-    nickname: "닉네임이 등록되지 않았습니다.",
-    introduce: "소개글을 등록해주세요!",
+    uid: JSON.parse(localStorage.getItem("logInUserId")),
+    followingList: [],
   });
 
-  function getProfile() {
-    axios
-      .get("http://127.0.0.1:8000/mypage/")
-      .then(function (response) {
-        setProfileInfo({
-          nickname: response.data.first_name,
-          introduce: response.data.last_name,
-        });
-        console.log(response);
+  const [modalShow, setModalShow] = useState(false);
+  const handleClose = () => setModalShow(false);
+
+  const getFollowingList = () => {
+    axios.get(`http://127.0.0.1:8000/mypage/following_list/`)
+    .then(function(response) {
+      console.log(response);
+      console.log(response.data.followings);
+      setProfileInfo({
+        ...profileInfo,
+        followingList: response.data.followings
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
   }
+
   useEffect(() => {
-    getProfile();
-  }, []);
-  console.log(JSON.parse(localStorage.getItem("logInUserId")));
+    getFollowingList();
+    console.log(profileInfo.followingList);
+  }, [profileInfo]);
+
   return (
     <div className={cx("MyPage")}>
       <Link to="MyPage/CreateProduct">
-        <button>상품 추가하기</button>
+        <button className={cx("Followings")}>상품 추가하기</button>
       </Link>
       <Link to="CreateProfile">
-        <button>프로필 등록</button>
+        <button className={cx("Followings")}>프로필 등록</button>
       </Link>
-      <Profile profileInfo={profileInfo} />
+      <Profile userId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      <button className={cx("Followings")} onClick={() => {
+        getFollowingList();
+        setModalShow(true);
+      }}>Followings</button>
+      <Modal
+      show={modalShow} onHide={handleClose}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      size="lg"
+      >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">Followings</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                <div>{profileInfo.followingList.map((following) => <p>{following}</p>)}</div>
+              </Modal.Body>
+
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>Close</Button>
+                <Button variant="primary">Hi</Button>
+              </Modal.Footer>
+      </Modal>
       <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
