@@ -63,7 +63,6 @@ const FollowingList = ({ profile, setProfile }) => {
       <button
         className={cx("Followings")}
         onClick={() => {
-          //getFollowingList();
           setModalShow(true);
         }}
       >
