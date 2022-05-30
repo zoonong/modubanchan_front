@@ -1,0 +1,23 @@
+$gray: #dcdcdc;
+$blue: #1864ab;
+$green: #18ab4b;
+
+.SellerPage {
+  margin-top: 300px;
+  .Following {
+    color: white;
+    font-size: 20px;
+    width: 120px;
+    height: 40px;
+    border-radius: 80px;
+    margin: 8px;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($green, 20%);
+      border: none;
+      outline: none;
+    }
+  }
+}

@@ -4,4 +4,20 @@ $green: #18ab4b;
 
 .MyPage {
     margin-top: 300px;
+    .Followings {
+        color: white;
+        font-size: 20px;
+        width: 200px;
+        height: 40px;
+        border-radius: 80px;
+        margin: 8px;
+        background-color: $green;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: lighten($green, 20%);
+          border: none;
+          outline: none;
+        }
+      }
 }
