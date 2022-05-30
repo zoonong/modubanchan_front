@@ -56,6 +56,7 @@ const RenderingProduct = ({ pid }) => {
       </button>
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
+        <Card.Text>{`${product.price}원`}</Card.Text>
         <Card.Text>{product.feedText}</Card.Text>
         <Button
           variant="success"
@@ -68,7 +69,7 @@ const RenderingProduct = ({ pid }) => {
             })
           }
         >
-          Show More >
+          {`Show More >`}
         </Button>
       </Card.Body>
       <Card.Footer>
