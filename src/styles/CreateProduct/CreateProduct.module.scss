@@ -1,5 +1,60 @@
+$gray: #dee2e6;
+$blue: #1864ab;
+$green: #18ab4b;
+
 .CreateProduct {
   margin-top: 300px;
   justify-content: center;
   align-items: center;
+  .Submit {
+    color: white;
+    font-size: 20px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    margin: 8px;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($green, 20%);
+      border: none;
+      outline: none;
+    }
+  }
+  .Input {
+    font-size: 14px;
+    width: 250px;
+    height: 15px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin: 8px 5px;
+    border: solid $green;
+    &:focus {
+      outline: 4px solid lighten($green, 5%);
+      border: solid white;
+    }
+  }
+  .Textarea {
+    width: 70vh;
+    height: 30vh;
+    border: solid $green;
+    &:focus {
+      outline: 4px solid lighten($green, 5%);
+      border: solid white;
+    }
+  }
+  .Text {
+    color: $green;
+    font-size: 20px;
+    margin: 20px 15px;
+    .Toggle {
+      font-weight: 1000;
+      cursor: pointer;
+      margin: 15px;
+      &:hover {
+        color: lighten($green, 20%);
+      }
+    }
+  }
 }

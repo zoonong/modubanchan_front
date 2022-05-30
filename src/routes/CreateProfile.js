@@ -55,9 +55,8 @@ const CreateProfile = () => {
           required
           onChange={onChange}
         />
-        <button type="submit">프로필 등록</button>
         <Link to="/MyPage">
-          <button>마이페이지로 돌아가기</button>
+          <button type="submit">프로필 등록</button>
         </Link>
       </form>
     </div>

@@ -2,6 +2,9 @@ import { React, useState } from "react";
 import styles from "../styles/CreateProduct/CreateProduct.module.scss";
 import classNames from "classnames/bind";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import produce from "immer";
+import { Text, Textarea } from '@chakra-ui/react'
 
 const cx = classNames.bind(styles);
 
@@ -63,6 +66,7 @@ const CreateProduct = () => {
         enctype="multipart/form-data"
       >
         <input
+          className={cx("Input")}
           name="name"
           type="text"
           placeholder="상품 이름"
@@ -71,6 +75,7 @@ const CreateProduct = () => {
           onChange={onChange}
         />
         <input
+          className={cx("Input")}
           name="price"
           type="text"
           placeholder="가격"
@@ -91,20 +96,24 @@ const CreateProduct = () => {
             }
           }}
         />
-        <input
-          name="description"
-          type="text"
-          placeholder="상품 설명"
-          value={newProduct.description}
-          required
-          onChange={onChange}
-        />
-        <input
+        <>
+          <Text mb='8px'>설명 : {newProduct.description}</Text>
+          <Textarea
+            className={cx("Textarea")}
+            name="description"
+            value={newProduct.description}
+            onChange={onChange}
+            placeholder='상품 설명을 입력하세요'
+            size='lg'
+          />
+        </>
+        <Textarea
+          className={cx("Textarea")}
           name="feedText"
-          type="text"
           placeholder="피드 글 작성"
           value={newProduct.feedText}
           required
+          size='lg'
           onChange={onChange}
         />
         <input
@@ -116,7 +125,9 @@ const CreateProduct = () => {
           onChange={onChange}
         />
         <input type="file" accept="image/*" onChange={onLoadFile} />
-        <button type="submit">상품 등록</button>
+        <Link to="/MyPage">
+          <button className={cx("Submit")} type="submit">상품 등록</button>
+        </Link>
       </form>
     </div>
   );
