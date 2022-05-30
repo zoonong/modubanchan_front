@@ -3,29 +3,32 @@ $blue: #1864ab;
 $green: #18ab4b;
 
 .CreateProduct {
+  display: flex;
+  flex-direction: column;
   margin-top: 15rem;
   justify-content: center;
   align-items: center;
-  .Submit {
-    color: white;
-    font-size: 20px;
-    width: 250px;
-    height: 50px;
-    border-radius: 20px;
-    margin: 8px;
-    background-color: $green;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      background: lighten($green, 20%);
-      border: none;
-      outline: none;
+  .Title {
+    font-weight: bold;
+    font-size: 3rem;
+    color: $green;
+    margin-bottom: 2rem;
+  }
+  .Price {
+  }
+  .Category {
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem 0px;
+    .CategoryText {
+      margin-right: 1rem;
+      font-size: 1.5rem;
     }
   }
   .Input {
     font-size: 14px;
-    width: 250px;
-    height: 15px;
+    width: 12rem;
+    height: 3rem;
     padding: 20px 10px;
     border-radius: 10px;
     margin: 8px 5px;
@@ -35,26 +38,44 @@ $green: #18ab4b;
       border: solid white;
     }
   }
-  .Textarea {
-    width: 70vh;
-    height: 30vh;
-    border: solid 2px $green;
-    &:focus {
-      outline: 4px solid lighten($green, 5%);
-      border: solid white;
+  .TextareaContainer {
+    display: flex;
+    flex-direction: column;
+    .Text {
+      font-size: 1.5rem;
+    }
+    .Textarea {
+      width: 50rem;
+      height: 15rem;
+      border: solid 2px $green;
+      margin: 0.5rem 0rem;
+      &:focus {
+        outline: 4px solid lighten($green, 5%);
+        border: solid white;
+      }
     }
   }
-  .Text {
-    color: $green;
-    font-size: 20px;
-    margin: 20px 15px;
-    .Toggle {
-      font-weight: 1000;
-      cursor: pointer;
-      margin: 15px;
-      &:hover {
-        color: lighten($green, 20%);
-      }
+  .ImageUpload {
+    margin: 1rem 0;
+    .Text {
+      font-size: 1.5rem;
+    }
+  }
+  .Submit {
+    color: white;
+    font-size: 1.5rem;
+    width: 10rem;
+    height: 3.5rem;
+    border-radius: 20px;
+    margin: 2rem;
+    margin-bottom: 8rem;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($green, 20%);
+      border: none;
+      outline: none;
     }
   }
 }

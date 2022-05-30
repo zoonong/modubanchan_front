@@ -72,57 +72,46 @@ const CreateProduct = () => {
 
   return (
     <div className={cx("CreateProduct")}>
-      <input
-        className={cx("Input")}
-        name="name"
-        type="text"
-        placeholder="상품 이름"
-        value={newProduct.name}
-        required
-        onChange={onChange}
-      />
-      <input
-        className={cx("Input")}
-        name="price"
-        type="text"
-        placeholder="가격"
-        value={newProduct.price}
-        required
-        onChange={(e) => {
-          let price = parseInt(e.target.value);
-          if (!isNaN(price)) {
-            setNewProduct({
-              ...newProduct,
-              price: parseInt(e.target.value),
-            });
-          } else {
-            setNewProduct({
-              ...newProduct,
-              price: "",
-            });
-          }
-        }}
-      />
-      <span>원</span>
-      <div>
-        <Textarea
-          className={cx("Textarea")}
-          name="description"
-          value={newProduct.description}
-          onChange={onChange}
-          placeholder="상품 설명을 입력하세요"
-          size="lg"
-        />
-        <Textarea
-          className={cx("Textarea")}
-          name="feedText"
-          placeholder="피드 글 작성"
-          value={newProduct.feedText}
+      <div className={cx("Title")}>새로운 상품을 등록해보세요.</div>
+      <div className={cx("NamePrice")}>
+        <input
+          className={cx("Input")}
+          name="name"
+          type="text"
+          placeholder="상품 이름"
+          value={newProduct.name}
           required
-          size="lg"
           onChange={onChange}
         />
-        <div>{newProduct.category}</div>
+        <div className={cx("Price")}>
+          <input
+            className={cx("Input")}
+            name="price"
+            type="text"
+            placeholder="가격"
+            value={newProduct.price}
+            required
+            onChange={(e) => {
+              let price = parseInt(e.target.value);
+              if (!isNaN(price)) {
+                setNewProduct({
+                  ...newProduct,
+                  price: parseInt(e.target.value),
+                });
+              } else {
+                setNewProduct({
+                  ...newProduct,
+                  price: "",
+                });
+              }
+            }}
+          />
+          <span>원</span>
+        </div>
+      </div>
+
+      <div className={cx("Category")}>
+        <span className={cx("CategoryText")}>카테고리 선택</span>
         <ButtonGroup>
           {categoryTypes.map((categoryType, idx) => (
             <ToggleButton
@@ -144,23 +133,49 @@ const CreateProduct = () => {
             </ToggleButton>
           ))}
         </ButtonGroup>
+      </div>
+      <div className={cx("TextareaContainer")}>
+        <span className={cx("Text")}>상품 상세 설명</span>
+        <Textarea
+          className={cx("Textarea")}
+          name="description"
+          value={newProduct.description}
+          onChange={onChange}
+          placeholder="상품 설명을 입력하세요"
+          size="lg"
+        />
+      </div>
+      <div className={cx("TextareaContainer")}>
+        <span className={cx("Text")}>피드 작성</span>
+        <Textarea
+          className={cx("Textarea")}
+          name="feedText"
+          placeholder="피드 글 작성"
+          value={newProduct.feedText}
+          required
+          size="lg"
+          onChange={onChange}
+        />
+      </div>
+      <div className={cx("ImageUpload")}>
         <Form.Group controlId="formFile" className="mb-3">
-          <Form.Label>이미지 업로드</Form.Label>
+          <Form.Label className={cx("Text")}>이미지 업로드</Form.Label>
           <Form.Control type="file" accept="image/*" onChange={onLoadFile} />
         </Form.Group>
-        <Link to="/MyPage">
-          <button
-            className={cx("Submit")}
-            type="text"
-            onClick={(e) => {
-              console.log("registerProduct 실행");
-              registerProduct(e);
-            }}
-          >
-            상품 등록
-          </button>
-        </Link>
       </div>
+
+      <Link to="/MyPage">
+        <button
+          className={cx("Submit")}
+          type="text"
+          onClick={(e) => {
+            console.log("registerProduct 실행");
+            registerProduct(e);
+          }}
+        >
+          상품 등록
+        </button>
+      </Link>
     </div>
   );
 };
