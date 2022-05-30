@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import produce from "immer";
 import { Text, Textarea } from '@chakra-ui/react'
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { ToggleButton } from "react-bootstrap";
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,14 @@ const CreateProduct = () => {
     category: "",
     picture: null,
   });
+
+  const categoryTypes = [
+    { name: '의류', value: 'DS' },
+    { name: '가구', value: 'BV' },
+    { name: '소품', value: 'AC' },
+    { name: 'DIY', value: 'SD' },
+  ];
+
   const registerProduct = async (e) => {
     e.preventDefault();
 
@@ -57,6 +67,9 @@ const CreateProduct = () => {
       picture: file,
     });
   };
+  const onChangeCategory = (e) => {
+    console.log(e.target);
+  }
   return (
     <div className={cx("CreateProduct")}>
       <form
@@ -124,6 +137,26 @@ const CreateProduct = () => {
           required
           onChange={onChange}
         />
+        <div>{newProduct.category}</div>
+        <ButtonGroup>
+        {categoryTypes.map((categoryType, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            variant={'outline-success'}
+            name="radio"
+            value={categoryType.value}
+            checked={newProduct.category === categoryType.value}
+            onChange={(e) => {
+              setNewProduct(e.currentTarget.value);
+            }}
+          >
+            {categoryType.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+      
         <input type="file" accept="image/*" onChange={onLoadFile} />
         <Link to="/MyPage">
           <button className={cx("Submit")} type="submit">상품 등록</button>
