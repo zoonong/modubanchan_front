@@ -32,18 +32,33 @@ const Cart = () => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log("렌더링");
   };
+
+  const deleteCartProduct = (id) => {
+    axios
+      .delete(`http://127.0.0.1:8000/cart/${id}/`)
+      .then(function (response) {
+        console.log(response);
+        getProductsInCart();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     setLogInUserId(JSON.parse(localStorage.getItem("logInUserId")));
-    console.log(JSON.parse(localStorage.getItem("logInUserId")));
-    console.log("cartList");
-    console.log(cartList);
-    console.log(cartList.length);
+    getProductsInCart();
+    //console.log(JSON.parse(localStorage.getItem("logInUserId")));
+    //console.log("cartList");
+    //console.log(cartList);
+    //console.log(cartList.length);
     // if (cartList.length === 0) {
     //   getProductsInCart();
     // }
-    getProductsInCart();
   }, []);
+
   return (
     <div className={cx("Cart")}>
       <p className={cx("Title")}>장바구니</p>
@@ -57,7 +72,13 @@ const Cart = () => {
         <hr />
       </div>
       {cartList.map((cart) => (
-        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} />
+        <CartProduct
+          key={cart.cartId}
+          cartId={cart.cartId}
+          productId={cart.productId}
+          productNum={cart.productNum}
+          deleteCartProduct={deleteCartProduct}
+        />
       ))}
     </div>
   );
