@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import "../App.css";
 import axios from "axios";
 
@@ -39,7 +41,7 @@ const RenderingProduct = ({ pid }) => {
     productDetailInfo();
   }, []);
   return (
-    <>
+    <Card style={{ width: "18rem" }} border="success">
       <button
         onClick={() =>
           history.push({
@@ -50,19 +52,29 @@ const RenderingProduct = ({ pid }) => {
           })
         }
       >
-        <img
-          src={`http://localhost:8000${product.picture}`}
-          alt={product.name}
-        />
+        <Card.Img variant="top" src={`http://localhost:8000${product.picture}`} alt={product.name} />
       </button>
-      <div>
-        <span>{product.name}</span>
-        <p>{product.price}</p>
-        <p>{product.description}</p>
-        <p>{product.feedText}</p>
-        <span>{product.category}</span>
-      </div>
-    </>
+      <Card.Body>
+        <Card.Title>{product.name}</Card.Title>
+        <Card.Text>{product.feedText}</Card.Text>
+        <Button
+          variant="success"
+          onClick={() =>
+            history.push({
+              pathname: "/ProductDetail",
+              state: {
+                pid: product.pid,
+              },
+            })
+          }
+        >
+          Show More >
+        </Button>
+      </Card.Body>
+      <Card.Footer>
+        <small className="text-muted">판매자는 누굴까요? 맞혀보세요 울룰루 히히히</small>
+      </Card.Footer>
+    </Card>
   );
 };
 

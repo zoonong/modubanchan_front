@@ -5,6 +5,7 @@ import "../App.css";
 import axios from "axios";
 import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
 import classNames from "classnames/bind";
+import { CardGroup } from "react-bootstrap";
 
 const cx = classNames.bind(styles);
 
@@ -16,9 +17,7 @@ const RenderingProducts = ({ flag }) => {
     axios
       .get(`http://127.0.0.1:8000/product/`)
       .then(function (response) {
-        response.data
-          .filter((product) => product.category === flag)
-          .map((product) => pid.push(product.id));
+        response.data.filter((product) => product.category === flag).map((product) => pid.push(product.id));
         setpidpid(pid);
       })
       .catch(function (error) {
@@ -32,12 +31,14 @@ const RenderingProducts = ({ flag }) => {
   return (
     <div className={cx("RenderingProducts")}>
       <div className="PP">
-      {pidpid.map((id) => (
-        <div>
-          <Product pid={id} key={id} />
-        </div>
-      ))}
-    </div>
+        {pidpid.map((id) => (
+          <div>
+            <CardGroup>
+              <Product pid={id} key={id} />
+            </CardGroup>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

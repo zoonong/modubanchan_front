@@ -36,10 +36,7 @@ const MyPage = () => {
           axios
             .get(`http://127.0.0.1:8000/mypage/${following}/`)
             .then(function (response) {
-              setFollowingNameList([
-                ...followingNameList,
-                response.data.first_name,
-              ]);
+              setFollowingNameList([...followingNameList, response.data.first_name]);
               console.log(response.data);
             })
             .catch(function (error) {
@@ -80,17 +77,9 @@ const MyPage = () => {
       >
         Followings
       </button>
-      <Modal
-        show={modalShow}
-        onHide={handleClose}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        size="lg"
-      >
+      <Modal show={modalShow} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Followings
-          </Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Followings</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -115,7 +104,6 @@ const MyPage = () => {
       </Modal>
       <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
-      <UserFeeds uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
   );
 };
