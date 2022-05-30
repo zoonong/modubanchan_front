@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import styles from "../styles/MyPage/MyPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
+import UserFeeds from "../components/UserFeeds";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -22,28 +23,33 @@ const MyPage = () => {
   const handleClose = () => setModalShow(false);
 
   const getFollowingList = () => {
-    axios.get(`http://127.0.0.1:8000/mypage/following_list/`)
-    .then(function (response) {
-      console.log(response);
-      console.log(response.data.followings);
-      setProfileInfo({
-        ...profileInfo,
-        followingIdList: response.data.followings
-      });
-      response.data.followings.map((following) => {
-        axios.get(`http://127.0.0.1:8000/mypage/${following}/`)
-        .then(function (response) {
-          setFollowingNameList([...followingNameList, response.data.first_name]);
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
+    axios
+      .get(`http://127.0.0.1:8000/mypage/following_list/`)
+      .then(function (response) {
+        console.log(response);
+        console.log(response.data.followings);
+        setProfileInfo({
+          ...profileInfo,
+          followingIdList: response.data.followings,
         });
+        response.data.followings.map((following) => {
+          axios
+            .get(`http://127.0.0.1:8000/mypage/${following}/`)
+            .then(function (response) {
+              setFollowingNameList([
+                ...followingNameList,
+                response.data.first_name,
+              ]);
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
   };
 
   useEffect(() => {
@@ -89,15 +95,16 @@ const MyPage = () => {
 
         <Modal.Body>
           <div>
-          <div>
-            {profileInfo.followingIdList.map((following) => (
-              <p>{following}</p>
-            ))}
-          </div>
-          <div>
-            {followingNameList.map((followingName) => (
-              <p>{followingName}</p>))}
-          </div>
+            <div>
+              {profileInfo.followingIdList.map((following) => (
+                <p>{following}</p>
+              ))}
+            </div>
+            <div>
+              {followingNameList.map((followingName) => (
+                <p>{followingName}</p>
+              ))}
+            </div>
           </div>
         </Modal.Body>
 
@@ -110,6 +117,7 @@ const MyPage = () => {
       </Modal>
       <p>내가 등록한 상품</p>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      <UserFeeds uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
   );
 };
