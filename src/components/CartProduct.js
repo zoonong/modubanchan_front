@@ -82,33 +82,39 @@ const CartProduct = ({ cartId, productId, productNum }) => {
       <div className={cx("div1")}>{cartProductDetail.name}</div>
       <div className={cx("div1")}>{`${cartProductDetail.price}원`}</div>
       <div className={cx("div1")}>{`${cartProductDetail.productNum}`}</div>
-      <button
-        className={cx("btn1")}
-        type="text"
-        onClick={() => {
-          setCartProductDetail({
-            ...cartProductDetail,
-            productNum: cartProductDetail.productNum + 1,
-          });
-        }}
-      >
-        +
-      </button>
-      <button
-        type="text"
-        onClick={() => {
-          setCartProductDetail({
-            ...cartProductDetail,
-            productNum: cartProductDetail.productNum - 1,
-          });
-        }}
-      >
-        -
-      </button>
-      <button classname={cx("btn2", "Button")} type="text" onClick={deleteCartProduct}>
+      <span className={cx("PlusMinus")}>
+        <button
+          className={cx("btn1", "Button")}
+          type="text"
+          onClick={() => {
+            setCartProductDetail({
+              ...cartProductDetail,
+              productNum: cartProductDetail.productNum + 1,
+            });
+          }}
+        >
+          +
+        </button>
+        <button
+          className={cx("btn1", "Button")}
+          type="text"
+          onClick={() => {
+            if (cartProductDetail.productNum !== 1) {
+              setCartProductDetail({
+                ...cartProductDetail,
+                productNum: cartProductDetail.productNum - 1,
+              });
+            }
+          }}
+        >
+          -
+        </button>
+      </span>
+
+      <button className={cx("btn2", "Button")} type="text" onClick={deleteCartProduct}>
         삭제
       </button>
-      <span classname={cx("deliveryFee")}>3000원</span>
+      <span className={cx("deliveryFee")}>3000원</span>
     </div>
   );
 };
