@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 import styles from "../styles/SellerPage/SellerPage.module.scss";
 import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
-import UserFeeds from "../components/UserFeeds";
 import Profile from "./Profile";
 import RenderingProducts from "../components/RenderingProducts";
 
@@ -15,31 +14,32 @@ const SellerPage = () => {
   const [followText, setFollowText] = useState("Follow");
 
   const followingSeller = () => {
-    axios.post(`http://127.0.0.1:8000/mypage/follow/${location.state.sId}`, {})
-    .then(function(response) {
-      console.log(response);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-    if(followText === "Follow") {
+    axios
+      .post(`http://127.0.0.1:8000/mypage/follow/${location.state.sId}`, {})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    if (followText === "Follow") {
       console.log("팔로우");
       setFollowText("UnFollow");
-    } else{
+    } else {
       console.log("언팔로우");
       setFollowText("Follow");
     }
-  }
+  };
 
   return (
     <div className={cx("SellerPage")}>
-      <Profile userId={location.state.sId}/>
-      <button className={cx("Following")} onClick={followingSeller}>{followText}</button>
+      <Profile userId={location.state.sId} />
+      <button className={cx("Following")} onClick={followingSeller}>
+        {followText}
+      </button>
       <RenderingProducts />
       <p>{`판매자가 등록한 상품`}</p>
       <UserProducts uId={location.state.sId} />
-      <p>{`${sellerInfo.nickname} 등록한 피드`}</p>
-      <UserFeeds uId={location.state.sId} />
     </div>
   );
 };
