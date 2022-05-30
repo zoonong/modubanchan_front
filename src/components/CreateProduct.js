@@ -7,6 +7,7 @@ import produce from "immer";
 import { Text, Textarea } from '@chakra-ui/react'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { ToggleButton } from "react-bootstrap";
+import Form from 'react-bootstrap/Form'
 
 const cx = classNames.bind(styles);
 
@@ -149,8 +150,10 @@ const CreateProduct = () => {
           </ToggleButton>
         ))}
       </ButtonGroup>
-      
-        <input type="file" accept="image/*" onChange={onLoadFile} />
+      <Form.Group controlId="formFile" className="mb-3">
+    <Form.Label>Default file input example</Form.Label>
+    <Form.Control type="file" accept="image/*" onChange={onLoadFile} />
+  </Form.Group>
         <Link to="/MyPage">
           <button className={cx("Submit")} type="submit">상품 등록</button>
         </Link>
