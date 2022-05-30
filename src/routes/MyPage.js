@@ -6,9 +6,9 @@ import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
 import UserFeeds from "../components/UserFeeds";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+
 import CreateProfile from "./CreateProfile";
+import FollowingList from "../components/FollowingList";
 
 const cx = classNames.bind(styles);
 
@@ -20,96 +20,18 @@ const MyPage = () => {
 
   const [isProfileNameChanged, setIsProfileNameChanged] = useState(0);
 
-  const [followingNameList, setFollowingNameList] = useState([]);
-
-  const [modalShow, setModalShow] = useState(false);
-  const handleClose = () => setModalShow(false);
-
-  const getFollowingList = () => {
-    axios
-      .get(`http://127.0.0.1:8000/mypage/following_list/`)
-      .then(function (response) {
-        console.log(response);
-        console.log(response.data.followings);
-        setProfile({
-          ...profile,
-          followingIdList: response.data.followings,
-        });
-        response.data.followings.map((following) => {
-          axios
-            .get(`http://127.0.0.1:8000/mypage/${following}/`)
-            .then(function (response) {
-              setFollowingNameList([...followingNameList, response.data.first_name]);
-              console.log(response.data);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getFollowingList();
-    console.log(profile.followingIdList);
-  }, []);
-
-  useEffect(() => {
-    console.log("followingNameList");
-    console.log(followingNameList);
-  }, [followingNameList]);
-
   return (
     <div className={cx("MyPage")}>
       <Link to="/CreateProduct">
         <button className={cx("Followings")}>상품 추가하기</button>
       </Link>
-      {/* <Link to="CreateProfile">
-        <button className={cx("Followings")}>프로필 등록</button>
-      </Link> */}
       <CreateProfile isProfileNameChanged={isProfileNameChanged} setIsProfileNameChanged={setIsProfileNameChanged} />
       <Profile
         userId={JSON.parse(localStorage.getItem("logInUserId"))}
         isProfileNameChanged={isProfileNameChanged}
         setIsProfileNameChanged={setIsProfileNameChanged}
       />
-      <button
-        className={cx("Followings")}
-        onClick={() => {
-          getFollowingList();
-          setModalShow(true);
-        }}
-      >
-        Followings
-      </button>
-      <Modal show={modalShow} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Followings</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div>
-            <div>
-              {profile.followingIdList.map((following) => (
-                <p>{following}</p>
-              ))}
-            </div>
-            <div>
-              {followingNameList.map((followingName) => (
-                <p>{followingName}</p>
-              ))}
-            </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Hi</Button>
-        </Modal.Footer>
-      </Modal>
+      <FollowingList profile={profile} setProfile={setProfile} />
       <div>내가 등록한 상품</div>
       <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
     </div>
