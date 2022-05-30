@@ -1,10 +1,32 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import styles from "../styles/RenderingFeeds/RenderingFeeds.module.scss";
 import classNames from "classnames/bind";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
 const RenderingFeeds = () => {
+  const [fFeed, setFFeed] = useState([
+    {
+      feedText: "",
+      picture: null,
+    },
+  ]);
+  const followingFeed = () => {
+    axios
+      .get("http://127.0.0.1:8000/product/followingProducts/")
+      .then(function (response) {
+        console.log(response);
+        setFFeed(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  console.log(fFeed);
+  useEffect(() => {
+    followingFeed();
+  }, []);
   const src = [
     require("../images/i10.GIF"),
     require("../images/i11.png"),

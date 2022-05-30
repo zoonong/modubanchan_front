@@ -56,11 +56,7 @@ const MyPage = () => {
           .get(`http://127.0.0.1:8000/mypage/${response.data.followings}/`)
           //.get("http://127.0.0.1:8000/mypage/2/")
           .then(function (response) {
-            setFollowing({
-              ...following,
-              nickname: response.data.first_name,
-              introduce: response.data.last_name,
-            });
+            setFollowing(response.data);
             console.log(response);
           })
           .catch(function (error) {
