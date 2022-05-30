@@ -19,14 +19,9 @@ const Cart = () => {
       .then(function (response) {
         console.log(response);
         response.data
-          .filter(
-            (productInCart) =>
-              productInCart.user ===
-              JSON.parse(localStorage.getItem("logInUserId"))
-          )
+          .filter((productInCart) => productInCart.user === JSON.parse(localStorage.getItem("logInUserId")))
           .map((productInCart) => {
             cartList.push({
-              ...cartList,
               cartId: productInCart.id,
               productId: productInCart.productList,
               productNum: productInCart.productNum,
@@ -41,11 +36,13 @@ const Cart = () => {
   useEffect(() => {
     setLogInUserId(JSON.parse(localStorage.getItem("logInUserId")));
     console.log(JSON.parse(localStorage.getItem("logInUserId")));
+    console.log("cartList");
     console.log(cartList);
     console.log(cartList.length);
-    if (cartList.length === 0) {
-      getProductsInCart();
-    }
+    // if (cartList.length === 0) {
+    //   getProductsInCart();
+    // }
+    getProductsInCart();
   }, []);
   return (
     <div className={cx("Cart")}>
@@ -59,18 +56,9 @@ const Cart = () => {
         <p className={cx("box6")}>배송비</p>
         <hr />
       </div>
-      {init ? (
-        cartList.map((cart) => (
-          <CartProduct
-            key={cart.cartId}
-            cartId={cart.cartId}
-            productId={cart.productId}
-            productNum={cart.productNum}
-          />
-        ))
-      ) : (
-        <div>장바구니 목록을 가져오는 중...</div>
-      )}
+      {cartList.map((cart) => (
+        <CartProduct key={cart.cartId} cartId={cart.cartId} productId={cart.productId} productNum={cart.productNum} />
+      ))}
     </div>
   );
 };

@@ -69,10 +69,6 @@ const CartProduct = ({ cartId, productId, productNum }) => {
   }, []);
 
   useEffect(() => {
-    deleteCartProduct();
-  }, []);
-
-  useEffect(() => {
     updateCartProduct();
   }, [cartProductDetail.productNum]);
 
@@ -82,11 +78,7 @@ const CartProduct = ({ cartId, productId, productNum }) => {
 
   return (
     <div className={cx("cartproduct")}>
-      <img
-        className={cx("img")}
-        src={`http://localhost:8000${cartProductDetail.picture}`}
-        alt="상품 이미지"
-      />
+      <img className={cx("img")} src={`http://localhost:8000${cartProductDetail.picture}`} alt="상품 이미지" />
       <div className={cx("div1")}>{cartProductDetail.name}</div>
       <div className={cx("div1")}>{`${cartProductDetail.price}원`}</div>
       <div className={cx("div1")}>{`${cartProductDetail.productNum}`}</div>
@@ -113,7 +105,7 @@ const CartProduct = ({ cartId, productId, productNum }) => {
       >
         -
       </button>
-      <button classname={cx("btn2")} type="text" onClick={deleteCartProduct}>
+      <button classname={cx("btn2", "Button")} type="text" onClick={deleteCartProduct}>
         삭제
       </button>
       <span classname={cx("deliveryFee")}>3000원</span>
