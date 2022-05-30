@@ -3,7 +3,6 @@ $blue: #1864ab;
 $green: #18ab4b;
 
 .Profile {
-  height: 20vh;
   display: flex;
   flex-direction: row;
   .ProfilePicture {
@@ -27,22 +26,6 @@ $green: #18ab4b;
     }
     .Introduction {
       font-size: 12px;
-    }
-    .Following {
-      color: white;
-      font-size: 20px;
-      width: 120px;
-      height: 40px;
-      border-radius: 80px;
-      margin: 8px;
-      background-color: $green;
-      border: none;
-      cursor: pointer;
-      &:hover {
-        background: lighten($green, 20%);
-        border: none;
-        outline: none;
-      }
     }
   }
 }
