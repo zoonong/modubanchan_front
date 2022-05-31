@@ -30,7 +30,8 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
         const accessToken = response.data.access_token;
         console.log(accessToken);
         // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
-        axios.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
+        axios.defaults.headers.common["Authorization"] =
+          "Bearer " + accessToken;
         console.log(axios.defaults.headers.common);
 
         localStorage.setItem("auth", true); // 로그인 설정
@@ -42,10 +43,10 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
         setErrorText("");
       })
       .catch(function (error) {
+        setLoginURL("/SignIn");
         console.log("로그인 실패!");
         setErrorText("로그인 실패! 다시 입력하세요");
         console.log(error);
-        setLoginURL("SignIn");
       });
   }
   const onChange = (e) => {
@@ -71,17 +72,22 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
   };  
   */
   const onCheckEnter = (e) => {
-    if (e.key === "Enter") {
+    // 'enter'키의 keycode는 13
+    if (e.keyCode === 13) {
       onLoginSubmit();
     }
   };
   return (
     <div className={cx("SignIn")}>
       <Link to="/">
-        <img src={require("../images/logo.png")} alt="home" className={cx("Logo")} />
+        <img
+          src={require("../images/logo.png")}
+          alt="home"
+          className={cx("Logo")}
+        />
       </Link>
       <div className={cx("Title")}>Sign In</div>
-      <form onkeyPress={onCheckEnter}>
+      <form onKeyUp={onCheckEnter}>
         <div className={cx("Form")}>
           <input
             className={cx("Input")}
@@ -103,7 +109,11 @@ const SignIn = ({ isLoggedIn, setIsLoggedIn }) => {
             //onKeyUp={onKeyUp}
           />
           <Link to={`/${loginURL}`}>
-            <button className={cx("Submit")} type="text" onClick={onLoginSubmit}>
+            <button
+              className={cx("Submit")}
+              type="text"
+              onClick={onLoginSubmit}
+            >
               로그인
             </button>
           </Link>

@@ -32,7 +32,11 @@ const ModifyProduct = () => {
     console.log("mProduct 실행");
     let formData = new FormData();
     if (modifyProduct?.picture) {
-      formData.append("picture", modifyProduct.picture, modifyProduct.picture.name);
+      formData.append(
+        "picture",
+        modifyProduct.picture,
+        modifyProduct.picture.name
+      );
     }
     formData.append("name", modifyProduct.name);
     formData.append("price", modifyProduct.price);
