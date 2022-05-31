@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Product from "./RenderingProduct";
-import "../App.css";
 import axios from "axios";
-import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
 import classNames from "classnames/bind";
 import { CardGroup } from "react-bootstrap";
+import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
+import "../App1.css";
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +17,9 @@ const RenderingProducts = ({ flag }) => {
     axios
       .get(`http://127.0.0.1:8000/product/`)
       .then(function (response) {
-        response.data.filter((product) => product.category === flag).map((product) => pid.push(product.id));
+        response.data
+          .filter((product) => product.category === flag)
+          .map((product) => pid.push(product.id));
         setpidpid(pid);
       })
       .catch(function (error) {
@@ -30,14 +32,62 @@ const RenderingProducts = ({ flag }) => {
   console.log(pidpid);
   return (
     <div className={cx("RenderingProducts")}>
-      <div className="PP">
-        {pidpid.map((id) => (
-          <div>
-            <CardGroup>
-              <Product pid={id} key={id} />
-            </CardGroup>
-          </div>
-        ))}
+      <div className={cx("divBox")}>
+        <div className={cx("div1")}>
+          {pidpid
+            .filter((id) => id % 5 === 1)
+            .map((id) => (
+              <div>
+                <CardGroup id="Card">
+                  <Product pid={id} key={id} />
+                </CardGroup>
+              </div>
+            ))}
+        </div>
+        <div className={cx("div2")}>
+          {pidpid
+            .filter((id) => id % 5 === 2)
+            .map((id) => (
+              <div>
+                <CardGroup>
+                  <Product pid={id} key={id} />
+                </CardGroup>
+              </div>
+            ))}
+        </div>
+        <div className={cx("div3")}>
+          {pidpid
+            .filter((id) => id % 5 === 3)
+            .map((id) => (
+              <div>
+                <CardGroup>
+                  <Product pid={id} key={id} />
+                </CardGroup>
+              </div>
+            ))}
+        </div>
+        <div className={cx("div4")}>
+          {pidpid
+            .filter((id) => id % 5 === 4)
+            .map((id) => (
+              <div>
+                <CardGroup>
+                  <Product pid={id} key={id} />
+                </CardGroup>
+              </div>
+            ))}
+        </div>
+        <div className={cx("div5")}>
+          {pidpid
+            .filter((id) => id % 5 === 0)
+            .map((id) => (
+              <div>
+                <CardGroup>
+                  <Product pid={id} key={id} />
+                </CardGroup>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
