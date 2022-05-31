@@ -43,10 +43,7 @@ const UserFeed = ({ pid }) => {
           })
         }
       >
-        <img
-          src={`http://localhost:8000${product.picture}`}
-          alt={product.name}
-        />
+        <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
       </button>
       <div>
         <span>{product.name}</span>
