@@ -118,9 +118,7 @@ const ProductDetail = () => {
             <div className={cx("container")}>
               <div className={cx("box1")}>
                 <img className={cx("img")} src={`http://localhost:8000${product.picture}`} alt={product.name} />
-                <p>{`상품 이름 : ${product.name}`}</p>
-                <p>{`가격 : ${product.price}원`}</p>
-                <p>{`상품 설명 : ${product.description}`}</p>
+                <p>{product.description}</p>
               </div>
               <div className={cx("v-line")}></div>
               <div className={cx("box2")}>
