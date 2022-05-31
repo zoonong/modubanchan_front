@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import "../App.css";
+import "../App1.css";
 import axios from "axios";
 
 const RenderingProduct = ({ pid }) => {
@@ -52,7 +52,11 @@ const RenderingProduct = ({ pid }) => {
           })
         }
       >
-        <Card.Img variant="top" src={`http://localhost:8000${product.picture}`} alt={product.name} />
+        <Card.Img
+          variant="top"
+          src={`http://localhost:8000${product.picture}`}
+          alt={product.name}
+        />
       </button>
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
@@ -73,7 +77,9 @@ const RenderingProduct = ({ pid }) => {
         </Button>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">판매자는 누굴까요? 맞혀보세요 울룰루 히히히</small>
+        <small className="text-muted">
+          판매자는 누굴까요? 맞혀보세요 울룰루 히히히
+        </small>
       </Card.Footer>
     </Card>
   );

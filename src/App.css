@@ -2,7 +2,8 @@
   font-family: "font";
   font-style: normal;
   font-weight: 25;
-  src: url("./fonts/BMDOHYEON.woff2") format("woff2"), url("./fonts/BMDOHYEON.woff") format("woff"),
+  src: url("./fonts/BMDOHYEON.woff2") format("woff2"),
+    url("./fonts/BMDOHYEON.woff") format("woff"),
     url("./fonts/BMDOHYEON.otf") format("truetype");
 }
 
