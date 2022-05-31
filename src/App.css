@@ -2,8 +2,7 @@
   font-family: "font";
   font-style: normal;
   font-weight: 25;
-  src: url("./fonts/BMDOHYEON.woff2") format("woff2"),
-    url("./fonts/BMDOHYEON.woff") format("woff"),
+  src: url("./fonts/BMDOHYEON.woff2") format("woff2"), url("./fonts/BMDOHYEON.woff") format("woff"),
     url("./fonts/BMDOHYEON.otf") format("truetype");
 }
 
@@ -22,22 +21,7 @@
   display: flex;
   flex-flow: wrap;
 }
-.followingbutton {
-}
 
-.container {
-  display: flex;
-}
-.container div:nth-child(1) {
-  flex: 3;
-  border: 5px solid lightskyblue;
-  height: 83vh;
-  overflow: auto;
-}
-.container div:nth-child(2) {
-  flex: 1;
-  border: 5px solid lightskyblue;
-}
 .PP {
   display: flex;
 }

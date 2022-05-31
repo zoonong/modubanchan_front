@@ -2,7 +2,6 @@ import axios from "axios";
 import { React, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
-import "../App.css";
 import styles from "../styles/ProductDetail/ProductDetail.module.scss";
 import classNames from "classnames/bind";
 import { useHistory } from "react-router";
@@ -116,17 +115,66 @@ const ProductDetail = () => {
       <div>
         {init ? (
           <div>
-            <div className="container">
-              <div className="productdetail">
-                <img src={`http://localhost:8000${product.picture}`} alt={product.name} />
-                <span>{`상품 이름 : ${product.name}`}</span>
-                <span>{`가격 : ${product.price}원`}</span>
+            <div className={cx("container")}>
+              <div className={cx("box1")}>
+                <img className={cx("img")} src={`http://localhost:8000${product.picture}`} alt={product.name} />
+                <p>{`상품 이름 : ${product.name}`}</p>
+                <p>{`가격 : ${product.price}원`}</p>
                 <p>{`상품 설명 : ${product.description}`}</p>
-                <p>{`feedText : ${product.feedText}`}</p>
-                <span>{`category : ${product.category}`}</span>
               </div>
-              <div>
-                <p
+              <div className={cx("v-line")}></div>
+              <div className={cx("box2")}>
+                <p className={cx("name")}>{product.name}</p>
+                <hr />
+                <div className={cx("price")}>
+                  <div className={cx("p1")}>판매가</div>
+                  <div className={cx("p2")}>{`${product.price}원`}</div>
+                </div>
+                <div className={cx("point")}>
+                  <div className={cx("p1")}>포인트</div>
+                  <div className={cx("p2")}>1% ~ 최대 5%</div>
+                </div>
+                <div className={cx("deliveryCharge")}>
+                  <div className={cx("p1")}>배송비</div>
+                  <div className={cx("p2")}>3000원</div>
+                </div>
+                <hr />
+                <div className={cx("count")}>
+                  <div className={cx("p1")}>수량</div>
+                  <div className={cx("p2")}>{product.productNum}</div>
+                  <div className={cx("PlusMinus")}>
+                    <button
+                      className={cx("btn1", "Button")}
+                      type="text"
+                      onClick={() => {
+                        setProduct({
+                          ...product,
+                          productNum: product.productNum + 1,
+                        });
+                      }}
+                    >
+                      +
+                    </button>
+                    <button
+                      className={cx("btn1", "Button")}
+                      type="text"
+                      onClick={() => {
+                        setProduct({
+                          ...product,
+                          productNum: product.productNum - 1,
+                        });
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+                <button className={cx("order")}>주문하기</button>
+                <div className={cx("cart")}>
+                  <CartAlertModal addToCart={addToCart} />
+                </div>
+                <hr className={cx("hr1")} />
+                <div
                   onClick={() =>
                     history.push({
                       pathname: "/SellerPage",
@@ -135,35 +183,7 @@ const ProductDetail = () => {
                       },
                     })
                   }
-                >{`${product.sellerId} ${product.sellerName}>`}</p>
-                <p>{`${product.price}원`}</p>
-                <p>{`배송비 ${deliveryCharge}원`}</p>
-                <span>{`수량 : ${product.productNum}`}</span>
-                <button
-                  type="text"
-                  onClick={() => {
-                    setProduct({
-                      ...product,
-                      productNum: product.productNum + 1,
-                    });
-                  }}
-                >
-                  +
-                </button>
-                <button
-                  type="text"
-                  onClick={() => {
-                    setProduct({
-                      ...product,
-                      productNum: product.productNum - 1,
-                    });
-                  }}
-                >
-                  -
-                </button>
-                <p></p>
-                <CartAlertModal addToCart={addToCart} />
-                <button>주문하기</button>
+                >{`판매자 ${product.sellerName}의 홈으로 가기 >>`}</div>
                 {product.sellerId === JSON.parse(localStorage.getItem("logInUserId")) ? (
                   <div>
                     <button onClick={deleteProduct}>상품 삭제하기</button>
