@@ -22,18 +22,28 @@ const MyPage = () => {
 
   return (
     <div className={cx("MyPage")}>
-      <Link to="/CreateProduct">
-        <button className={cx("Followings")}>상품 추가하기</button>
-      </Link>
-      <CreateProfile isProfileNameChanged={isProfileNameChanged} setIsProfileNameChanged={setIsProfileNameChanged} />
-      <Profile
-        userId={JSON.parse(localStorage.getItem("logInUserId"))}
-        isProfileNameChanged={isProfileNameChanged}
-        setIsProfileNameChanged={setIsProfileNameChanged}
-      />
-      <FollowingList profile={profile} setProfile={setProfile} />
-      <div>내가 등록한 상품</div>
-      <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      <div className={cx("ProfileInfo")}>
+        <Profile
+          userId={JSON.parse(localStorage.getItem("logInUserId"))}
+          isProfileNameChanged={isProfileNameChanged}
+          setIsProfileNameChanged={setIsProfileNameChanged}
+        />
+        <div className={cx("ButtonGroup")}>
+          <FollowingList profile={profile} setProfile={setProfile} />
+          <CreateProfile
+            isProfileNameChanged={isProfileNameChanged}
+            setIsProfileNameChanged={setIsProfileNameChanged}
+          />
+        </div>
+      </div>
+
+      <div>
+        <Link to="/CreateProduct">
+          <button className={cx("Button")}>상품 추가하기</button>
+        </Link>
+        <div>내가 등록한 상품</div>
+        <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
+      </div>
     </div>
   );
 };

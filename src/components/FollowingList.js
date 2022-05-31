@@ -59,18 +59,26 @@ const FollowingList = ({ profile, setProfile }) => {
   }, []);
 
   return (
-    <>
+    <div>
       <button
-        className={cx("Followings")}
+        className={cx("Button", "FollowingsBtn")}
         onClick={() => {
           setModalShow(true);
         }}
       >
         Followings
       </button>
-      <Modal show={modalShow} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
+      <Modal
+        show={modalShow}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        size="lg"
+      >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Followings</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Followings
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -92,7 +100,7 @@ const FollowingList = ({ profile, setProfile }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 

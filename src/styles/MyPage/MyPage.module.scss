@@ -3,21 +3,44 @@ $blue: #1864ab;
 $green: #18ab4b;
 
 .MyPage {
-    margin-top: 300px;
-    .Followings {
-        color: white;
-        font-size: 20px;
-        width: 200px;
-        height: 40px;
-        border-radius: 80px;
-        margin: 8px;
-        background-color: $green;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background: lighten($green, 20%);
-          border: none;
-          outline: none;
-        }
-      }
+  margin-top: 12rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .ProrildInfo {
+    display: flex;
+    justify-content: center;
+    .ButtonGroup {
+      margin-top: 3rem;
+    }
+  }
+  .Button {
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: lighten($green, 20%);
+      border: none;
+      outline: none;
+    }
+  }
+  .ProfileBtn {
+    width: 20rem;
+    height: 3rem;
+    margin-left: 6rem;
+  }
+  .FollowingsBtn {
+    width: 20rem;
+    height: 3rem;
+    margin-left: 6rem;
+  }
+  .AddProductBtn {
+    width: 21rem;
+    height: 3rem;
+  }
 }

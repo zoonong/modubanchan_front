@@ -1,10 +1,14 @@
 import { React, useState, useDispatch } from "react";
 import CartProduct from "../components/CartProduct";
 import axios from "axios";
+import styles from "../styles/MyPage/MyPage.module.scss";
+import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+
+const cx = classNames.bind(styles);
 
 const CreateProfile = ({ isProfileNameChanged, setIsProfileNameChanged }) => {
   const [show, setShow] = useState(false);
@@ -43,10 +47,10 @@ const CreateProfile = ({ isProfileNameChanged, setIsProfileNameChanged }) => {
   };
 
   return (
-    <>
-      <Button variant="success" onClick={handleShow}>
-        프로필 등록
-      </Button>
+    <div>
+      <button className={cx("Button", "ProfileBtn")} onClick={handleShow}>
+        프로필 편집
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -66,7 +70,10 @@ const CreateProfile = ({ isProfileNameChanged, setIsProfileNameChanged }) => {
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
               <Form.Label>한 줄 소개</Form.Label>
               <Form.Control
                 as="textarea"
@@ -96,7 +103,7 @@ const CreateProfile = ({ isProfileNameChanged, setIsProfileNameChanged }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 
