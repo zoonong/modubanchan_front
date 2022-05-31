@@ -16,9 +16,7 @@ const UserFeeds = ({ uId }) => {
     axios
       .get(`http://127.0.0.1:8000/product/`)
       .then(function (response) {
-        response.data
-          .filter((product) => product.user === uId)
-          .map((product) => pid.push(product.id));
+        response.data.filter((product) => product.user === uId).map((product) => pid.push(product.id));
         setpidpid(pid);
       })
       .catch(function (error) {

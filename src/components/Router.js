@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Cart from "../routes/Cart";
 import Feed from "../routes/Feed";
 import Home from "../routes/Home";
@@ -23,7 +18,7 @@ import ModifyProduct from "../routes/ModifyProduct";
 import "../App.css";
 import CreateProduct from "./CreateProduct";
 
-const AppRouter = ({isLoggedIn, setIsLoggedIn}) => {
+const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <Router>
       <Switch>
