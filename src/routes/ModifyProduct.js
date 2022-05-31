@@ -17,11 +17,7 @@ const ModifyProduct = () => {
     e.preventDefault();
     let formData = new FormData();
     if (modifyProduct?.picture) {
-      formData.append(
-        "picture",
-        modifyProduct.picture,
-        modifyProduct.picture.name
-      );
+      formData.append("picture", modifyProduct.picture, modifyProduct.picture.name);
     }
     formData.append("name", modifyProduct.name);
     formData.append("price", modifyProduct.price);
