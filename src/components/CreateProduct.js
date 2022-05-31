@@ -70,6 +70,21 @@ const CreateProduct = () => {
     });
   };
 
+  const onChangePrice = (e) => {
+    let price = parseInt(e.target.value);
+    if (!isNaN(price)) {
+      setNewProduct({
+        ...newProduct,
+        price: parseInt(e.target.value),
+      });
+    } else {
+      setNewProduct({
+        ...newProduct,
+        price: "",
+      });
+    }
+  };
+
   return (
     <div className={cx("CreateProduct")}>
       <div className={cx("Title")}>새로운 상품을 등록해보세요.</div>
@@ -91,20 +106,7 @@ const CreateProduct = () => {
             placeholder="가격"
             value={newProduct.price}
             required
-            onChange={(e) => {
-              let price = parseInt(e.target.value);
-              if (!isNaN(price)) {
-                setNewProduct({
-                  ...newProduct,
-                  price: parseInt(e.target.value),
-                });
-              } else {
-                setNewProduct({
-                  ...newProduct,
-                  price: "",
-                });
-              }
-            }}
+            onChange={onChangePrice}
           />
           <span>원</span>
         </div>
