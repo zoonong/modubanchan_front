@@ -128,15 +128,17 @@ $green: #18ab4b;
           .Button {
             color: $green;
             font-size: 1.1rem;
-            border-radius: 1rem;
+            font-weight: bold;
+            border-radius: 0.8rem;
             background-color: white;
             border: solid $green 0.2rem;
             cursor: pointer;
             &:hover {
-              background: $green;
               color: white;
+              background-color: $green;
+              border-radius: 0.8rem;
               border: none;
-              outline: none;
+              outline: solid $green 0.2rem;
             }
           }
         }

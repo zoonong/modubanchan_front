@@ -117,8 +117,12 @@ const ProductDetail = () => {
           <div>
             <div className={cx("container")}>
               <div className={cx("box1")}>
-                <img className={cx("img")} src={`http://localhost:8000${product.picture}`} alt={product.name} />
-                <div>{product.description}</div>
+                <img
+                  className={cx("img")}
+                  src={`http://localhost:8000${product.picture}`}
+                  alt={product.name}
+                />
+                <p>{product.description}</p>
               </div>
               <div className={cx("v-line")}></div>
               <div className={cx("box2")}>
@@ -167,7 +171,9 @@ const ProductDetail = () => {
                     </button>
                   </div>
                 </div>
-                <button className={cx("order")}>주문하기</button>
+                <Button variant="success" className={cx("order")}>
+                  주문하기
+                </Button>
                 <div className={cx("cart")}>
                   <CartAlertModal addToCart={addToCart} />
                 </div>
@@ -182,10 +188,19 @@ const ProductDetail = () => {
                     })
                   }
                 >{`판매자 ${product.sellerName}의 홈으로 가기 >>`}</div>
-                {product.sellerId === JSON.parse(localStorage.getItem("logInUserId")) ? (
+                {product.sellerId ===
+                JSON.parse(localStorage.getItem("logInUserId")) ? (
                   <div>
-                    <button onClick={deleteProduct}>상품 삭제하기</button>
-                    <button
+                    <Button
+                      variant="success"
+                      className={cx("order")}
+                      onClick={deleteProduct}
+                    >
+                      상품 삭제하기
+                    </Button>
+                    <Button
+                      variant="success"
+                      className={cx("order")}
                       onClick={() =>
                         history.push({
                           pathname: "/ModifyProduct",
@@ -197,7 +212,7 @@ const ProductDetail = () => {
                       }
                     >
                       상품 수정하기
-                    </button>
+                    </Button>
                   </div>
                 ) : null}
               </div>
