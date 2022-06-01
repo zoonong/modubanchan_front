@@ -122,11 +122,23 @@ const ProductDetail = () => {
                   src={`http://localhost:8000${product.picture}`}
                   alt={product.name}
                 />
-                <p>{product.description}</p>
+                <hr />
+                <div className={cx("description")}>{product.description}</div>
               </div>
               <div className={cx("v-line")}></div>
               <div className={cx("box2")}>
                 <p className={cx("name")}>{product.name}</p>
+                <div
+                  className={cx("sellerHome")}
+                  onClick={() =>
+                    history.push({
+                      pathname: "/SellerPage",
+                      state: {
+                        sId: product.sellerId,
+                      },
+                    })
+                  }
+                >{`판매자 ${product.sellerName}의 홈으로 가기 >>`}</div>
                 <hr />
                 <div className={cx("price")}>
                   <div className={cx("p1")}>판매가</div>
@@ -178,29 +190,19 @@ const ProductDetail = () => {
                   <CartAlertModal addToCart={addToCart} />
                 </div>
                 <hr className={cx("hr1")} />
-                <div
-                  onClick={() =>
-                    history.push({
-                      pathname: "/SellerPage",
-                      state: {
-                        sId: product.sellerId,
-                      },
-                    })
-                  }
-                >{`판매자 ${product.sellerName}의 홈으로 가기 >>`}</div>
                 {product.sellerId ===
                 JSON.parse(localStorage.getItem("logInUserId")) ? (
-                  <div>
+                  <div className={cx("dm")}>
                     <Button
-                      variant="success"
-                      className={cx("order")}
+                      variant="outline-success"
+                      className={cx("d")}
                       onClick={deleteProduct}
                     >
                       상품 삭제하기
                     </Button>
                     <Button
-                      variant="success"
-                      className={cx("order")}
+                      variant="outline-success"
+                      className={cx("m")}
                       onClick={() =>
                         history.push({
                           pathname: "/ModifyProduct",
