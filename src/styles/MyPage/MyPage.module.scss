@@ -8,10 +8,10 @@ $green: #18ab4b;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .ProfileInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .Profile {
+    width: 25%;
+    .ProfileInfo {
+    }
     .ButtonGroup {
       margin-top: 0.1rem;
     }
@@ -31,28 +31,28 @@ $green: #18ab4b;
     }
   }
   .ProfileBtn {
-    width: 20rem;
+    width: 50%;
     height: 3rem;
-    margin-left: 6rem;
+    margin-left: 25%;
   }
   .FollowingsBtn {
-    width: 20rem;
+    width: 50%;
     height: 3rem;
-    margin-left: 6rem;
+    margin-left: 25%;
   }
   .AddProductBtn {
-    width: 13rem;
+    width: 15rem;
     height: 3rem;
-    margin-left: 0;
+    margin-left: 2%;
   }
   .ProductsContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 6rem;
   }
   .Title {
     font-weight: bold;
     font-size: 2rem;
+    margin-left: 2%;
   }
 }

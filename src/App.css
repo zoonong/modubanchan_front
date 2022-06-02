@@ -22,27 +22,3 @@
   display: flex;
   flex-flow: wrap;
 }
-
-.PP {
-  display: flex;
-}
-.PP div:nth-child(1) {
-  flex: 1;
-  display: inline-block;
-}
-.PP div:nth-child(2) {
-  flex: 1;
-  display: inline-block;
-}
-.PP div:nth-child(3) {
-  flex: 1;
-  display: inline-block;
-}
-.PP div:nth-child(4) {
-  flex: 1;
-  display: inline-block;
-}
-.PP div:nth-child(5) {
-  flex: 1;
-  display: inline-block;
-}

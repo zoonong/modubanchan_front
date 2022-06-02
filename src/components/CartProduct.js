@@ -78,7 +78,19 @@ const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
         src={`http://localhost:8000${cartProductDetail.picture}`}
         alt="상품 이미지"
       />
-      <div className={cx("div1")}>{cartProductDetail.name}</div>
+      <div
+        onClick={() =>
+          history.push({
+            pathname: "/ProductDetail",
+            state: {
+              pid: cartProductDetail.pid,
+            },
+          })
+        }
+        className={cx("div1")}
+      >
+        {cartProductDetail.name}
+      </div>
       <div className={cx("div1")}>{`${cartProductDetail.price}원`}</div>
       <div className={cx("div2")}>{`${cartProductDetail.productNum}`}</div>
       <span className={cx("PlusMinus")}>
