@@ -59,7 +59,9 @@ const RenderingProduct = ({ pid }) => {
         />
       </div>
       <div className={cx("midBox")}>
-        <div className={cx("name")}>{product.name}</div>
+        <div className={cx("nameBox")}>
+          <div className={cx("name")}>{product.name}</div>
+        </div>
         <div className={cx("price")}>{`${product.price}원`}</div>
         <Button
           className={cx("btn")}
