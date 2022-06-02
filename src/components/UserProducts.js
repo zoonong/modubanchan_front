@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Product from "./RenderingProduct";
-import "../App.css";
 import axios from "axios";
 import styles from "../styles/UserProducts/UserProducts.module.scss";
 import classNames from "classnames/bind";
@@ -31,9 +30,9 @@ const RenderingProducts = ({ uId }) => {
   //console.log(pidpid);
   return (
     <div className={cx("UserProducts")}>
-      <div className="PP">
+      <div>
         {pidpid.map((id) => (
-          <div>
+          <div className={cx("UP")}>
             <Product pid={id} />
           </div>
         ))}

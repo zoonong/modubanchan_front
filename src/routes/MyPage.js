@@ -6,7 +6,6 @@ import classNames from "classnames/bind";
 import UserProducts from "../components/UserProducts";
 import UserFeeds from "../components/UserFeeds";
 import axios from "axios";
-
 import CreateProfile from "./CreateProfile";
 import FollowingList from "../components/FollowingList";
 
@@ -22,15 +21,22 @@ const MyPage = () => {
 
   return (
     <div className={cx("MyPage")}>
-      <div className={cx("ProfileInfo")}>
-        <Profile
-          userId={JSON.parse(localStorage.getItem("logInUserId"))}
-          isProfileNameChanged={isProfileNameChanged}
-          setIsProfileNameChanged={setIsProfileNameChanged}
-        />
+      <div className={cx("Profile")}>
+        <div className={cx("ProfileInfo")}>
+          <Profile
+            userId={JSON.parse(localStorage.getItem("logInUserId"))}
+            isProfileNameChanged={isProfileNameChanged}
+            setIsProfileNameChanged={setIsProfileNameChanged}
+          />
+        </div>
         <div className={cx("ButtonGroup")}>
-          <FollowingList profile={profile} setProfile={setProfile} />
+          <FollowingList
+            className={cx("Button1")}
+            profile={profile}
+            setProfile={setProfile}
+          />
           <CreateProfile
+            className={cx("Button2")}
             isProfileNameChanged={isProfileNameChanged}
             setIsProfileNameChanged={setIsProfileNameChanged}
           />
