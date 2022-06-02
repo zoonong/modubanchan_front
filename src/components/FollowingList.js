@@ -5,17 +5,20 @@ import styles from "../styles/MyPage/MyPage.module.scss";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const cx = classNames.bind(styles);
 
 const FollowingList = ({ profile, setProfile }) => {
+  const history = useHistory();
   const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setModalShow(false);
 
-  const [followingNameList, setFollowingNameList] = useState([]);
+  const [followingInfoList, setFollowingInfoList] = useState([]);
 
   const getFollowingList = () => {
-    let followingNames = [];
+    let followingInfos = [];
     axios
       .get(`http://127.0.0.1:8000/mypage/following_list/`)
       .then(function (response) {
@@ -31,12 +34,16 @@ const FollowingList = ({ profile, setProfile }) => {
           axios
             .get(`http://127.0.0.1:8000/mypage/${following}/`)
             .then(function (response) {
-              followingNames.push(response.data.first_name);
+              let followingInfo = {
+                userId: following,
+                name: response.data.first_name,
+              };
+              followingInfos.push(followingInfo);
               //  setFollowingNameList([...followingNameList, response.data.first_name]);
-              setFollowingNameList(followingNames);
+              setFollowingInfoList(followingInfos);
               console.log("팔로잉 이름");
               console.log(response.data);
-              console.log(followingNames);
+              console.log(followingInfos);
             })
             .catch(function (error) {
               console.log(error);
@@ -44,7 +51,7 @@ const FollowingList = ({ profile, setProfile }) => {
         });
       })
       .then(function (response) {
-        console.log(followingNameList);
+        console.log(followingInfoList);
       })
       .catch(function (error) {
         console.log(error);
@@ -73,6 +80,7 @@ const FollowingList = ({ profile, setProfile }) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         size="lg"
+        scrollable="true"
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
@@ -81,16 +89,25 @@ const FollowingList = ({ profile, setProfile }) => {
         </Modal.Header>
         <Modal.Body>
           <div>
-            <div>
-              {profile.followingIdList.map((following) => (
-                <p>{following}</p>
-              ))}
-            </div>
-            <div>
-              {followingNameList.map((followingName) => (
-                <p>{followingName}</p>
-              ))}
-            </div>
+            {followingInfoList.map((followingInfo) => (
+              <p>
+                <Link to="SellerPage">
+                  <Button
+                    variant="success"
+                    onClick={() =>
+                      history.push({
+                        pathname: "/SellerPage",
+                        state: {
+                          sId: followingInfo.userId,
+                        },
+                      })
+                    }
+                  >
+                    {followingInfo.name}
+                  </Button>
+                </Link>
+              </p>
+            ))}
           </div>
         </Modal.Body>
         <Modal.Footer>

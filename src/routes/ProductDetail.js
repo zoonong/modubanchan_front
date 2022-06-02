@@ -109,7 +109,7 @@ const ProductDetail = () => {
       setInit(true);
     }
   }, [product.sellerName]);
-  console.log();
+
   return (
     <div className={cx("ProductDetail")}>
       <div>
