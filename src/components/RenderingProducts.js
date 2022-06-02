@@ -35,7 +35,7 @@ const RenderingProducts = ({ flag }) => {
           {pidpid
             .filter((id) => id % 5 === 1)
             .map((id) => (
-              <div>
+              <div className={cx("product")}>
                 <Product pid={id} key={id} />
               </div>
             ))}
@@ -44,7 +44,7 @@ const RenderingProducts = ({ flag }) => {
           {pidpid
             .filter((id) => id % 5 === 2)
             .map((id) => (
-              <div>
+              <div className={cx("product")}>
                 <Product pid={id} key={id} />
               </div>
             ))}
@@ -53,7 +53,7 @@ const RenderingProducts = ({ flag }) => {
           {pidpid
             .filter((id) => id % 5 === 3)
             .map((id) => (
-              <div>
+              <div className={cx("product")}>
                 <Product pid={id} key={id} />
               </div>
             ))}
@@ -62,7 +62,7 @@ const RenderingProducts = ({ flag }) => {
           {pidpid
             .filter((id) => id % 5 === 4)
             .map((id) => (
-              <div>
+              <div className={cx("product")}>
                 <Product pid={id} key={id} />
               </div>
             ))}
@@ -71,7 +71,7 @@ const RenderingProducts = ({ flag }) => {
           {pidpid
             .filter((id) => id % 5 === 0)
             .map((id) => (
-              <div>
+              <div className={cx("product")}>
                 <Product pid={id} key={id} />
               </div>
             ))}
