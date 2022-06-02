@@ -29,8 +29,6 @@ const CreateProduct = () => {
   ];
 
   const registerProduct = async (e) => {
-    e.preventDefault();
-
     let formData = new FormData();
     if (newProduct?.picture) {
       formData.append("picture", newProduct.picture, newProduct.picture.name);
@@ -170,9 +168,9 @@ const CreateProduct = () => {
         <button
           className={cx("Submit")}
           type="text"
-          onClick={(e) => {
+          onClick={() => {
             console.log("registerProduct 실행");
-            registerProduct(e);
+            registerProduct();
           }}
         >
           상품 등록

@@ -44,7 +44,6 @@ const FollowingList = ({ profile, setProfile }) => {
         });
       })
       .then(function (response) {
-        console.log("hh");
         console.log(followingNameList);
       })
       .catch(function (error) {
