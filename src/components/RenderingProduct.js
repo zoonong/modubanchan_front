@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import "../App1.css";
 import axios from "axios";
 
 const RenderingProduct = ({ pid }) => {
