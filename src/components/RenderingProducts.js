@@ -5,7 +5,6 @@ import axios from "axios";
 import classNames from "classnames/bind";
 import { CardGroup } from "react-bootstrap";
 import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
-import "../App1.css";
 
 const cx = classNames.bind(styles);
 
