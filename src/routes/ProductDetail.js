@@ -193,13 +193,16 @@ const ProductDetail = () => {
                 {product.sellerId ===
                 JSON.parse(localStorage.getItem("logInUserId")) ? (
                   <div className={cx("dm")}>
-                    <Button
-                      variant="outline-success"
-                      className={cx("d")}
-                      onClick={deleteProduct}
-                    >
-                      상품 삭제하기
-                    </Button>
+                    <Link to="/MyPage">
+                      <Button
+                        variant="outline-success"
+                        className={cx("d")}
+                        onClick={deleteProduct}
+                      >
+                        상품 삭제하기
+                      </Button>
+                    </Link>
+
                     <Button
                       variant="outline-success"
                       className={cx("m")}
