@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import classNames from "classnames/bind";
+import styles from "../styles/RenderingProduct/RenderingProduct.scss";
+
+const cx = classNames.bind(styles);
 
 const RenderingProduct = ({ pid }) => {
   const history = useHistory();
@@ -40,28 +43,26 @@ const RenderingProduct = ({ pid }) => {
     productDetailInfo();
   }, []);
   return (
-    <Card style={{ width: "18rem" }} border="success">
-      <button
-        onClick={() =>
-          history.push({
-            pathname: "/ProductDetail",
-            state: {
-              pid: product.pid,
-            },
-          })
-        }
-      >
-        <Card.Img
-          variant="top"
+    <div className={cx("RenderingProduct")}>
+      <div className={cx("imgBox")}>
+        <img
+          inClick={() =>
+            history.push({
+              pathname: "/ProductDetail",
+              state: {
+                pid: product.pid,
+              },
+            })
+          }
           src={`http://localhost:8000${product.picture}`}
           alt={product.name}
         />
-      </button>
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>{`${product.price}원`}</Card.Text>
-        <Card.Text>{product.feedText}</Card.Text>
+      </div>
+      <div className={cx("midBox")}>
+        <div className={cx("name")}>{product.name}</div>
+        <div className={cx("price")}>{`${product.price}원`}</div>
         <Button
+          className={cx("btn")}
           variant="success"
           onClick={() =>
             history.push({
@@ -74,13 +75,12 @@ const RenderingProduct = ({ pid }) => {
         >
           {`Show More >`}
         </Button>
-      </Card.Body>
-      <Card.Footer>
-        <small className="text-muted">
-          판매자는 누굴까요? 맞혀보세요 울룰루 히히히
-        </small>
-      </Card.Footer>
-    </Card>
+      </div>
+      <hr />
+      <div className={cx("footer")}>
+        판매자는 누굴까요? 맞혀보세요 울룰루 히히히
+      </div>
+    </div>
   );
 };
 
