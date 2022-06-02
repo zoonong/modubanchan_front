@@ -3,14 +3,23 @@ $blue: #1864ab;
 $green: #18ab4b;
 
 .SellerPage {
-  margin-top: 300px;
+  margin-top: 12rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .ProfileInfo {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
   .Following {
     color: white;
     font-size: 20px;
-    width: 120px;
-    height: 40px;
+    width: 7rem;
+    height: 2.5rem;
     border-radius: 80px;
-    margin: 8px;
     background-color: $green;
     border: none;
     cursor: pointer;
@@ -19,5 +28,19 @@ $green: #18ab4b;
       border: none;
       outline: none;
     }
+  }
+  .ProductsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 6rem;
+  }
+  .Title {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .IsMe {
+    font-weight: bold;
+    font-size: 1.5rem;
   }
 }

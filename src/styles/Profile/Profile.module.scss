@@ -10,7 +10,7 @@ $green: #18ab4b;
   .ProfilePicture {
     width: 100px;
     height: 100px;
-    margin: 8px;
+    margin-right: 2rem;
     border-radius: 70%;
     overflow: hidden;
   }
@@ -21,7 +21,6 @@ $green: #18ab4b;
   .ProfileDetails {
     display: flex;
     flex-direction: column;
-    margin: 8px;
     .NickName {
       font-size: 1.5rem;
       font-weight: bold;

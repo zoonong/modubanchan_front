@@ -8,11 +8,12 @@ $green: #18ab4b;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .ProrildInfo {
+  .ProfileInfo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     .ButtonGroup {
-      margin-top: 3rem;
+      margin-top: 0.1rem;
     }
   }
   .Button {
@@ -40,7 +41,18 @@ $green: #18ab4b;
     margin-left: 6rem;
   }
   .AddProductBtn {
-    width: 21rem;
+    width: 13rem;
     height: 3rem;
+    margin-left: 0;
+  }
+  .ProductsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 6rem;
+  }
+  .Title {
+    font-weight: bold;
+    font-size: 2rem;
   }
 }
