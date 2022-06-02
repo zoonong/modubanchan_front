@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import styles from "../styles/RenderingFeeds/RenderingFeeds.module.scss";
+import styles from "../styles/RenderingMyFeeds/RenderingMyFeeds.module.scss";
 import classNames from "classnames/bind";
 import axios from "axios";
 
@@ -37,9 +37,10 @@ const RenderingMyFeeds = () => {
   }, []);
 
   return (
-    <div className={cx("RenderingFeeds")}>
+    <div className={cx("RenderingMyFeeds")}>
+      <div className={cx("Title")}>My Followings</div>
       {followingProductList.map((followingProduct) => (
-        <div>
+        <div className={cx("Card")}>
           <img
             src={`http://localhost:8000${followingProduct.picture}`}
             alt={followingProduct.feedText}
