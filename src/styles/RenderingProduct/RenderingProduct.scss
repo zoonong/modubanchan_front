@@ -14,10 +14,19 @@
   }
   .midBox {
     height: 28%;
-    .name {
-      margin-top: 3%;
-      font-size: 1.5rem;
+    .nameBox {
+      width: 90%;
+      height: 35%;
+      margin-left: 5%;
+      margin-right: 5%;
       text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .name {
+        font-size: 1.3vw;
+        display: inline-block;
+      }
     }
     .price {
       font-size: 1.2rem;
