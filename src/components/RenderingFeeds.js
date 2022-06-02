@@ -29,21 +29,23 @@ const RenderingFeeds = () => {
   ];
   return (
     <div className={cx("RenderingFeeds")}>
-      <div>
+      <div className={cx("div1")}>
         <img src={src[0]} alt="메인 사진" />
         <img src={src[3]} alt="메인 사진" />
         <p className={cx("Preface")}>{preface[1]}</p>
         <p>{text[1]}</p>
         <img src={src[6]} alt="메인 사진" />
       </div>
-      <div>
+      <div className={cx("v-line1")}></div>
+      <div className={cx("div2")}>
         <img src={src[1]} alt="메인 사진" />
         <p className={cx("Preface")}>{preface[0]}</p>
         <p>{text[0]}</p>
         <img src={src[4]} alt="메인 사진" />
         <img src={src[7]} alt="메인 사진" />
       </div>
-      <div>
+      <div className={cx("v-line2")}></div>
+      <div className={cx("div3")}>
         <img src={src[2]} alt="메인 사진" />
         <img src={src[5]} alt="메인 사진" />
         <p className={cx("Preface")}>{preface[2]}</p>
