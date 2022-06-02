@@ -63,10 +63,14 @@ const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
 
   return (
     <div className={cx("cartproduct")}>
-      <img className={cx("img")} src={`http://localhost:8000${cartProductDetail.picture}`} alt="상품 이미지" />
+      <img
+        className={cx("img")}
+        src={`http://localhost:8000${cartProductDetail.picture}`}
+        alt="상품 이미지"
+      />
       <div className={cx("div1")}>{cartProductDetail.name}</div>
       <div className={cx("div1")}>{`${cartProductDetail.price}원`}</div>
-      <div className={cx("div1")}>{`${cartProductDetail.productNum}`}</div>
+      <div className={cx("div2")}>{`${cartProductDetail.productNum}`}</div>
       <span className={cx("PlusMinus")}>
         <button
           className={cx("btn1", "Button")}
@@ -95,8 +99,11 @@ const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
           -
         </button>
       </span>
-
-      <button className={cx("btn2", "Button")} type="text" onClick={() => deleteCartProduct(cartProductDetail.cartId)}>
+      <button
+        className={cx("btn2", "Button")}
+        type="text"
+        onClick={() => deleteCartProduct(cartProductDetail.cartId)}
+      >
         삭제
       </button>
       <span className={cx("deliveryFee")}>3000원</span>
