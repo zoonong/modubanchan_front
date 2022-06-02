@@ -1,11 +1,13 @@
 import axios, { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import styles from "../styles/Cart/Cart.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
 const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
+  const history = useHistory();
   const [cartProductDetail, setCartProductDetail] = useState({
     pid: productId,
     name: "",
@@ -64,6 +66,14 @@ const CartProduct = ({ cartId, productId, productNum, deleteCartProduct }) => {
   return (
     <div className={cx("cartproduct")}>
       <img
+        onClick={() =>
+          history.push({
+            pathname: "/ProductDetail",
+            state: {
+              pid: cartProductDetail.pid,
+            },
+          })
+        }
         className={cx("img")}
         src={`http://localhost:8000${cartProductDetail.picture}`}
         alt="상품 이미지"
