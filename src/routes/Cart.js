@@ -18,15 +18,21 @@ const Cart = () => {
       .get(`http://127.0.0.1:8000/cart/`)
       .then(function (response) {
         console.log(response);
+        let tmpCartList = [];
         response.data
-          .filter((productInCart) => productInCart.user === JSON.parse(localStorage.getItem("logInUserId")))
+          .filter(
+            (productInCart) =>
+              productInCart.user ===
+              JSON.parse(localStorage.getItem("logInUserId"))
+          )
           .map((productInCart) => {
-            cartList.push({
+            tmpCartList.push({
               cartId: productInCart.id,
               productId: productInCart.productList,
               productNum: productInCart.productNum,
             });
           });
+        setCartList(tmpCartList);
         setInit(true);
       })
       .catch(function (error) {
@@ -58,6 +64,10 @@ const Cart = () => {
     //   getProductsInCart();
     // }
   }, []);
+
+  // useEffect(() => {
+  //   console.log("cartList 변경됨");
+  // }, [cartList]);
 
   return (
     <div className={cx("Cart")}>
