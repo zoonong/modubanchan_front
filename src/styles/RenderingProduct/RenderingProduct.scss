@@ -1,0 +1,34 @@
+.RenderingProduct {
+  width: 100%;
+  height: 30rem;
+  border: 2px solid black;
+  .imgBox {
+    height: 55%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: inline-block;
+    }
+  }
+  .midBox {
+    height: 28%;
+    .name {
+      margin-top: 3%;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .price {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .btn {
+      margin-top: 3%;
+      margin-left: 33%;
+    }
+  }
+  .footer {
+    text-align: center;
+  }
+}

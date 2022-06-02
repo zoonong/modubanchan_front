@@ -3,7 +3,6 @@ import { useState } from "react";
 import Product from "./RenderingProduct";
 import axios from "axios";
 import classNames from "classnames/bind";
-import { CardGroup } from "react-bootstrap";
 import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
 
 const cx = classNames.bind(styles);
@@ -37,9 +36,7 @@ const RenderingProducts = ({ flag }) => {
             .filter((id) => id % 5 === 1)
             .map((id) => (
               <div>
-                <CardGroup id="Card">
-                  <Product pid={id} key={id} />
-                </CardGroup>
+                <Product pid={id} key={id} />
               </div>
             ))}
         </div>
@@ -48,9 +45,7 @@ const RenderingProducts = ({ flag }) => {
             .filter((id) => id % 5 === 2)
             .map((id) => (
               <div>
-                <CardGroup>
-                  <Product pid={id} key={id} />
-                </CardGroup>
+                <Product pid={id} key={id} />
               </div>
             ))}
         </div>
@@ -59,9 +54,7 @@ const RenderingProducts = ({ flag }) => {
             .filter((id) => id % 5 === 3)
             .map((id) => (
               <div>
-                <CardGroup>
-                  <Product pid={id} key={id} />
-                </CardGroup>
+                <Product pid={id} key={id} />
               </div>
             ))}
         </div>
@@ -70,9 +63,7 @@ const RenderingProducts = ({ flag }) => {
             .filter((id) => id % 5 === 4)
             .map((id) => (
               <div>
-                <CardGroup>
-                  <Product pid={id} key={id} />
-                </CardGroup>
+                <Product pid={id} key={id} />
               </div>
             ))}
         </div>
@@ -81,9 +72,7 @@ const RenderingProducts = ({ flag }) => {
             .filter((id) => id % 5 === 0)
             .map((id) => (
               <div>
-                <CardGroup>
-                  <Product pid={id} key={id} />
-                </CardGroup>
+                <Product pid={id} key={id} />
               </div>
             ))}
         </div>
