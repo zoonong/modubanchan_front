@@ -46,7 +46,7 @@ const RenderingProduct = ({ pid }) => {
     <div className={cx("RenderingProduct")}>
       <div className={cx("imgBox")}>
         <img
-          inClick={() =>
+          onClick={() =>
             history.push({
               pathname: "/ProductDetail",
               state: {
