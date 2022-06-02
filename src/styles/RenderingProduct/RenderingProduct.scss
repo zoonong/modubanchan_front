@@ -14,10 +14,12 @@
     }
   }
   .midBox {
-    height: 28%;
+    height: 45%;
+    width: 100%;
     .nameBox {
       width: 90%;
-      height: 35%;
+      height: 25%;
+      margin-top: 5%;
       margin-left: 5%;
       margin-right: 5%;
       text-align: center;
@@ -34,8 +36,9 @@
       text-align: center;
     }
     .btn {
-      margin-top: 3%;
-      margin-left: 33%;
+      margin-top: 7.5%;
+      margin-left: 25%;
+      width: 50%;
     }
   }
   .footer {

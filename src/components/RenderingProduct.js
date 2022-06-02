@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -77,10 +76,6 @@ const RenderingProduct = ({ pid }) => {
         >
           {`Show More >`}
         </Button>
-      </div>
-      <hr />
-      <div className={cx("footer")}>
-        판매자는 누굴까요? 맞혀보세요 울룰루 히히히
       </div>
     </div>
   );
