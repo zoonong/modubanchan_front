@@ -1,8 +1,6 @@
-import { React, useState, useDispatch, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import CartProduct from "../components/CartProduct";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import styles from "../styles/Cart/Cart.module.scss";
 import classNames from "classnames/bind";
 
@@ -56,18 +54,7 @@ const Cart = () => {
   useEffect(() => {
     setLogInUserId(JSON.parse(localStorage.getItem("logInUserId")));
     getProductsInCart();
-    //console.log(JSON.parse(localStorage.getItem("logInUserId")));
-    //console.log("cartList");
-    //console.log(cartList);
-    //console.log(cartList.length);
-    // if (cartList.length === 0) {
-    //   getProductsInCart();
-    // }
   }, []);
-
-  // useEffect(() => {
-  //   console.log("cartList 변경됨");
-  // }, [cartList]);
 
   return (
     <div className={cx("Cart")}>
@@ -77,8 +64,7 @@ const Cart = () => {
         <p className={cx("box2")}>상품이름</p>
         <p className={cx("box3")}>가격</p>
         <p className={cx("box4")}>수량</p>
-        <p className={cx("box5")}> </p>
-        <p className={cx("box6")}>배송비</p>
+        <p className={cx("box5")}>배송비</p>
         <hr />
       </div>
       {cartList.map((cart) => (
