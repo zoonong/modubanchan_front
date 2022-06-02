@@ -56,7 +56,9 @@ const SellerPage = () => {
   };
 
   useEffect(() => {
-    if (location.state.sId === JSON.parse(localStorage.getItem("logInUserId"))) {
+    if (
+      location.state.sId === JSON.parse(localStorage.getItem("logInUserId"))
+    ) {
       setIsMe(true);
     }
     getFollowingList();
@@ -64,18 +66,20 @@ const SellerPage = () => {
 
   return (
     <div className={cx("SellerPage")}>
-      <Profile userId={location.state.sId} />
-      {isMe ? (
-        <div>본인이라서 팔로우 버튼 안나옴</div>
-      ) : (
-        <button className={cx("Following")} onClick={followingSeller}>
-          {followText}
-        </button>
-      )}
-
-      <RenderingProducts />
-      <p>{`판매자가 등록한 상품`}</p>
-      <UserProducts uId={location.state.sId} />
+      <div className={cx("ProfileInfo")}>
+        <Profile userId={location.state.sId} />
+        {isMe ? (
+          <div className={cx("IsMe")}>I'm Seller!</div>
+        ) : (
+          <button className={cx("Following")} onClick={followingSeller}>
+            {followText}
+          </button>
+        )}
+      </div>
+      <div className={cx("ProductsContainer")}>
+        <div className={cx("Title")}>판매자가 등록한 상품</div>
+        <UserProducts uId={location.state.sId} />
+      </div>
     </div>
   );
 };

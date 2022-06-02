@@ -32,7 +32,11 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
         <Link to="/">
-          <img src={require("../images/logo.png")} alt="home" className={cx("Title")} />
+          <img
+            src={require("../images/logo.png")}
+            alt="home"
+            className={cx("Title")}
+          />
         </Link>
         <Link to="/Feed">
           <button className={cx("Following")}>Following</button>
@@ -46,12 +50,21 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
               </IoPersonOutline>
             </Link>
             <Link to="/Cart">
-              <AiOutlineShoppingCart size="30" color="18ab4b" className={cx("Icon")}>
+              <AiOutlineShoppingCart
+                size="30"
+                color="18ab4b"
+                className={cx("Icon")}
+              >
                 장바구니
               </AiOutlineShoppingCart>
             </Link>
             <Link to="/">
-              <IoIosLogOut size="30" color="18ab4b" className={cx("Icon")} onClick={logOut}>
+              <IoIosLogOut
+                size="30"
+                color="18ab4b"
+                className={cx("Icon")}
+                onClick={logOut}
+              >
                 로그아웃
               </IoIosLogOut>
             </Link>

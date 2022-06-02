@@ -3,7 +3,7 @@ import { useState } from "react";
 import Product from "./RenderingProduct";
 import "../App.css";
 import axios from "axios";
-import styles from "../styles/RenderingProducts/RenderingProducts.module.scss";
+import styles from "../styles/UserProducts/UserProducts.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
@@ -16,7 +16,9 @@ const RenderingProducts = ({ uId }) => {
     axios
       .get(`http://127.0.0.1:8000/product/`)
       .then(function (response) {
-        response.data.filter((product) => product.user === uId).map((product) => pid.push(product.id));
+        response.data
+          .filter((product) => product.user === uId)
+          .map((product) => pid.push(product.id));
         setpidpid(pid);
       })
       .catch(function (error) {
@@ -28,7 +30,7 @@ const RenderingProducts = ({ uId }) => {
   }, []);
   //console.log(pidpid);
   return (
-    <div className={cx("RenderingProducts")}>
+    <div className={cx("UserProducts")}>
       <div className="PP">
         {pidpid.map((id) => (
           <div>

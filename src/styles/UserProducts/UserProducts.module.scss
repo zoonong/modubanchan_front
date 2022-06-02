@@ -1,0 +1,36 @@
+$green: #18ab4b;
+
+.UserProducts {
+  margin-top: 0.5rem;
+  .divBox {
+    width: 100%;
+    height: 100vh;
+    border: 5px solid red;
+    display: flex;
+    .div1 {
+      width: 20%;
+      height: 100%;
+      border: 5px solid blue;
+    }
+    .div2 {
+      width: 20%;
+      height: 100%;
+      border: 5px solid greenyellow;
+    }
+    .div3 {
+      width: 20%;
+      height: 100%;
+      border: 5px solid rgb(254, 228, 60);
+    }
+    .div4 {
+      width: 20%;
+      height: 100%;
+      border: 5px solid rgb(187, 73, 210);
+    }
+    .div5 {
+      width: 20%;
+      height: 100%;
+      border: 5px solid rgb(255, 131, 49);
+    }
+  }
+}

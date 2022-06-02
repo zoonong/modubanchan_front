@@ -37,11 +37,13 @@ const MyPage = () => {
         </div>
       </div>
 
-      <div>
+      <div className={cx("ProductsContainer")}>
+        <div className={cx("Title")}>내가 등록한 상품</div>
         <Link to="/CreateProduct">
-          <button className={cx("Button")}>상품 추가하기</button>
+          <button className={cx("Button", "AddProductBtn")}>
+            상품 추가하기
+          </button>
         </Link>
-        <div>내가 등록한 상품</div>
         <UserProducts uId={JSON.parse(localStorage.getItem("logInUserId"))} />
       </div>
     </div>
