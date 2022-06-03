@@ -31,17 +31,20 @@ const Tap = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <header className={cx("Tap")}>
       <nav className={cx("Bar")}>
-        <Link to="/">
-          <img
-            src={require("../images/logo.png")}
-            alt="home"
-            className={cx("Title")}
-          />
-        </Link>
-        <Link to="/Feed">
-          <button className={cx("Following")}>Following</button>
-        </Link>
-        <input type="text" className={cx("Input")} />
+        <div className={cx("TitleBox")}>
+          <Link to="/">
+            <img
+              src={require("../images/logo.png")}
+              alt="home"
+              className={cx("Title")}
+            />
+          </Link>
+        </div>
+        <div className={cx("FollowingBox")}>
+          <Link to="/Feed">
+            <button className={cx("Following")}>Following</button>
+          </Link>
+        </div>
         {isLoggedIn ? (
           <div className={cx("Icons")}>
             <Link to="/MyPage">
