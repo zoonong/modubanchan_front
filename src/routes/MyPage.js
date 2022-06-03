@@ -44,6 +44,7 @@ const MyPage = () => {
       </div>
 
       <div className={cx("ProductsContainer")}>
+        <hr className={cx("Line")}></hr>
         <div className={cx("Title")}>내가 등록한 상품</div>
         <Link to="/CreateProduct">
           <button className={cx("Button", "AddProductBtn")}>
