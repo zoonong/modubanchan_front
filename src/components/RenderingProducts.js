@@ -30,52 +30,12 @@ const RenderingProducts = ({ flag }) => {
   console.log(pidpid);
   return (
     <div className={cx("RenderingProducts")}>
-      <div className={cx("divBox")}>
-        <div className={cx("div1")}>
-          {pidpid
-            .filter((id) => id % 5 === 1)
-            .map((id) => (
-              <div className={cx("product")}>
-                <Product pid={id} key={id} />
-              </div>
-            ))}
-        </div>
-        <div className={cx("div2")}>
-          {pidpid
-            .filter((id) => id % 5 === 2)
-            .map((id) => (
-              <div className={cx("product")}>
-                <Product pid={id} key={id} />
-              </div>
-            ))}
-        </div>
-        <div className={cx("div3")}>
-          {pidpid
-            .filter((id) => id % 5 === 3)
-            .map((id) => (
-              <div className={cx("product")}>
-                <Product pid={id} key={id} />
-              </div>
-            ))}
-        </div>
-        <div className={cx("div4")}>
-          {pidpid
-            .filter((id) => id % 5 === 4)
-            .map((id) => (
-              <div className={cx("product")}>
-                <Product pid={id} key={id} />
-              </div>
-            ))}
-        </div>
-        <div className={cx("div5")}>
-          {pidpid
-            .filter((id) => id % 5 === 0)
-            .map((id) => (
-              <div className={cx("product")}>
-                <Product pid={id} key={id} />
-              </div>
-            ))}
-        </div>
+      <div>
+        {pidpid.map((id) => (
+          <div className={cx("product")}>
+            <Product pid={id} key={id} />
+          </div>
+        ))}
       </div>
     </div>
   );
