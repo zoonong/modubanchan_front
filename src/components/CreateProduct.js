@@ -164,7 +164,7 @@ const CreateProduct = () => {
         </Form.Group>
       </div>
 
-      <Link to="/MyPage">
+      <Link to="/">
         <button
           className={cx("Submit")}
           type="text"
