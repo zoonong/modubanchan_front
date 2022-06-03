@@ -9,9 +9,10 @@ $green: #18ab4b;
   flex-direction: column;
   align-items: center;
   .ProfileInfo {
-    border: solid 0.1rem $green;
+    width: 25%;
     padding: 1rem;
-    margin-bottom: 4rem;
+    border: solid 0.1rem $green;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
