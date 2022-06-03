@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import styles from "../styles/RenderingMyFeeds/RenderingMyFeeds.module.scss";
 import classNames from "classnames/bind";
 import axios from "axios";
@@ -6,8 +7,10 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 const RenderingMyFeeds = () => {
+  const history = useHistory();
   const [followingProductList, setFollowingProductList] = useState([
     {
+      productId: 0,
       feedText: "",
       picture: null,
     },
@@ -20,6 +23,7 @@ const RenderingMyFeeds = () => {
         let tmpFollowingProductList = [];
         response.data.map((followingProduct) => {
           tmpFollowingProductList.push({
+            productId: followingProduct.id,
             feedText: followingProduct.feedText,
             picture: followingProduct.picture,
           });
@@ -42,6 +46,14 @@ const RenderingMyFeeds = () => {
       {followingProductList.map((followingProduct) => (
         <div className={cx("Card")}>
           <img
+            onClick={() =>
+              history.push({
+                pathname: "/ProductDetail",
+                state: {
+                  pid: followingProduct.productId,
+                },
+              })
+            }
             src={`http://localhost:8000${followingProduct.picture}`}
             alt={followingProduct.feedText}
           />
