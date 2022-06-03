@@ -75,8 +75,10 @@ const SellerPage = () => {
             {followText}
           </button>
         )}
+        <hr className={cx("Line")}></hr>
       </div>
       <div className={cx("ProductsContainer")}>
+        <hr className={cx("Line")}></hr>
         <div className={cx("Title")}>판매자가 등록한 상품</div>
         <UserProducts uId={location.state.sId} />
       </div>

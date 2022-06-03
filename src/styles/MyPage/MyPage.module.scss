@@ -10,6 +10,9 @@ $green: #18ab4b;
   align-items: center;
   .Profile {
     width: 25%;
+    padding: 1rem;
+    border: solid 0.1rem $green;
+    margin-bottom: 2rem;
     .ProfileInfo {
     }
     .ButtonGroup {
@@ -54,5 +57,9 @@ $green: #18ab4b;
     font-weight: bold;
     font-size: 2rem;
     margin-left: 2%;
+  }
+  .Line {
+    background-color: darken($green, 10%);
+    border: solid 0.1rem darken($green, 10%);
   }
 }
