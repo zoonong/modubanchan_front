@@ -2,37 +2,12 @@ $green: #18ab4b;
 
 .RenderingProducts {
   margin-top: 12rem;
-  .divBox {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    .div1 {
-      margin-left: 2%;
-      width: 18%;
-      height: 100%;
-    }
-    .div2 {
-      margin-left: 1.5%;
-      width: 18%;
-      height: 100%;
-    }
-    .div3 {
-      margin-left: 1.5%;
-      width: 18%;
-      height: 100%;
-    }
-    .div4 {
-      margin-left: 1.5%;
-      width: 18%;
-      height: 100%;
-    }
-    .div5 {
-      margin-left: 1.5%;
-      width: 18%;
-      height: 100%;
-    }
-    .product {
-      margin-bottom: 3%;
-    }
+  width: 100%;
+  display: flex;
+  .product {
+    margin-left: 2.5%;
+    width: 17%;
+    margin-bottom: 2%;
+    display: inline-block;
   }
 }
