@@ -34,9 +34,13 @@ const FollowingList = ({ profile, setProfile }) => {
           axios
             .get(`http://127.0.0.1:8000/mypage/${following}/`)
             .then(function (response) {
+              let tmpName = "unknown";
+              if (response.data.first_name !== "") {
+                tmpName = response.data.first_name;
+              }
               let followingInfo = {
                 userId: following,
-                name: response.data.first_name,
+                name: tmpName,
               };
               followingInfos.push(followingInfo);
               //  setFollowingNameList([...followingNameList, response.data.first_name]);
