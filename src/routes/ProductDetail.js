@@ -24,7 +24,7 @@ const ProductDetail = () => {
     category: "",
     picture: null,
     sellerId: "",
-    sellerName: "seller",
+    sellerName: "",
     productNum: 1, // 상품 수량
   });
   const setSellerId = useRef(false);
@@ -104,7 +104,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    if (product.sellerName !== "seller") {
+    if (product.sellerName !== "") {
       console.log(product.sellerName);
       setInit(true);
     }
@@ -138,7 +138,7 @@ const ProductDetail = () => {
                       },
                     })
                   }
-                >{`판매자 ${product.sellerName}의 홈으로 가기 >>`}</div>
+                >{`판매자${product.sellerName}의 홈으로 가기 >>`}</div>
                 <hr />
                 <div className={cx("price")}>
                   <div className={cx("p1")}>판매가</div>

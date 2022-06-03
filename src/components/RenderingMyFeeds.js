@@ -45,7 +45,7 @@ const RenderingMyFeeds = () => {
             src={`http://localhost:8000${followingProduct.picture}`}
             alt={followingProduct.feedText}
           />
-          <p>{followingProduct.feedText}</p>
+          <p className={cx("FeedText")}>{followingProduct.feedText}</p>
         </div>
       ))}
     </div>

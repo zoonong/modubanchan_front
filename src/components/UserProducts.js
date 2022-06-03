@@ -27,7 +27,7 @@ const RenderingProducts = ({ uId }) => {
   useEffect(() => {
     categoryProducts();
   }, []);
-  //console.log(pidpid);
+
   return (
     <div className={cx("UserProducts")}>
       <div>
