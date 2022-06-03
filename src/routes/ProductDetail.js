@@ -173,10 +173,12 @@ const ProductDetail = () => {
                       className={cx("btn1", "Button")}
                       type="text"
                       onClick={() => {
-                        setProduct({
-                          ...product,
-                          productNum: product.productNum - 1,
-                        });
+                        if (product.productNum !== 1) {
+                          setProduct({
+                            ...product,
+                            productNum: product.productNum - 1,
+                          });
+                        }
                       }}
                     >
                       -
