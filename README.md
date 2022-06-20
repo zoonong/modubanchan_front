@@ -61,6 +61,10 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 
 ![Jun-20-2022 17-57-07](https://user-images.githubusercontent.com/87538540/174565036-92ae614b-a6c9-414e-8116-db07179f0da0.gif)
 
+# 상품 상세 페이지에서 판매자 홈으로 들어가기
+상품 상세 페이지에서 판매자의 홈으로 들어가서 그 사람의 판매 상품들과 프로필을 확인할 수 있다.
+
+![Jun-20-2022 17-59-17](https://user-images.githubusercontent.com/87538540/174565479-88ca3dad-a841-4be9-8d26-3556a2b339bd.gif)
 
 
 
