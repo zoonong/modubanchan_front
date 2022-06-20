@@ -31,3 +31,10 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 
 ![Jun-20-2022 17-36-45](https://user-images.githubusercontent.com/87538540/174560887-af189d0b-5b77-45c5-b11f-7844afa98e47.gif)
 
+# 내 프로필
+내 프로필을 들어가면 나의 기본 정보와 내가 올린 상품 목록을 볼 수 있다.
+
+![Jun-20-2022 17-39-05](https://user-images.githubusercontent.com/87538540/174561349-d99bc78c-5145-441d-92fd-21c6bc15c219.gif)
+
+# 프로필 편집하기
+
