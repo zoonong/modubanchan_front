@@ -38,4 +38,5 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 
 # 프로필 편집하기
 내 닉네임과 한 줄 소개를 편집할 수 있다.
-![Jun-20-2022 17-39-05](https://user-images.githubusercontent.com/87538540/174562091-659a5b74-ffb3-48af-8460-ecf6a6097109.gif)
+
+![Jun-20-2022 17-42-52](https://user-images.githubusercontent.com/87538540/174562247-b4a859c6-d70f-4b54-8a48-e8dea2f1247c.gif)
