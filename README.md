@@ -46,3 +46,21 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 
 ![Jun-20-2022 17-46-44](https://user-images.githubusercontent.com/87538540/174563210-ba813e09-a097-438e-a622-f71f4eb646e7.gif)
 
+# 카테고리에서 상품 상세 페이지 들어가기
+카테고리를 탐색하다가 마음에 드는 상품이 있으면 상세 페이지로 들어가서 자세히 볼 수 있다.
+
+![Jun-20-2022 17-53-41](https://user-images.githubusercontent.com/87538540/174564157-c1ef0911-f4da-4c80-92e6-e2f6f1b9c6c4.gif)
+
+# 수량을 선택해서 상품 장바구니에 넣기
+수량을 선택해서 상품을 장바구니에 넣을 수 있다.
+
+![Jun-20-2022 17-55-35](https://user-images.githubusercontent.com/87538540/174564637-73ff17f5-eef3-4196-8cd0-c42ffe536ae1.gif)
+
+# 장바구니에서 수량 조정, 장바구니에서 삭제하기
+장바구니에서 수량을 조정할 수 있고 상품을 장바구니에서 삭제할 수 있다.
+
+![Jun-20-2022 17-57-07](https://user-images.githubusercontent.com/87538540/174565036-92ae614b-a6c9-414e-8116-db07179f0da0.gif)
+
+
+
+
