@@ -12,3 +12,4 @@ follow + upcycling을 합쳐서 만든 말이다. “upcycling에 따라와라�
 upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 작가들이 자신의 피드에 작품을 업로드하고 방법도 공유할 수 있다. 그래서 정보 공유와 판매를 같이 할 수 있는 사이트이다.
 
 사람들은 정보를 얻기 위해 이 사이트에 들어와 피드를 구경하다가 제품을 구매하는 행위까지 이어지게 될 것이라고 기대하고 있다.
+<img width="1512" alt="image" src="https://user-images.githubusercontent.com/87538540/174558623-10195b7a-152c-4a29-9e87-ef9333b7feef.png">
