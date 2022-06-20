@@ -17,6 +17,9 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 <img width="1512" alt="image" src="https://user-images.githubusercontent.com/87538540/174558623-10195b7a-152c-4a29-9e87-ef9333b7feef.png">
 
 # 회원가입
+이메일과 비밀번호를 입력하면 회원가입이 가능하다. 비밀번호는 유효성 검사를 통해 영문 소문자, 숫자, 특수문자가 모두 들어가야 회원가입을 할 수 있다.
+![Jun-20-2022 17-32-28](https://user-images.githubusercontent.com/87538540/174560026-719641bc-30fc-4f87-9631-969b1a58fe7c.gif)
 
 # 로그인
+시연의 편의를 위해 로그인은 미리 만들어놓은 다른 아이디로 로그인하겠다.
 ![Jun-20-2022 17-29-21](https://user-images.githubusercontent.com/87538540/174559550-1d5711a7-3caf-4af6-8a91-bd2168d822c5.gif)
