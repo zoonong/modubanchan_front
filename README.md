@@ -19,7 +19,68 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 프론트엔드는 react, 백엔드는 django로 구현하였다.
 
 # react 사용 기술
-리액트에서 전체 코드는 함수형으로 작성하여, useState, useEffect 함수를 활용하 였다. Router 라이브러리를 사용하여 useLocation, Router, Route 같은 함수를 활용하여 전체적인 페이지 이동을 구현했고, axios로 api를 받아와 DB에 접근하여 기능을 구현했다.
+리액트에서 전체 코드는 함수형으로 작성하여, useState, useEffect 함수를 활용하였다.
+
+## react-router 사용
+Router 라이브러리를 사용하여 useLocation, Router, Route 같은 함수를 활용하여 전체적인 페이지 이동을 구현했고, axios로 api를 받아와 DB에 접근하여 기능을 구현했다.
+```
+const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/SignIn">
+          <SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route exact path="/SignUp">
+          <SignUp />
+        </Route>
+        <div className="body">
+          <Tap isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <Route exact path="/Cart">
+            <Cart />
+          </Route>
+          <Route exact path="/Feed">
+            <Feed />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/MyPage">
+            <MyPage />
+          </Route>
+          <Route exact path="/ProductDetail">
+            <ProductDetail />
+          </Route>
+          <Route exact path="/CreateProduct">
+            <CreateProduct />
+          </Route>
+          <Route exact path="/Garment">
+            <Garment />
+          </Route>
+          <Route exact path="/Furniture">
+            <Furniture />
+          </Route>
+          <Route exact path="/Props">
+            <Props />
+          </Route>
+          <Route exact path="/DIY">
+            <DIY />
+          </Route>
+          <Route exact path="/CreateProfile">
+            <CreateProfile />
+          </Route>
+          <Route exact path="/SellerPage">
+            <SellerPage />
+          </Route>
+          <Route exact path="/ModifyProduct">
+            <ModifyProduct />
+          </Route>
+        </div>
+      </Switch>
+    </Router>
+  );
+};
+```
 
 -----
 ## scss
