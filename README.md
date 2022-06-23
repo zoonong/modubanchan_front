@@ -25,6 +25,7 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 
 ## 상품 등록, 조회, 수정, 삭제 (Product CRUD)
 POST 방식을 활용한 상품 등록, GET 방식을 활용한 상품 조회, PUT 방식을 활 용한 상품 수정, DELETE 방식을 활용한 상품 삭제를 구현하였다. 상품 등록 시 유 저는 상품의 name, description, feedtext, category, picture에 대한 데이터를 입 력하여 전송을 하게 되고, 상품의 id, user, createDate, updateDate는 데이터 생 성 시 자동으로 생성되도록 구현하였다. 상품 목록 및 상품 상세 조회 시 GET 방 식을 활용하여 조회하려는 상품의 해당 ID값을 이용하여 상품에 대한 전체 정보를 조회할 수 있도록 구현하였다.
+
 <img width="707" alt="image" src="https://user-images.githubusercontent.com/87538540/175230496-59d0d781-99e3-4e4e-9bbc-49bb425cb656.png">
 
 ## 장바구니 생성, 조회, 수정, 삭제
