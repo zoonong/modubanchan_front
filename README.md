@@ -22,13 +22,16 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 리액트에서 전체 코드는 함수형으로 작성하여, useState, useEffect 함수를 활용하 였다. Router 라이브러리를 사용하여 useLocation, Router, Route 같은 함수를 활용하여 전체적인 페이지 이동을 구현했고, axios로 api를 받아와 DB에 접근하여 기능을 구현했다.
 
 -----
+## scss
 코드의 재활용성을 올리고, 가독성을 올리는 등 CSS에서 보이던 단점을 보완하고, 개발의 효율을 올리기 위해 scss를 사용했다.
-- 변수 사용
-  일반 css에서는 변수를 사용할 수 없는데 scss에서는 컬러코드 등을 변수로 설정해두고 여러 번 재활용해서 사용하는 것이 가능하다. 자주 쓰는 컬러코드를 변수로 선언해두고 사용해서 효율성을 높였다.
-  ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4fda9fbe-16e4-4168-9da7-3045025466ee/Untitled.png)
+### 변수 사용
+일반 css에서는 변수를 사용할 수 없는데 scss에서는 컬러코드 등을 변수로 설정해두고 여러 번 재활용해서 사용하는 것이 가능하다. 자주 쓰는 컬러코드를 변수로 선언해두고 사용해서 효율성을 높였다.
+<img width="289" alt="image" src="https://user-images.githubusercontent.com/87538540/175228754-b7e6b446-31b5-4fc4-a86f-c408556a8409.png">
   
-- Nesting(중첩) 사용
+### Nesting(중첩) 사용
+일반 css와 다르게 셀렉터를 중첩시킨다든지, 속성을 중첩시키거나 상위 요소를 참조하는 것이 가능하다. 예를 들어 hover 속성 설정을 할 때 일반 css 코드로 작성하면 따로 작성해야 하는데 scss를 활용하면 중첩을 사용해서 Submit 안에 hover 코드를 넣을 수 있어 편리하다. 참고로, hover 속성은 버튼 같은 곳에 마우스를 올렸을 때 어떻게 변화할지 지정해주는 속성이다. 버튼 위에 마우스를 올렸을 때 버튼 색깔을 변경하거나 테두리가 생기게 할 수 있다. 
 
+# 결과물 설명
 # Main Page
 <img width="1512" alt="image" src="https://user-images.githubusercontent.com/87538540/174558623-10195b7a-152c-4a29-9e87-ef9333b7feef.png">
 
