@@ -77,6 +77,8 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
  <img width="300" alt="image" src="https://user-images.githubusercontent.com/87538540/175229345-7c038f0f-78d2-45b2-b74b-3367c3753402.png">
 <img width="300" alt="image" src="https://user-images.githubusercontent.com/87538540/175229366-d71843c8-0fee-4990-95b7-bc2821f59130.png">
 
+## css module
+리액트 프로젝트에서 컴포넌트를 스타일링 할 때 CSS 클래스가 중첩되는 것을 완벽히 방지하기 위해 CSS Module 이라는 기술을 사용했다. CSS 파일의 확장자를 .module.css로 하면 리액트 컴포넌트 파일에서 해당 CSS 파일을 불러올 때 CSS 파일에 선언한 클래스 이름들이 모두 고유해진다. 따라서 실수로 CSS 클래스 이름이 다른 관계 없는 곳에서 사용한 CSS 클래스 이름과 중복되는 일에 대하여 걱정 할 필요가 없다. 원래는 CSS 클래스를 중복되지 않게 하기 위해 CSS 클래스 네이밍 규칙에 따라 작성해야 하는데 css module을 사용하여 그러한 불편함을 제거했다.
 
 --------
 # 결과물 설명
