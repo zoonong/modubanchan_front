@@ -24,6 +24,7 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 # Django 프레임워크를 이용한 REST API 구현
 ## 유저 회원가입, 로그인, 로그아웃
 유저 회원가입 시 이메일과 비밀번호, 비밀번호 확인을 입력하여 POST 방식으로 데이터를 전송하여 유저 정보를 생성한다. 회원가입이 완료되면 JWT를 활용한 Refresh token과 Access token이 발급된다. 로그인 시 이메일과 비밀번호를 POST 방식으로 전송하고, 정보가 맞다면 로그인이 완료된다.
+
 <img width="591" alt="image" src="https://user-images.githubusercontent.com/87538540/175230391-1aaf13f9-bb01-4e87-97ed-779305b09abf.png">
 
 ## 상품 등록, 조회, 수정, 삭제 (Product CRUD)
