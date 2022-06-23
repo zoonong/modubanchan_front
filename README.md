@@ -16,9 +16,37 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
 <img width="593" alt="image" src="https://user-images.githubusercontent.com/87538540/175228137-35b8be57-ebf4-43ae-956a-a07f9d336dba.png">
 
 # 구현
-프론트엔드는 react, 백엔드는 django로 구현하였다.
+프론트엔드는 react, 백엔드는 django로 구현하였다. Django 프레임워크를 이용한 REST API 개발과 REACT 프레임워크를 이용한 API 호출을 구현하였다. Django 프레임워크를 이용하여 서버를 개발하고, Django에서 제공하는 ORM 방식을 이용하여 데이터베이스를 설계하고 구현하였다. 또한 Django rest framework를 활용하여 React에서 호출 가능한 REST API를 구현하 였다. React 프레임워크에서는 개발된 REST API의 URL과 HTTP Method를 활용 하여 데이터를 전송 및 조회하여 클라이언트가 웹 서버와 통신 할 수 있도록 구현 하였다.
 
-# react 사용 기술
+# Django 프레임워크를 이용한 REST API 구현
+## 유저 회원가입, 로그인, 로그아웃
+유저 회원가입 시 이메일과 비밀번호, 비밀번호 확인을 입력하여 POST 방식으로 데이터를 전송하여 유저 정보를 생성한다. 회원가입이 완료되면 JWT를 활용한 Refresh token과 Access token이 발급된다. 로그인 시 이메일과 비밀번호를 POST 방식으로 전송하고, 정보가 맞다면 로그인이 완료된다.
+<img width="591" alt="image" src="https://user-images.githubusercontent.com/87538540/175230391-1aaf13f9-bb01-4e87-97ed-779305b09abf.png">
+
+## 상품 등록, 조회, 수정, 삭제 (Product CRUD)
+POST 방식을 활용한 상품 등록, GET 방식을 활용한 상품 조회, PUT 방식을 활 용한 상품 수정, DELETE 방식을 활용한 상품 삭제를 구현하였다. 상품 등록 시 유 저는 상품의 name, description, feedtext, category, picture에 대한 데이터를 입 력하여 전송을 하게 되고, 상품의 id, user, createDate, updateDate는 데이터 생 성 시 자동으로 생성되도록 구현하였다. 상품 목록 및 상품 상세 조회 시 GET 방 식을 활용하여 조회하려는 상품의 해당 ID값을 이용하여 상품에 대한 전체 정보를 조회할 수 있도록 구현하였다.
+<img width="707" alt="image" src="https://user-images.githubusercontent.com/87538540/175230496-59d0d781-99e3-4e4e-9bbc-49bb425cb656.png">
+
+## 장바구니 생성, 조회, 수정, 삭제
+장바구니 생성 시 장바구니에 담을 해당 상품의 id와 상품의 개수를 입력하고 POST 방식으로 데이터를 전송한다. 장바구니 데이터가 생성되면 해당 장바구니의 ID 값과 장바구니를 생성한 user의 id 값이 자동으로 저장되도록 구현하였다. 장바 구니 목록 호출 시 해당 user의 id 값을 이용하여 호출을 하게 되면 해당 id를 가 지고 있는 user의 장바구니 목록이 모두 조회되도록 구현을 하였다.
+<img width="436" alt="image" src="https://user-images.githubusercontent.com/87538540/175230577-c8490fca-63f0-437e-b7b8-1fde95ce4940.png">
+
+## 팔로우 팔로잉 기능
+사용자는 로그인을 한 상태에서 다른 사용자의 id 값을 이용하여 POST 방식으로 데이터를 전송한다면 자신의 팔로잉 목록에 추가할 수 있도록 구현하였다. 팔로잉 된 user의 id를 다시 POST 방식으로 전송한다면 팔로우를 취소하도록 구현하였다.
+<img width="477" alt="image" src="https://user-images.githubusercontent.com/87538540/175230651-5c9e4043-d3f2-4e81-862c-6f0e5f0e7a7a.png">
+
+# 개발한 API를 프론트엔드 개발과 함께 협업을 원활하게 할 수 있도록 API 문서를 정리하여 제공
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230736-ccd9b88a-688c-42aa-b41a-2a327061f783.png">
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230763-3073fdaa-5a7c-464e-a06d-dec6895b9f93.png">
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230799-f03f4845-8b08-4508-941d-0d71481e96fa.png">
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230818-9699063b-4125-4624-ab04-c5a1e31754e2.png">
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230857-005206e8-e6bb-4c44-b305-fbc2885c1a31.png">
+<img width="340" alt="image" src="https://user-images.githubusercontent.com/87538540/175230884-74194efe-7c13-4cf2-9655-9ffed387d4d9.png">
+
+# ORM 방식을 활용한 데이터베이스 구축
+별도의 SQL 쿼리를 사용하지 않고 ORM 방식을 활용하여 Class 객체를 생성하여데이터베이스를 구축하였다.
+
+# 프론트엔드 프레임워크 react를 활용하여 인터페이스 개발
 리액트에서 전체 코드는 함수형으로 작성하여, useState, useEffect 함수를 활용하였다.
 
 ## react-router 사용
