@@ -74,8 +74,8 @@ upcycling을 주제로 한 SNS 형식으로 업사이클링 작품을 제작한 
   }
  ```
  #### 버튼에 hover 속성을 적용한 예시
- <img width="538" alt="image" src="https://user-images.githubusercontent.com/87538540/175229345-7c038f0f-78d2-45b2-b74b-3367c3753402.png">
-<img width="524" alt="image" src="https://user-images.githubusercontent.com/87538540/175229366-d71843c8-0fee-4990-95b7-bc2821f59130.png">
+ <img width="300" alt="image" src="https://user-images.githubusercontent.com/87538540/175229345-7c038f0f-78d2-45b2-b74b-3367c3753402.png">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/87538540/175229366-d71843c8-0fee-4990-95b7-bc2821f59130.png">
 
 
 --------
